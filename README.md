@@ -30,9 +30,23 @@ One command triggers the full pipeline / 명령 하나로 전체 파이프라인
 curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docore/main/docore/install.sh | bash
 ```
 
-**EN** — Then open any project in Claude Code and run `/ceo-init`.
+**EN** — The installer automatically:
+1. Copies 16 agents → `~/.claude/agents/`
+2. Registers `/ceo`, `/ceo-init`, `/ceo-status` → `~/.claude/commands/`
+3. Installs CEO skill → `~/.claude/skills/ceo-system/`
+4. Writes `~/.claude/CLAUDE.md` (auto-loaded on every Claude Code session)
+5. Installs gstack → `~/.claude/skills/gstack/` (skipped if already installed)
 
-**KO** — 설치 후 Claude Code에서 아무 프로젝트나 열고 `/ceo-init`을 실행하세요.
+Then open any project in Claude Code — CEO mode activates automatically. Run `/ceo-init` to initialize the project.
+
+**KO** — 설치 스크립트가 자동으로:
+1. 에이전트 16개 → `~/.claude/agents/` 복사
+2. `/ceo`, `/ceo-init`, `/ceo-status` → `~/.claude/commands/` 등록
+3. CEO 스킬 → `~/.claude/skills/ceo-system/` 설치
+4. `~/.claude/CLAUDE.md` 작성 (Claude Code 세션마다 자동 로드)
+5. gstack → `~/.claude/skills/gstack/` 설치 (이미 설치된 경우 스킵)
+
+설치 후 Claude Code에서 아무 프로젝트나 열면 CEO 모드가 자동 활성화됩니다. `/ceo-init`으로 프로젝트를 초기화하세요.
 
 ---
 
@@ -176,7 +190,7 @@ docore/                          ← Source package (repo)
 
 ```bash
 git clone https://github.com/DoCoreTeam/docore.git /tmp/docore
-cp -r /tmp/docore/docore ~/.claude/skills/docore
+bash /tmp/docore/docore/install.sh
 ```
 
 ---
