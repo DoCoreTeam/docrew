@@ -13,7 +13,7 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 INSTALL_DIR="${HOME}/.claude/skills/docore"
-REPO_URL="https://github.com/docore/docore.git"
+REPO_URL="https://github.com/DoCoreTeam/docore.git"
 
 # Install or update
 if [ -d "$INSTALL_DIR" ]; then

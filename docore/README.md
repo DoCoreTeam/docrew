@@ -12,10 +12,10 @@ This single command activates **16 specialized AI agents** that plan, develop, t
 
 ```bash
 # One-line install
-curl -sSL https://raw.githubusercontent.com/docore/docore/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docore/main/docore/install.sh | bash
 
 # Or manual
-git clone https://github.com/docore/docore.git ~/.claude/skills/docore
+git clone https://github.com/DoCoreTeam/docore.git /tmp/docore && cp -r /tmp/docore/docore ~/.claude/skills/docore
 ```
 
 ## 🎯 How It Works
