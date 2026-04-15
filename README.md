@@ -156,6 +156,23 @@ cp -r /tmp/docore/docore ~/.claude/skills/docore
 
 ---
 
+## Dependencies / 의존성
+
+DOCORE relies on two external skill systems. The installer handles both automatically.
+
+DOCORE는 두 가지 외부 스킬 시스템에 의존합니다. 설치 스크립트가 자동으로 처리합니다.
+
+| Dependency | What it is | Used by |
+|------------|-----------|---------|
+| **[gstack](https://github.com/garrytan/gstack)** | Garry Tan's 23-tool Claude Code setup (CEO, Designer, Eng Manager, etc.) | CEO — auto-installed on first `/ceo` run |
+| **ECC (Everything Claude Code)** | Extended agent skill library (`ecc:*` prefixed skills) | DC agents reference `ecc:plan-ceo-review`, `ecc:strategic-compact`, etc. |
+
+**EN** — `gstack` is cloned to `~/.claude/skills/gstack` by the installer. ECC skills are resolved at runtime by Claude Code's skill system.
+
+**KO** — `gstack`은 설치 스크립트가 `~/.claude/skills/gstack`에 자동 설치합니다. ECC 스킬은 Claude Code가 런타임에 해석합니다.
+
+---
+
 ## Requirements / 요구사항
 
 - [Claude Code](https://claude.ai/code) CLI
