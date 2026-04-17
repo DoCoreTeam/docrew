@@ -9,13 +9,15 @@
 
 ---
 
-## This is not a prompt. This is an engineering team. / 이것은 프롬프트가 아닙니다. 엔지니어링 팀입니다.
+## This is not a prompt. This is an engineering team.
 
-**EN** — Every serious software team has specialists: a business strategist, a researcher, a database architect, a frontend engineer, a backend engineer, a security auditor, a QA lead, a technical writer, a DevOps engineer. Hiring all of them costs $2M+ per year. Running them in perfect coordination is nearly impossible.
+> 이것은 프롬프트가 아닙니다. 엔지니어링 팀입니다.
+
+**EN** — Every serious software team needs specialists: a business strategist, researcher, database architect, frontend engineer, backend engineer, security auditor, QA lead, technical writer, DevOps engineer. Hiring all of them costs $2M+ per year.
 
 CEO gives you all 16 — orchestrated by an AI Chief Executive who never forgets a step, never skips a gate, and always asks the right questions before writing a single line of code.
 
-**KO** — 진지한 소프트웨어 팀에는 전문가가 필요합니다: 사업 전략가, 리서처, DB 아키텍트, 프론트엔드 엔지니어, 백엔드 엔지니어, 보안 감사자, QA 리드, 기술 작가, DevOps 엔지니어. 이들을 모두 고용하면 연간 20억 원 이상이 들고, 완벽하게 조율하는 것은 거의 불가능합니다.
+**KO** — 진지한 소프트웨어 팀에는 전문가가 필요합니다. 이들을 모두 고용하면 연간 20억 원 이상이 들고, 완벽하게 조율하는 것은 거의 불가능합니다.
 
 CEO는 이 16명 전부를 제공합니다 — 단 하나의 명령으로, 단 한 단계도 빠뜨리지 않고, 코드 한 줄 쓰기 전에 반드시 올바른 질문을 먼저 묻는 AI 최고경영자가 오케스트레이션합니다.
 
@@ -25,7 +27,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/ceo/main/docore/install.s
 ```
 
 ```bash
-# Give orders. CEO handles the rest. / 지시만 내려주세요. 나머지는 CEO가 처리합니다.
+# Give orders. CEO handles the rest.
 /ceo "Build a SaaS app with auth, payments, and a dashboard"
 /ceo "인증, 결제, 대시보드가 있는 SaaS 앱 만들어줘"
 ```
@@ -36,33 +38,41 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/ceo/main/docore/install.s
 
 ### 1. Asks before acting / 행동 전 반드시 묻습니다
 
-**EN** — Every other AI tool starts writing code the moment you press Enter. CEO stops and asks up to 12 targeted questions: tech stack, platform, existing codebase, done criteria, user scale, auth, data models, external APIs, constraints, design direction, deployment, and any extra context. Only after you answer does the pipeline begin. No guessing. No wasted work. No "I built the wrong thing."
+**EN** — Other AI tools start writing code the moment you press Enter. CEO asks up to 12 targeted questions — one at a time, adjusting each question based on your previous answers. Tech stack, platform, codebase, done criteria, scale, auth, data models, external APIs, constraints, design direction, deployment, extra context. Only after all questions are answered does the pipeline begin.
 
-**KO** — 다른 모든 AI 도구는 Enter를 누르는 순간 코드를 쓰기 시작합니다. CEO는 멈추고 최대 12개의 핵심 질문을 합니다: 기술 스택, 플랫폼, 기존 코드베이스, 완료 기준, 사용자 규모, 인증, 데이터 모델, 외부 API, 제약, 디자인 방향, 배포 환경, 추가 맥락. 답변을 받은 후에만 파이프라인이 시작됩니다. 추측 없음. 낭비 없음. "엉뚱한 것을 만들었다"는 말 없음.
+**KO** — 다른 AI 도구는 Enter를 누르는 순간 코드를 씁니다. CEO는 최대 12개 질문을 스텝바이스텝으로 묻습니다 — 앞 답변을 반영해 다음 질문을 조정하면서. 답변이 완전히 끝난 후에만 파이프라인이 시작됩니다.
+
+---
 
 ### 2. 16 specialists working in parallel / 16명의 전문가가 병렬로 작동합니다
 
-**EN** — When you run `/ceo`, three planners analyze your business case and scout the best open-source tools. Then nine specialists build simultaneously — frontend, backend, database, mobile, DevOps, integrations, copywriting, documentation, and SEO. Three evaluators audit every line of code for quality, security, and correctness. One optimizer tracks token usage. All coordinated. All accountable.
+**EN** — Three planners analyze your business case and scout the best open-source tools. Then specialists build simultaneously. Three evaluators audit every line for quality, security, and correctness. One optimizer tracks token usage. All coordinated. All accountable.
 
-**KO** — `/ceo`를 실행하면 3명의 기획자가 사업 타당성을 분석하고 최적의 오픈소스 도구를 탐색합니다. 그리고 9명의 전문가가 동시에 빌드합니다 — 프론트엔드, 백엔드, 데이터베이스, 모바일, DevOps, 통합, 카피라이팅, 문서, SEO. 3명의 평가자가 모든 코드를 품질, 보안, 정확성으로 감사합니다. 1명의 최적화 담당자가 토큰 사용량을 추적합니다. 모두 조율되고, 모두 책임집니다.
+**KO** — 3명의 기획자가 사업 타당성을 분석하고 최적의 오픈소스 도구를 탐색합니다. 전문가들이 동시에 빌드합니다. 3명의 평가자가 모든 코드를 품질, 보안, 정확성으로 감사합니다.
+
+---
 
 ### 3. Never ships broken code / 망가진 코드를 절대 배포하지 않습니다
 
-**EN** — Every output passes through 5 mandatory gates. Files that exceed 300 lines are blocked automatically. Known error patterns are caught before they reach you. If a reviewer finds a bug, the system loops back to the builder — up to 3 times — until it passes. Your Builder and Reviewer are always different agents, so no one grades their own homework.
+**EN** — Every output passes 5 mandatory gates. 300-line files are blocked automatically. Known error patterns are caught before they reach you. If a reviewer finds a bug, the system loops back to the builder — up to 3 times — until it passes. Builder and Reviewer are always different agents.
 
-**KO** — 모든 산출물은 5개의 필수 게이트를 통과합니다. 300줄을 초과하는 파일은 자동으로 차단됩니다. 알려진 오류 패턴은 당신에게 도달하기 전에 잡힙니다. 리뷰어가 버그를 발견하면 시스템이 빌더에게 돌아가 — 최대 3회 — 통과할 때까지 반복합니다. 빌더와 리뷰어는 항상 다른 에이전트입니다. 아무도 자신의 숙제를 채점하지 않습니다.
+**KO** — 모든 산출물은 5개의 필수 게이트를 통과합니다. 300줄 초과 파일은 자동 차단됩니다. 리뷰어가 버그를 발견하면 시스템이 빌더에게 돌아가 최대 3회 재작업합니다.
+
+---
 
 ### 4. The best tools in one place / 최고의 도구들이 한 곳에
 
-**EN** — CEO doesn't just orchestrate its own 16 agents. It installs three elite tool systems — ECC (183 skills), gstack (Garry Tan's battle-tested ship/QA/investigate toolkit), and Superpowers (required) — and unifies them through 10 CEO-* orchestrators. ECC commands are intentionally not exposed individually — access everything through CEO-* so your command list stays clean and purposeful.
+**EN** — CEO installs three elite tool systems and unifies them through CEO-* orchestrators. ECC commands are intentionally not exposed individually — access everything through CEO-* so your command list stays clean.
 
-**KO** — CEO는 자체 16개 에이전트만 오케스트레이션하는 것이 아닙니다. 세 가지 엘리트 도구 시스템 — ECC (스킬 183개), gstack (Garry Tan의 검증된 ship/QA/investigate 툴킷), Superpowers (필수) — 을 설치하고 10개의 CEO-* 오케스트레이터로 통합합니다. ECC 커맨드는 의도적으로 개별 노출하지 않습니다 — CEO-* 를 통해 접근하여 커맨드 목록을 깔끔하게 유지합니다.
+**KO** — CEO는 세 가지 엘리트 도구 시스템을 설치하고 CEO-* 오케스트레이터로 통합합니다. ECC 커맨드는 개별 노출하지 않아 커맨드 목록이 깔끔합니다.
+
+---
 
 ### 5. Gets smarter every session / 매 세션마다 더 똑똑해집니다
 
-**EN** — CEO maintains an error registry. Every mistake gets recorded as a GATE pattern — so it can never happen again. It learns your project's coding patterns as instincts. It saves sessions so work never gets lost. The longer you use it, the better it knows your codebase.
+**EN** — CEO maintains an error registry. Every mistake becomes a GATE pattern — so it never happens again. It learns your project's coding patterns as instincts. The longer you use it, the better it knows your codebase.
 
-**KO** — CEO는 오류 레지스트리를 유지합니다. 모든 실수는 GATE 패턴으로 기록됩니다 — 같은 실수는 절대 반복되지 않습니다. 프로젝트의 코딩 패턴을 인스팅트로 학습합니다. 세션을 저장하여 작업이 절대 사라지지 않습니다. 사용할수록 코드베이스를 더 잘 이해합니다.
+**KO** — CEO는 오류 레지스트리를 유지합니다. 모든 실수는 GATE 패턴으로 기록되어 반복되지 않습니다. 프로젝트 코딩 패턴을 인스팅트로 학습합니다.
 
 ---
 
@@ -78,157 +88,147 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/ceo/main/docore/install.s
 
 ### Update / 업데이트
 
-**EN** — Already installed? Run `/ceo-update` inside Claude Code, or re-run the install command. Both do the same thing.
-
-**KO** — 이미 설치되어 있다면? Claude Code 안에서 `/ceo-update`를 실행하거나, 설치 명령어를 다시 실행하세요. 둘 다 동일하게 작동합니다.
-
 ```bash
-# Option 1: Inside Claude Code / Claude Code 안에서
+# Inside Claude Code / Claude Code 안에서
 /ceo-update
 
-# Option 2: Terminal / 터미널에서
+# Terminal / 터미널에서
 curl -sSL https://raw.githubusercontent.com/DoCoreTeam/ceo/main/docore/install.sh | bash
 ```
 
-| What gets updated / 업데이트 항목 | Behavior / 동작 |
-|----------------------------------|----------------|
-| CEO agents, commands, SKILL.md | ✅ Always overwritten to latest / 항상 최신으로 덮어씀 |
-| ECC (183 skills) | ✅ Skills replaced, commands not installed (use /ceo-* instead) / 스킬 교체, 커맨드 미설치 (/ceo-* 사용) |
+| What gets updated | Behavior |
+|-------------------|----------|
+| CEO agents, commands, SKILL.md | ✅ Always overwritten to latest |
+| ECC (183 skills) | ✅ Full replacement — skills only, no individual commands |
 | gstack | ✅ `git pull` (re-clone if needed) |
-| Superpowers | ✅ `claude plugin update` (re-clone if needed) |
-| Registries (error-registry etc.) | ⏭️ Preserved — your data stays / 보존 — 사용자 데이터 유지 |
+| Superpowers | ✅ `claude plugin update` (re-clone if needed) — **required** |
+| Registries (error-registry etc.) | ⏭️ Preserved — your data stays |
 
-**What gets installed / 설치 항목:**
-1. **16 CEO agents** → `~/.claude/agents/` — the specialists that do the actual work / 실제 작업을 수행하는 전문가들
-2. **14 CEO commands** → `~/.claude/commands/` — `/ceo` + 10 CEO-* orchestrators + `/ceo-init` `/ceo-status` / `/ceo` + 10개 CEO-* 오케스트레이터
-3. **CEO brain (SKILL.md)** → `~/.claude/skills/ceo-system/` — the full orchestration system / 전체 오케스트레이션 시스템
-4. **CLAUDE.md** → `~/.claude/` — activates CEO mode on every Claude Code session / 모든 세션에서 CEO 모드 자동 활성화
-5. **ECC** — 183 skills (skills only — CEO-* orchestrators expose the capabilities) / 스킬 183개 (CEO-* 를 통해 접근)
-6. **gstack** — Garry Tan's 35+ ship/QA/investigate tools / Garry Tan의 35개 이상 도구
-7. **Superpowers** — Required. Claude Code marketplace superpowers / 필수. Claude Code 마켓플레이스 슈퍼파워
+| 업데이트 항목 | 동작 |
+|--------------|------|
+| CEO 에이전트, 커맨드, SKILL.md | ✅ 항상 최신으로 덮어씀 |
+| ECC (스킬 183개) | ✅ 전체 교체 — 스킬만, 개별 커맨드 없음 |
+| gstack | ✅ `git pull` (필요 시 재클론) |
+| Superpowers | ✅ `plugin update` (필요 시 재클론) — **필수** |
+| 레지스트리 (error-registry 등) | ⏭️ 보존 — 사용자 데이터 유지 |
+
+### What gets installed / 설치 항목
+
+1. **16 CEO agents** → `~/.claude/agents/`
+2. **15 CEO commands** → `~/.claude/commands/` — `/ceo` + 10 CEO-* orchestrators + utility commands
+3. **CEO brain** → `~/.claude/skills/ceo-system/SKILL.md`
+4. **CLAUDE.md** → `~/.claude/` — activates CEO mode on every session
+5. **ECC** → `~/.claude/skills/ecc:*/` — 183 skills (accessed via CEO-*)
+6. **gstack** → `~/.claude/skills/gstack/`
+7. **Superpowers** → via `claude plugin` or GitHub fallback (**required**)
 
 ---
 
 ## How It Works / 작동 방식
 
 ```
-You type: /ceo "Build me a SaaS"
-당신이 입력: /ceo "SaaS 만들어줘"
+/ceo "Build me a SaaS" → /ceo "SaaS 만들어줘"
           │
           ▼
-⓪ Q&A ── CEO asks up to 12 targeted questions before touching anything
-          코드 한 줄 쓰기 전 CEO가 최대 12개 핵심 질문
-          "Stack? Platform? Codebase? Done criteria? Scale? Auth? Data? APIs? Constraints? Design? Deploy? Extra?"
-          "스택? 플랫폼? 코드? 완료기준? 규모? 인증? 데이터? API? 제약? 디자인? 배포? 추가맥락?"
+⓪  Q&A ── Step-by-step, up to 12 questions
+           스텝바이스텝, 최대 12개 질문
+           Each answer shapes the next question
+           앞 답변이 다음 질문을 조정
           │
-          ▼  [You answer / 답변 후]
+          ▼  [Answers complete / 답변 완료]
           │
-          ▼
-① PLANNER (in parallel / 병렬)
-  ├── DC-BIZ: Is this worth building? ROI? Risk?
-  │           만들 가치가 있나? ROI? 리스크?
-  ├── DC-RES: What tech, patterns, references exist?
-  │           어떤 기술, 패턴, 레퍼런스가 있나?
-  └── DC-OSS: Top 3 libraries that solve 80% of this
-              이 문제의 80%를 해결하는 라이브러리 Top 3
+① PLANNER (parallel / 병렬)
+  ├── DC-BIZ  Business case & ROI
+  ├── DC-RES  Tech research & patterns
+  └── DC-OSS  Top 3 open-source tools
           │
-          ▼  → PLAN.md generated / PLAN.md 생성
+          ▼  → PLAN.md
           │
-② GENERATOR (all in parallel / 전원 병렬)
-  CORE (always / 항상):
-  ├── DC-DEV-DB:  Schema + migrations
-  ├── DC-DEV-BE:  API + business logic
-  ├── DC-DEV-FE:  UI components + pages
-  ├── DC-DEV-OPS: CI/CD + harness
-  └── DC-DOC:     API docs + usage guides
-  EXTENDED (added by CEO based on Q&A / Q&A 분석 후 CEO가 추가):
-  ├── DC-DEV-MOB: Mobile (if mobile platform)
-  ├── DC-DEV-INT: External API (if 3rd-party integrations)
-  ├── DC-WRT:     Marketing copy (if marketing pages needed)
-  └── DC-SEO:     SEO (if public web service)
+② GENERATOR (parallel / 병렬)
+  CORE — always runs:
+  ├── DC-DEV-DB   Schema + migrations
+  ├── DC-DEV-BE   API + business logic
+  ├── DC-DEV-FE   UI + pages
+  ├── DC-DEV-OPS  CI/CD + harness
+  └── DC-DOC      API docs
+  EXTENDED — added by CEO based on Q&A:
+  ├── DC-DEV-MOB  Mobile (if mobile platform)
+  ├── DC-DEV-INT  External APIs (if integrations needed)
+  ├── DC-WRT      Marketing copy (if needed)
+  └── DC-SEO      SEO (if public web)
           │
           ▼
-③ CYCLE ┌─────────────────────────────────────────────────────┐
-        │  IMPLEMENT → CODE REVIEW → TEST                      │
-        │       ↓ bug found                                    │  max 3x
-        │  FIX → REVIEW → TEST → pass → next                  │  최대 3회
-        └─────────────────────────────────────────────────────┘
+③ CYCLE ── IMPLEMENT → REVIEW → TEST  (max 3x / 최대 3회)
           │
           ▼
-④ EVALUATOR (simultaneously / 동시)
-  ├── DC-QA:  Does it work? Edge cases? Regression?
-  ├── DC-SEC: OWASP Top 10. Secrets. Auth. RLS.
-  └── DC-REV: Code quality. Patterns. 300-line limit.
+④ EVALUATOR (simultaneous / 동시)
+  ├── DC-QA   Functional tests & edge cases
+  ├── DC-SEC  OWASP Top 10, secrets, auth, RLS
+  └── DC-REV  Code quality, 300-line limit
           │
           ▼
-⑤ GATE 1-5 (all must pass / 전부 통과 필수)
-  ├── GATE 1: Error registry patterns + 300-line file limit
-  ├── GATE 2: All completion criteria met
-  ├── GATE 3: Version tag v0.0.0 present
-  ├── GATE 4: Builder ≠ Reviewer (enforced)
-  └── GATE 5: No breaking changes without approval
+⑤ GATE 1-5 ── All must pass / 전부 통과 필수
           │
           ▼
-⑥ REPORT — Working code + tests + docs + git commit v0.x.0
-           작동하는 코드 + 테스트 + 문서 + 커밋
+⑥ REPORT ── Code + tests + docs + git commit
 ```
 
 ---
 
 ## CEO-* Orchestrators / CEO-* 오케스트레이터
 
-**EN** — The 10 CEO-* commands are tactical. Use them when you need one specific phase done right, combining the best tools from ECC, gstack, and Superpowers simultaneously.
+**EN** — 10 tactical commands that combine the best tools from ECC, gstack, and Superpowers simultaneously.
 
-**KO** — 10개의 CEO-* 커맨드는 전술적입니다. 특정 단계를 제대로 처리해야 할 때 사용하며, ECC, gstack, Superpowers의 최고 도구들을 동시에 결합합니다.
+**KO** — ECC, gstack, Superpowers의 최고 도구들을 동시에 결합하는 10개 전술 커맨드.
 
-| Command / 커맨드 | What it orchestrates / 오케스트레이션 내용 | Tools combined / 결합 도구 |
-|-----------------|------------------------------------------|---------------------------|
-| `/ceo-feature "feature"` | Full feature lifecycle / 기능 전체 라이프사이클 | `/ceo-plan` + `/ceo-test` + `/ceo-review` + `/ceo-ship` |
-| `/ceo-plan "feature"` | Q&A → BIZ → research → OSS → implementation plan / 기획 전체 | DC-BIZ, DC-RES, DC-OSS, ECC prp-plan, gstack plan |
-| `/ceo-review` | Security → quality → PR review / 리뷰 전체 | ECC security-review + code-review + review-pr, gstack review, DC-SEC, DC-REV |
-| `/ceo-test` | TDD → unit/integration → E2E → browser QA / 테스트 전체 | ECC tdd + e2e + coverage, gstack qa + test, DC-QA |
-| `/ceo-ship` | Gate → review → build → deploy → post-QA / 배포 전체 | gstack ship + canary + qa, ECC quality-gate + pipeline, DC-DEV-OPS |
-| `/ceo-design "ui"` | Direction → system → components → visual review / 디자인 전체 | gstack design-* × 5, ECC ui-design, DC-DEV-FE |
-| `/ceo-debug "bug"` | Investigate → build fix → perf → verify / 디버그 전체 | gstack investigate, ECC debug + build-fix + perf-check |
-| `/ceo-quality` | Health → coverage → refactor → security → perf / 품질 전체 | gstack health, ECC quality-gate + refactor-clean + perf-check, DC-QA, DC-SEC, DC-REV |
-| `/ceo-security` | Secrets → OWASP → auth → API security / 보안 전체 | ECC security-review, DC-SEC (OWASP Top 10 complete) |
-| `/ceo-doc` | Codemaps → API docs → project docs → SEO / 문서 전체 | gstack docs + document-release, ECC update-docs + update-codemaps, DC-DOC, DC-SEO |
-| `/ceo-learn` | Extract → evaluate → instincts → retro / 학습 전체 | gstack retro + learn, ECC learn + learn-eval + instinct-* + promote |
+| Command | What it does | Tools combined |
+|---------|-------------|----------------|
+| `/ceo-feature "feature"` | Full feature lifecycle | `/ceo-plan` + `/ceo-test` + `/ceo-review` + `/ceo-ship` |
+| `/ceo-plan "feature"` | Q&A → BIZ → research → plan | DC-BIZ, DC-RES, DC-OSS, ECC prp-plan, gstack plan |
+| `/ceo-review` | Security + quality + PR review | ECC security/code/pr-review, gstack review, DC-SEC, DC-REV |
+| `/ceo-test` | TDD + unit + E2E + browser QA | ECC tdd + e2e + coverage, gstack qa, DC-QA |
+| `/ceo-ship` | Gate + review + build + deploy | gstack ship + canary + qa, ECC quality-gate, DC-DEV-OPS |
+| `/ceo-design "ui"` | Direction + system + components | gstack design-* × 5, ECC ui-design, DC-DEV-FE |
+| `/ceo-debug "bug"` | Investigate + fix + perf + verify | gstack investigate, ECC debug + build-fix + perf-check |
+| `/ceo-quality` | Health + coverage + refactor + security | gstack health, ECC quality-gate + refactor-clean, DC-QA/SEC/REV |
+| `/ceo-security` | Secrets + OWASP + auth + API | ECC security-review, DC-SEC (full OWASP Top 10) |
+| `/ceo-doc` | Codemaps + API docs + SEO | gstack docs, ECC update-docs + codemaps, DC-DOC, DC-SEO |
+| `/ceo-learn` | Extract + evaluate + instincts + retro | gstack retro + learn, ECC learn + instinct-* + promote |
 
 ---
 
 ## 16 Agents / 16개 에이전트
 
-| Phase / 단계 | Tier | Agent | Role (EN) | 역할 (KO) | Model |
-|------|------|-------|-----------|-----------|-------|
-| PLANNER | CORE | DC-BIZ | Business Judge — is this worth building? | 사업 타당성 판단 | Opus |
-| PLANNER | CORE | DC-RES | Researcher — tech, patterns, references | 리서처 — 기술, 패턴, 레퍼런스 | Haiku |
-| PLANNER | CORE | DC-OSS | Open Source Scout — Top 3 libraries | 오픈소스 탐색 — 최적 라이브러리 Top 3 | Opus |
-| GENERATOR | CORE | DC-DEV-FE | Frontend Developer | 프론트엔드 개발자 | Sonnet |
-| GENERATOR | CORE | DC-DEV-BE | Backend Developer | 백엔드 개발자 | Sonnet |
-| GENERATOR | CORE | DC-DEV-DB | Database Engineer | 데이터베이스 엔지니어 | Sonnet |
-| GENERATOR | CORE | DC-DEV-OPS | DevOps Engineer | DevOps 엔지니어 | Sonnet |
-| GENERATOR | CORE | DC-DOC | Documentation Writer | 기술 문서 작가 | Haiku |
-| GENERATOR | EXTENDED | DC-DEV-MOB | Mobile Developer (mobile platform only) | 모바일 개발자 (모바일 포함 시) | Sonnet |
-| GENERATOR | EXTENDED | DC-DEV-INT | Integration Engineer (3rd-party APIs only) | 외부 API 연동 (연동 시) | Sonnet |
-| GENERATOR | EXTENDED | DC-WRT | Writer / Copywriter (marketing pages only) | 카피라이터 (마케팅 필요 시) | Sonnet |
-| GENERATOR | EXTENDED | DC-SEO | SEO / AEO / GEO Specialist (public web only) | SEO 전문가 (웹 공개 시) | Haiku |
-| EVALUATOR | CORE | DC-QA | QA Engineer | 품질 검증 엔지니어 | Haiku |
-| EVALUATOR | CORE | DC-SEC | Security Reviewer | 보안 검토 전문가 | Opus |
-| EVALUATOR | CORE | DC-REV | Code Reviewer | 코드 리뷰 전문가 | Opus |
-| SUPPORT | CORE | DC-TOK | Token Optimizer | 토큰 비용 최적화 | Haiku |
+| Phase | Tier | Agent | Role | Model |
+|-------|------|-------|------|-------|
+| PLANNER | CORE | DC-BIZ | Business Judge — is this worth building? | Opus |
+| PLANNER | CORE | DC-RES | Researcher — tech, patterns, references | Haiku |
+| PLANNER | CORE | DC-OSS | Open Source Scout — Top 3 libraries | Opus |
+| GENERATOR | CORE | DC-DEV-FE | Frontend Developer | Sonnet |
+| GENERATOR | CORE | DC-DEV-BE | Backend Developer | Sonnet |
+| GENERATOR | CORE | DC-DEV-DB | Database Engineer | Sonnet |
+| GENERATOR | CORE | DC-DEV-OPS | DevOps Engineer | Sonnet |
+| GENERATOR | CORE | DC-DOC | Documentation Writer | Haiku |
+| GENERATOR | EXTENDED | DC-DEV-MOB | Mobile Developer *(mobile platform only)* | Sonnet |
+| GENERATOR | EXTENDED | DC-DEV-INT | Integration Engineer *(3rd-party APIs only)* | Sonnet |
+| GENERATOR | EXTENDED | DC-WRT | Writer / Copywriter *(marketing pages only)* | Sonnet |
+| GENERATOR | EXTENDED | DC-SEO | SEO / AEO / GEO Specialist *(public web only)* | Haiku |
+| EVALUATOR | CORE | DC-QA | QA Engineer | Haiku |
+| EVALUATOR | CORE | DC-SEC | Security Reviewer | Opus |
+| EVALUATOR | CORE | DC-REV | Code Reviewer | Opus |
+| SUPPORT | CORE | DC-TOK | Token Optimizer | Haiku |
 
 ---
 
 ## Full Command Reference / 전체 커맨드 레퍼런스
 
-### CEO Commands / CEO 커맨드
+### CEO Commands
 
-| Command / 커맨드 | Description (EN) | 설명 (KO) |
-|-----------------|-----------------|-----------|
+| Command | EN | KO |
+|---------|----|----|
 | `/ceo "task"` | Q&A → full 16-agent pipeline | Q&A 후 16개 에이전트 전체 파이프라인 |
-| `/ceo-feature "feature"` | Full feature lifecycle end-to-end | 기능 처음부터 끝까지 전체 라이프사이클 |
-| `/ceo-plan "feature"` | Planning orchestrator with Q&A | Q&A 포함 기획 오케스트레이터 |
+| `/ceo-feature "feature"` | Full feature lifecycle | 기능 전체 라이프사이클 |
+| `/ceo-plan "feature"` | Planning with Q&A | Q&A 포함 기획 |
 | `/ceo-review` | All review tools combined | 모든 리뷰 도구 결합 |
 | `/ceo-test` | All test tools combined | 모든 테스트 도구 결합 |
 | `/ceo-ship` | Full deploy pipeline | 전체 배포 파이프라인 |
@@ -238,26 +238,29 @@ You type: /ceo "Build me a SaaS"
 | `/ceo-security` | Full security audit | 전체 보안 감사 |
 | `/ceo-doc` | Full documentation pipeline | 전체 문서화 파이프라인 |
 | `/ceo-learn` | Full learning pipeline | 전체 학습 파이프라인 |
-| `/ceo-update` | Update CEO + ECC + gstack + Superpowers to latest version | CEO + ECC + gstack + Superpowers 최신 버전으로 업데이트 |
+| `/ceo-update` | Update all components to latest | 모든 컴포넌트 최신 버전 업데이트 |
 | `/ceo-init` | Initialize project | 프로젝트 초기화 |
 | `/ceo-status` | Show current status | 현재 상태 조회 |
 
-### ECC Capabilities / ECC 기능 (Everything Claude Code)
+---
 
-**EN** — 183 skills from [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code). ECC commands are **not installed individually** — they are accessed internally through CEO-* orchestrators. This keeps your command list clean. The capabilities below are all available; use the corresponding CEO-* command to trigger them.
+### ECC Capabilities (accessed via CEO-*)
 
-**KO** — [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)의 183개 스킬. ECC 커맨드는 **개별 설치하지 않습니다** — CEO-* 오케스트레이터를 통해 내부적으로 접근합니다. 커맨드 목록을 깔끔하게 유지합니다. 아래 기능들은 모두 사용 가능하며, 해당 CEO-* 커맨드로 트리거합니다.
+> **EN** — 183 skills from [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code). Not installed as individual commands — use CEO-* orchestrators to access them.
+>
+> **KO** — 183개 스킬. 개별 커맨드로 설치하지 않습니다 — CEO-* 오케스트레이터를 통해 접근합니다.
 
 #### Planning / 기획
+
 | Command | EN | KO |
 |---------|----|----|
-| `/plan` | Step-by-step plan, waits for confirm | 단계별 계획, 확인 후 실행 |
-| `/feature-dev` | Feature development with codebase analysis | 코드베이스 분석 기반 기능 개발 |
-| `/implement` | Execute an implementation plan | 구현 계획 실행 |
+| `/plan` | Step-by-step plan | 단계별 계획 |
+| `/feature-dev` | Feature dev with codebase analysis | 코드베이스 분석 기반 기능 개발 |
+| `/implement` | Execute implementation plan | 구현 계획 실행 |
 | `/spec` | Generate technical specification | 기술 명세 생성 |
 | `/prp-prd` | Interactive PRD generator | 인터랙티브 PRD 생성 |
 | `/prp-plan` | Implementation plan with pattern extraction | 패턴 추출 기반 구현 계획 |
-| `/prp-implement` | Execute PRP plan with validation loops | 검증 루프 포함 PRP 실행 |
+| `/prp-implement` | Execute PRP with validation loops | 검증 루프 포함 PRP 실행 |
 | `/prp-commit` | Smart commit with natural language | 자연어 스마트 커밋 |
 | `/prp-pr` | Create GitHub PR | GitHub PR 생성 |
 | `/multi-plan` | Multi-model planning | 멀티모델 기획 |
@@ -267,70 +270,76 @@ You type: /ceo "Build me a SaaS"
 | `/multi-workflow` | Full multi-model workflow | 전체 멀티모델 워크플로우 |
 
 #### Code Review / 코드 리뷰
+
 | Command | EN | KO |
 |---------|----|----|
-| `/code-review` | Review changes or PR | 변경사항 또는 PR 리뷰 |
+| `/code-review` | Review changes or PR | 변경사항 / PR 리뷰 |
 | `/review-pr` | Comprehensive PR review | 종합 PR 리뷰 |
 | `/security-review` | OWASP Top 10, secrets, auth | OWASP, 시크릿, 인증 감사 |
 | `/quality-gate` | Run all 5 gates | 5개 게이트 실행 |
 | `/santa-loop` | Dual adversarial review loop | 이중 적대적 리뷰 루프 |
 | `/refactor-clean` | Remove dead code and duplicates | 데드코드 및 중복 제거 |
 | `/perf-check` | Performance bottleneck analysis | 성능 병목 분석 |
-| `/test-coverage` | Coverage gap analysis | 커버리지 부족 구간 분석 |
+| `/test-coverage` | Coverage gap analysis | 커버리지 부족 분석 |
 | `/python-review` | Python — PEP 8, type hints, security | Python 전문 리뷰 |
-| `/go-review` | Go — idiomatic, concurrency, errors | Go 전문 리뷰 |
-| `/rust-review` | Rust — ownership, lifetimes, unsafe | Rust 전문 리뷰 |
+| `/go-review` | Go — idiomatic, concurrency | Go 전문 리뷰 |
+| `/rust-review` | Rust — ownership, lifetimes | Rust 전문 리뷰 |
 | `/cpp-review` | C++ — memory, modern idioms | C++ 전문 리뷰 |
 | `/flutter-review` | Flutter/Dart — widgets, state | Flutter 전문 리뷰 |
 | `/kotlin-review` | Kotlin — null safety, coroutines | Kotlin 전문 리뷰 |
 
-#### Test & TDD / 테스트 및 TDD
+#### Test & TDD / 테스트
+
 | Command | EN | KO |
 |---------|----|----|
-| `/tdd` | TDD — RED → GREEN → REFACTOR | TDD 워크플로우 |
+| `/tdd` | RED → GREEN → REFACTOR | TDD 워크플로우 |
 | `/test` | Run tests, report failures | 테스트 실행 |
-| `/e2e` | Playwright E2E testing | Playwright E2E 테스트 |
+| `/e2e` | Playwright E2E testing | Playwright E2E |
 | `/go-test` | Go TDD — table-driven, 80%+ | Go TDD |
 | `/rust-test` | Rust TDD — cargo-llvm-cov | Rust TDD |
 | `/cpp-test` | C++ TDD — GoogleTest | C++ TDD |
-| `/flutter-test` | Flutter — unit, widget, golden, integration | Flutter 테스트 |
+| `/flutter-test` | Flutter — unit, widget, golden | Flutter 테스트 |
 | `/kotlin-test` | Kotlin TDD — Kotest + Kover | Kotlin TDD |
 
 #### Build & Fix / 빌드 및 수정
+
 | Command | EN | KO |
 |---------|----|----|
 | `/build-fix` | Fix build errors incrementally | 빌드 오류 단계적 수정 |
 | `/go-build` | Fix Go build, vet, linter | Go 빌드 수정 |
 | `/rust-build` | Fix Rust build, borrow checker | Rust 빌드 수정 |
 | `/cpp-build` | Fix C++ build, CMake, linker | C++ 빌드 수정 |
-| `/flutter-build` | Fix Dart analyzer, Flutter build | Flutter 빌드 수정 |
+| `/flutter-build` | Fix Dart analyzer, Flutter | Flutter 빌드 수정 |
 | `/kotlin-build` | Fix Kotlin/Gradle build | Kotlin 빌드 수정 |
 | `/gradle-build` | Fix Gradle for Android/KMP | Gradle 빌드 수정 |
 
 #### Session & Context / 세션 및 컨텍스트
+
 | Command | EN | KO |
 |---------|----|----|
 | `/save-session` | Save session to `~/.claude/session-data/` | 세션 저장 |
 | `/resume-session` | Resume last session with full context | 마지막 세션 재개 |
 | `/sessions` | Manage session history | 세션 히스토리 관리 |
 | `/checkpoint` | Save progress checkpoint | 체크포인트 저장 |
-| `/context-budget` | Monitor context window | 컨텍스트 윈도우 모니터링 |
+| `/context-budget` | Monitor context window | 컨텍스트 모니터링 |
 | `/aside` | Side question without losing context | 컨텍스트 유지 부가 질문 |
 
 #### Learning & Instincts / 학습 및 인스팅트
+
 | Command | EN | KO |
 |---------|----|----|
 | `/learn` | Extract patterns from session | 세션 패턴 추출 |
-| `/learn-eval` | Extract, evaluate, save to right scope | 패턴 추출 + 평가 + 저장 |
+| `/learn-eval` | Extract, evaluate, save | 패턴 추출 + 평가 + 저장 |
 | `/evolve` | Analyze and improve instincts | 인스팅트 분석 및 개선 |
 | `/instinct-status` | Show instincts with confidence | 신뢰도 포함 인스팅트 표시 |
-| `/instinct-import` | Import instincts from file/URL | 파일/URL에서 인스팅트 가져오기 |
-| `/instinct-export` | Export instincts to file | 인스팅트 파일 내보내기 |
-| `/promote` | Promote project instincts to global | 프로젝트 인스팅트 글로벌 승격 |
+| `/instinct-import` | Import instincts from file/URL | 파일/URL에서 가져오기 |
+| `/instinct-export` | Export instincts to file | 파일로 내보내기 |
+| `/promote` | Promote project instincts to global | 글로벌 승격 |
 | `/prune` | Delete stale instincts (30+ days) | 30일 이상 인스팅트 정리 |
-| `/projects` | List projects and instinct stats | 프로젝트 및 인스팅트 통계 |
+| `/projects` | List projects and instinct stats | 프로젝트 및 통계 |
 
-#### Hooks & Automation / 훅 및 자동화
+#### Hooks & Automation / 훅
+
 | Command | EN | KO |
 |---------|----|----|
 | `/hookify` | Create hooks from conversation | 대화에서 훅 생성 |
@@ -339,6 +348,7 @@ You type: /ceo "Build me a SaaS"
 | `/hookify-list` | List all configured hooks | 설정된 훅 목록 |
 
 #### DevOps / 데브옵스
+
 | Command | EN | KO |
 |---------|----|----|
 | `/pipeline` | Set up CI/CD pipeline | CI/CD 파이프라인 설정 |
@@ -347,6 +357,7 @@ You type: /ceo "Build me a SaaS"
 | `/devfleet` | Claude DevFleet deployment | DevFleet 배포 |
 
 #### Docs & Cost / 문서 및 비용
+
 | Command | EN | KO |
 |---------|----|----|
 | `/docs` | Lookup docs via Context7 | Context7 문서 조회 |
@@ -357,7 +368,8 @@ You type: /ceo "Build me a SaaS"
 | `/model-route` | Route to optimal model | 최적 모델 라우팅 |
 | `/prompt-optimize` | Optimize prompt for cost | 비용 최적화 프롬프트 |
 
-#### Loop & Orchestration / 루프 및 오케스트레이션
+#### Loop & Orchestration / 루프
+
 | Command | EN | KO |
 |---------|----|----|
 | `/loop-start` | Start recurring agent loop | 반복 에이전트 루프 시작 |
@@ -366,24 +378,29 @@ You type: /ceo "Build me a SaaS"
 | `/santa-loop` | Adversarial dual-review loop | 적대적 이중 리뷰 루프 |
 
 #### Misc / 기타
+
 | Command | EN | KO |
 |---------|----|----|
 | `/debug` | Systematic bug diagnosis | 체계적 버그 진단 |
 | `/design` | Design system and UI | 디자인 시스템 및 UI |
 | `/ui-design` | UI component generation | UI 컴포넌트 생성 |
 | `/jira` | Jira ticket management | Jira 티켓 관리 |
-| `/skill-create` | Generate SKILL.md from git | git 히스토리로 SKILL.md 생성 |
+| `/skill-create` | Generate SKILL.md from git | git으로 SKILL.md 생성 |
 | `/skill-health` | Skill portfolio dashboard | 스킬 포트폴리오 대시보드 |
 | `/agent-sort` | Sort agents by fit | 적합도 기반 에이전트 정렬 |
 | `/rules-distill` | Distill rules from codebase | 코드베이스에서 규칙 정제 |
 | `/evaluate-oss` | Evaluate OSS library fit | 오픈소스 라이브러리 평가 |
 
-### gstack Commands / gstack 커맨드
+---
 
-**EN** — 35+ battle-tested commands from [garrytan/gstack](https://github.com/garrytan/gstack).
-**KO** — Garry Tan의 검증된 35개 이상 커맨드.
+### gstack Commands
+
+> **EN** — 35+ battle-tested commands from [garrytan/gstack](https://github.com/garrytan/gstack).
+>
+> **KO** — Garry Tan의 검증된 35개 이상 커맨드.
 
 #### Ship & Deploy / 배포
+
 | Command | EN | KO |
 |---------|----|----|
 | `/ship` | Full ship workflow | 전체 배포 워크플로우 |
@@ -391,7 +408,8 @@ You type: /ceo "Build me a SaaS"
 | `/canary` | Canary release | 카나리 릴리즈 |
 | `/setup-deploy` | Set up deployment config | 배포 설정 구성 |
 
-#### QA & Testing / QA 및 테스트
+#### QA & Testing / QA
+
 | Command | EN | KO |
 |---------|----|----|
 | `/qa` | Browser QA with screenshots | 스크린샷 포함 브라우저 QA |
@@ -399,14 +417,16 @@ You type: /ceo "Build me a SaaS"
 | `/test` | Run tests | 테스트 실행 |
 | `/benchmark` | Performance benchmarks | 성능 벤치마크 |
 
-#### Code Review & Debug / 리뷰 및 디버그
+#### Review & Debug / 리뷰 및 디버그
+
 | Command | EN | KO |
 |---------|----|----|
 | `/review` | Code review for current diff | 현재 diff 리뷰 |
 | `/health` | Project health check | 프로젝트 헬스 체크 |
-| `/investigate` | Root cause analysis with evidence | 근거 포함 근본 원인 분석 |
+| `/investigate` | Root cause analysis | 근본 원인 분석 |
 
 #### Planning / 기획
+
 | Command | EN | KO |
 |---------|----|----|
 | `/plan` | Interactive Q&A planning | 인터랙티브 Q&A 기획 |
@@ -417,15 +437,17 @@ You type: /ceo "Build me a SaaS"
 | `/office-hours` | Brainstorm + feasibility | 브레인스토밍 + 타당성 |
 
 #### Design / 디자인
+
 | Command | EN | KO |
 |---------|----|----|
-| `/design` | Brand + design system + components | 브랜드 + 디자인 시스템 + 컴포넌트 |
+| `/design` | Brand + system + components | 브랜드 + 디자인 시스템 + 컴포넌트 |
 | `/design-review` | Visual design review | 비주얼 디자인 리뷰 |
 | `/design-consultation` | Design direction consultation | 디자인 방향 컨설팅 |
-| `/design-html` | HTML/CSS from design specs | 디자인 명세에서 HTML/CSS |
+| `/design-html` | HTML/CSS from design specs | 디자인 명세 → HTML/CSS |
 | `/design-shotgun` | Rapid multi-direction exploration | 다방향 빠른 탐색 |
 
 #### Docs & Learning / 문서 및 학습
+
 | Command | EN | KO |
 |---------|----|----|
 | `/docs` | Update or generate docs | 문서 업데이트/생성 |
@@ -434,7 +456,8 @@ You type: /ceo "Build me a SaaS"
 | `/retro` | Weekly retrospective | 주간 회고 |
 | `/checkpoint` | Save progress checkpoint | 체크포인트 저장 |
 
-#### Safety & Guards / 안전
+#### Safety / 안전
+
 | Command | EN | KO |
 |---------|----|----|
 | `/freeze` | Freeze file/module | 파일/모듈 동결 |
@@ -443,6 +466,7 @@ You type: /ceo "Build me a SaaS"
 | `/careful` | Extra-careful mode | 초주의 모드 |
 
 #### Browser & Misc / 브라우저 및 기타
+
 | Command | EN | KO |
 |---------|----|----|
 | `/browse` | Open and inspect URL | URL 열기 및 검사 |
@@ -456,77 +480,73 @@ You type: /ceo "Build me a SaaS"
 
 ## Quality Gates / 품질 게이트
 
-**EN** — Every output passes 5 mandatory gates. No exceptions.
+> **EN** — Every output passes 5 mandatory gates. No exceptions.
+>
+> **KO** — 모든 산출물은 5개 필수 게이트를 통과합니다. 예외 없음.
 
-**KO** — 모든 산출물은 5개 필수 게이트를 통과합니다. 예외 없음.
-
-| Gate | Check (EN) | 검사 항목 (KO) |
-|------|------------|---------------|
-| GATE 1 | Error registry scan + **300-line file limit** (auto-blocked) | 오류 패턴 스캔 + **300줄 초과 자동 차단** |
-| GATE 2 | All completion criteria verified | 모든 완료 조건 충족 확인 |
-| GATE 3 | Version tag `v0.0.0` present | 버전 태그 존재 |
-| GATE 4 | Builder ≠ Reviewer (enforced, no exceptions) | 빌더 ≠ 리뷰어 강제 분리 |
-| GATE 5 | Breaking changes blocked without explicit approval | 명시적 승인 없는 브레이킹 체인지 차단 |
+| Gate | Check |
+|------|-------|
+| GATE 1 | Error registry scan + **300-line file limit** (auto-blocked) |
+| GATE 2 | All completion criteria verified |
+| GATE 3 | Version tag `v0.0.0` present |
+| GATE 4 | Builder ≠ Reviewer (enforced, no exceptions) |
+| GATE 5 | Breaking changes blocked without explicit approval |
 
 ---
 
 ## Coding Standards / 코딩 표준
 
-**EN** — Non-negotiable. Enforced by GATE 1 on every single file.
+> **EN** — Non-negotiable. Enforced by GATE 1 on every file.
+>
+> **KO** — 협상 불가. GATE 1이 모든 파일에 강제 적용.
 
-**KO** — 협상 불가. GATE 1이 모든 파일에 강제 적용.
-
-| Rule (EN) | 규칙 (KO) |
-|-----------|-----------|
-| **300 lines max per file** — GATE 1 blocks automatically | **파일당 최대 300줄** — GATE 1 자동 차단 |
-| 50 lines max per function | 함수당 최대 50줄 |
-| 4 levels max nesting depth | 중첩 최대 4단계 |
-| Always create new objects, never mutate | 항상 새 객체 생성, 기존 객체 변경 금지 |
-| Explicit error handling at every level | 모든 레벨에서 명시적 에러 처리 |
-| Validate at all system boundaries | 모든 시스템 경계에서 입력 검증 |
-| Tests required for every feature | 모든 기능에 테스트 필수 |
-| RLS (Row Level Security) always | RLS 항상 구현 |
+| Rule | EN | KO |
+|------|----|----|
+| **300 lines max per file** | GATE 1 auto-blocks | GATE 1 자동 차단 |
+| 50 lines max per function | — | — |
+| 4 levels max nesting | — | — |
+| Immutability | Always create new objects, never mutate | 항상 새 객체 생성 |
+| Error handling | Explicit at every level | 모든 레벨에서 명시적 처리 |
+| Input validation | At all system boundaries | 모든 시스템 경계에서 검증 |
+| Tests | Required for every feature | 모든 기능에 테스트 필수 |
+| RLS | Row Level Security always | 항상 구현 |
 
 ---
 
 ## Security Built-in / 내장 보안
 
-**EN** — Security is not a phase. It runs on every sprint.
+> **EN** — Security runs on every sprint, not just at the end.
+>
+> **KO** — 보안은 마지막이 아닌 매 스프린트에 실행됩니다.
 
-**KO** — 보안은 단계가 아닙니다. 매 스프린트에 실행됩니다.
-
-| Rule (EN) | 규칙 (KO) |
-|-----------|-----------|
-| OWASP Top 10 reviewed every sprint | 매 스프린트 OWASP Top 10 검토 |
-| JWT httpOnly cookies only — no localStorage | JWT는 httpOnly 쿠키만 사용 |
-| AES-256-GCM for all PII encryption | 모든 개인정보 AES-256-GCM 암호화 |
-| Rate limiting on all endpoints | 모든 엔드포인트 레이트 리미팅 |
-| Zod input validation at all boundaries | 모든 경계에서 Zod 입력 검증 |
-| Row Level Security always enforced | RLS 항상 강제 구현 |
+| Rule | EN | KO |
+|------|----|----|
+| OWASP Top 10 | Reviewed every sprint | 매 스프린트 검토 |
+| JWT | httpOnly cookies only | httpOnly 쿠키만 |
+| Encryption | AES-256-GCM for all PII | 개인정보 AES-256-GCM |
+| Rate limiting | All endpoints | 모든 엔드포인트 |
+| Input validation | Zod at all boundaries | 모든 경계에서 Zod |
+| RLS | Always enforced | 항상 강제 |
 
 ---
 
 ## Dependencies / 의존성
 
-**EN** — CEO installs and orchestrates three elite external systems automatically.
-
-**KO** — CEO가 세 가지 엘리트 외부 시스템을 자동으로 설치하고 오케스트레이션합니다.
-
-| System | Repo | What it provides (EN) | 제공 내용 (KO) |
-|--------|------|----------------------|----------------|
-| **ECC** | [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 183 skills (skills only — accessed via CEO-*) | 스킬 183개 (CEO-* 통해 접근) |
-| **gstack** | [garrytan/gstack](https://github.com/garrytan/gstack) | Garry Tan's battle-tested toolkit | Garry Tan의 검증된 툴킷 |
-| **Superpowers** | obra/superpowers-marketplace | **Required.** Installer fails if not installed | **필수.** 미설치 시 설치 중단 |
+| System | Repo | What it provides |
+|--------|------|-----------------|
+| **ECC** | [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 183 skills — accessed via CEO-* |
+| **gstack** | [garrytan/gstack](https://github.com/garrytan/gstack) | Garry Tan's battle-tested toolkit |
+| **Superpowers** | obra/superpowers-marketplace | **Required.** Installer fails if not installed |
 
 ---
 
 ## Requirements / 요구사항
 
-| Requirement (EN) | 요구사항 (KO) |
-|-----------------|--------------|
-| [Claude Code](https://claude.ai/code) CLI | Claude Code CLI |
-| Anthropic API key with Opus, Sonnet, Haiku access | Opus, Sonnet, Haiku 접근 권한 포함 Anthropic API 키 |
-| `git` (for installer) | `git` (설치 스크립트용) |
+| Requirement | Details |
+|-------------|---------|
+| [Claude Code](https://claude.ai/code) CLI | Required |
+| Anthropic API key | Opus + Sonnet + Haiku access |
+| `git` | For installer |
 
 ---
 
@@ -536,6 +556,4 @@ MIT — see [LICENSE](LICENSE)
 
 ---
 
-## Author / 만든 사람
-
-Built by **Docore** / CEO of KDC
+*Built by **Docore** / CEO of KDC*
