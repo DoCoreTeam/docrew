@@ -114,6 +114,10 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docrew/main/docore/instal
            앞 답변이 다음 질문을 조정
           │
           ▼
+⓪.7 RIPPLE ANALYSIS ── 확장적 영향도 분석
+    직접 변경 대상 + 연관 파일 파급 범위 + 사이드이펙트 식별
+          │
+          ▼
 ① PLANNER (parallel / 병렬)
   ├── DC-BIZ  Is this worth building?
   ├── DC-RES  Tech research & patterns
@@ -135,13 +139,15 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/docrew/main/docore/instal
   └── DC-SEO      SEO
           │
           ▼
-③ CYCLE ── IMPLEMENT → REVIEW → TEST  (max 3x)
+③ CYCLE ── IMPLEMENT → REVIEW+RIPPLE_SCAN → TEST  (max 3x)
+           DC-REV reviews changed files + all related files
+           Finds side effects + proactive improvements
           │
           ▼
 ④ EVALUATOR (simultaneous / 동시)
   ├── DC-QA   Tests & edge cases
   ├── DC-SEC  OWASP Top 10, auth, RLS
-  └── DC-REV  Code quality, 300-line limit
+  └── DC-REV  Code quality, 300-line limit, ripple scan
           │
           ▼
 ⑤ GATE 1-5 ── All must pass
