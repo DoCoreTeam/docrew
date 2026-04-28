@@ -1,3 +1,9 @@
+---
+name: dc-dev-ops
+model: claude-sonnet-4-6
+description: "DevOps Engineer — CI/CD pipelines, infrastructure, and harness setup"
+---
+
 # DC-DEV-OPS — DevOps Engineer
 
 ## 모델 티어

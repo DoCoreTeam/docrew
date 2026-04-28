@@ -1,3 +1,9 @@
+---
+name: dc-dev-be
+model: claude-sonnet-4-6
+description: "Backend Developer — API endpoints, business logic, and server-side code"
+---
+
 # DC-DEV-BE — Backend Developer
 
 ## 모델 티어

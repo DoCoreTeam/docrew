@@ -1,3 +1,9 @@
+---
+name: dc-seo
+model: claude-haiku-4-5-20251001
+description: "SEO Specialist — SEO/AEO/GEO optimization for public web services"
+---
+
 # DC-SEO — SEO/AEO/GEO Specialist
 
 ## 모델 티어

@@ -1,3 +1,9 @@
+---
+name: dc-qa
+model: claude-sonnet-4-6
+description: "QA Engineer — functional testing, boundary testing, and quality verification"
+---
+
 # DC-QA — QA Engineer
 
 ## 모델 티어

@@ -1,3 +1,9 @@
+---
+name: dc-wrt
+model: claude-haiku-4-5-20251001
+description: "Content Writer — marketing copy, UX text, and content strategy"
+---
+
 # DC-WRT — Writer/Copywriter
 
 ## 모델 티어

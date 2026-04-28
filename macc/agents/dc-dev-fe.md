@@ -1,3 +1,9 @@
+---
+name: dc-dev-fe
+model: claude-sonnet-4-6
+description: "Frontend Developer — UI components, pages, and client-side logic"
+---
+
 # DC-DEV-FE — Frontend Developer
 
 ## 모델 티어

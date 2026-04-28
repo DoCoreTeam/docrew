@@ -1,3 +1,9 @@
+---
+name: dc-res
+model: claude-sonnet-4-6
+description: "Researcher — technical research via GitHub, official docs, and web search"
+---
+
 # DC-RES — Researcher
 
 ## 모델 티어

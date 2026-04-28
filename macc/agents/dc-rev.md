@@ -1,3 +1,9 @@
+---
+name: dc-rev
+model: claude-opus-4-6
+description: "Code Reviewer — code quality scoring, architecture review, and best practices enforcement"
+---
+
 # DC-REV — Code/Content Reviewer
 
 ## 모델 티어

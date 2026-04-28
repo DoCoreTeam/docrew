@@ -1,3 +1,9 @@
+---
+name: dc-dev-mob
+model: claude-sonnet-4-6
+description: "Mobile Developer — iOS/Android/cross-platform mobile features"
+---
+
 # DC-DEV-MOB — Mobile Developer
 
 ## 모델 티어

@@ -1,3 +1,9 @@
+---
+name: dc-oss
+model: claude-opus-4-6
+description: "OSS Scout — discovers top 3 external libraries and tools for the task"
+---
+
 # DC-OSS — Open Source Scout
 
 ## 모델 티어

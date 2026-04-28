@@ -1,3 +1,9 @@
+---
+name: dc-dev-int
+model: claude-sonnet-4-6
+description: "Integration Developer — external API connectors and third-party service integrations"
+---
+
 # DC-DEV-INT — Integration Engineer
 
 ## 모델 티어

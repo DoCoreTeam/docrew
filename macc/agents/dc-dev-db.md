@@ -1,3 +1,9 @@
+---
+name: dc-dev-db
+model: claude-sonnet-4-6
+description: "Database Engineer — schema design, migrations, and query optimization"
+---
+
 # DC-DEV-DB — Database Engineer
 
 ## 모델 티어

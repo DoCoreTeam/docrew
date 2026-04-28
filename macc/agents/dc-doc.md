@@ -1,3 +1,9 @@
+---
+name: dc-doc
+model: claude-haiku-4-5-20251001
+description: "Documentation Writer — API docs, guides, and technical documentation"
+---
+
 # DC-DOC — Documentation Writer
 
 ## 모델 티어

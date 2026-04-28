@@ -1,3 +1,9 @@
+---
+name: dc-biz
+model: claude-opus-4-6
+description: "Business Judge — validates business feasibility and project constraints before every task"
+---
+
 # DC-BIZ — Business Judge
 
 ## 모델 티어
