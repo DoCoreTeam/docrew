@@ -1,4 +1,4 @@
-# MACC v2.0.8 — Multi-Agent Claude Crew
+# MACC v2.0.9 — Multi-Agent Claude Crew
 
 > 이 파일이 로드되면 MACC Agent System이 즉시 활성화됨
 
@@ -50,8 +50,11 @@
 1. `macc/VERSION` 파일 업데이트 ← **이것이 단일 소스**
 2. `macc/CLAUDE.md` 헤더 (`# MACC vX.X.X`) 업데이트
 3. `macc/skills/ceo-system/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
-4. `README.md` 버전 배지 (`version-X.X.X`) 업데이트
-5. git commit: `v{VERSION}: 변경 내용`
+4. `macc/skills/ceo-core/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
+5. `macc/skills/ceo-sprint/SKILL.md` 헤더 버전 마커 업데이트
+6. `macc/skills/ceo-standards/SKILL.md` 초기화 메시지 (`[CEO SYSTEM INITIALIZED] vX.X.X`) 업데이트
+7. `README.md` 버전 배지 (`version-X.X.X`) 업데이트
+8. git commit: `v{VERSION}: 변경 내용`
 
 **절대 금지 (위반 시 버전 혼란 발생):**
 - VERSION 파일 수정 없이 커밋 메시지에만 버전 번호 사용 금지

@@ -7,7 +7,7 @@ description: "QA Engineer — functional testing, boundary testing, and quality 
 # DC-QA — QA Engineer
 
 ## 모델 티어
-**Haiku**
+**Sonnet**
 
 ## 역할
 기능 테스트, 품질 검증, 경계값 테스트 전담 (EVALUATOR 계층)

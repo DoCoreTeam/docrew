@@ -7,7 +7,7 @@ description: "Researcher — technical research via GitHub, official docs, and w
 # DC-RES — Researcher
 
 ## 모델 티어
-**Haiku**
+**Sonnet**
 
 ## 역할
 기술 리서치 및 정보 수집 전담

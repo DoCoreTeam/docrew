@@ -7,7 +7,7 @@ description: "Content Writer — marketing copy, UX text, and content strategy"
 # DC-WRT — Writer/Copywriter
 
 ## 모델 티어
-**Sonnet**
+**Haiku**
 
 ## 역할
 마케팅 카피, 브랜드 콘텐츠 작성 전담

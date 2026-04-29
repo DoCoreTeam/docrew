@@ -4,6 +4,8 @@ description: >
   CEO Sprint — Phase 9: Harness sprint system, ECC skill routing, evaluator protocols.
   Load this for sprint workflow and evaluator scoring.
 ---
+# CEO SPRINT SYSTEM v2.0.8
+
 ## PHASE 9: HARNESS SPRINT SYSTEM
 
 ### 9-1. Worker → Harness 역할 매핑
@@ -13,7 +15,7 @@ description: >
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PLANNER  (기획/검증층) — CEO 주도, 착수 전 항상 실행
   → DC-BIZ (사업 타당성)   [Opus]
-  → DC-RES (리서치)         [Haiku]
+  → DC-RES (리서치)         [Sonnet]
   → DC-OSS (OSS 탐색)       [Opus]
 
 GENERATOR (구현층) — 병렬 실행, 자기 평가 금지
@@ -23,12 +25,12 @@ GENERATOR (구현층) — 병렬 실행, 자기 평가 금지
   → DC-DEV-MOB (모바일)      [Sonnet]
   → DC-DEV-OPS (DevOps)      [Sonnet]
   → DC-DEV-INT (통합)        [Sonnet]
-  → DC-WRT     (작가)        [Sonnet]
+  → DC-WRT     (작가)        [Haiku]
   → DC-SEO     (SEO)         [Haiku]
   → DC-DOC     (문서)        [Haiku]
 
 EVALUATOR (평가층) — 3-way 동시 실행, 회의적 태도 필수
-  → DC-QA  (기능/품질)  [Haiku]
+  → DC-QA  (기능/품질)  [Sonnet]
   → DC-SEC (보안)       [Opus]
   → DC-REV (코드리뷰)   [Opus]
 
