@@ -1,6 +1,6 @@
 ---
 name: dc-oss
-model: claude-opus-4-6
+model: claude-opus-4-7
 description: "OSS Scout — discovers top 3 external libraries and tools for the task"
 ---
 

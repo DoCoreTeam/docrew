@@ -8,7 +8,7 @@ description: >
   SMALL tasks use FAST PATH (CEO direct + DC-REV + GATE).
 ---
 
-# CEO AGENT SYSTEM v2.0.7 — Router
+# CEO AGENT SYSTEM v2.0.8 — Router
 
 > 이 파일은 라우터입니다. 세부 지침은 아래 서브스킬을 참조합니다.
 
@@ -39,7 +39,7 @@ MEDIUM+: Q&A(7-12) → DC-BIZ+DC-RES+DC-OSS → DC-DEV-*(병렬) → DC-QA+DC-SE
 
 | 에이전트 | 모델 | 역할 |
 |---------|------|------|
-| DC-BIZ, DC-OSS, DC-SEC, DC-REV | claude-opus-4-6 | 판단/보안/리뷰 |
+| DC-BIZ, DC-OSS, DC-SEC, DC-REV | claude-opus-4-7 | 판단/보안/리뷰 |
 | DC-RES, DC-QA, DC-DEV-FE/BE/DB/MOB/OPS/INT | claude-sonnet-4-6 | 리서치/개발/검증 |
 | DC-WRT, DC-DOC, DC-SEO, DC-TOK | claude-haiku-4-5-20251001 | 경량 작업 |
 

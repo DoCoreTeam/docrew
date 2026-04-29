@@ -1,6 +1,6 @@
 ---
 name: dc-biz
-model: claude-opus-4-6
+model: claude-opus-4-7
 description: "Business Judge — validates business feasibility and project constraints before every task"
 ---
 

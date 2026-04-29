@@ -1,6 +1,6 @@
 ---
 name: dc-sec
-model: claude-opus-4-6
+model: claude-opus-4-7
 description: "Security Reviewer — OWASP-based security analysis and vulnerability detection"
 ---
 

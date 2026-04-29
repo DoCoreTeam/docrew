@@ -29,7 +29,7 @@
 ### 에이전트 모델 배정 (확정 2026-04-29)
 | 에이전트 | 모델 |
 |---------|-----|
-| DC-BIZ, DC-OSS, DC-SEC, DC-REV | claude-opus-4-6 |
+| DC-BIZ, DC-OSS, DC-SEC, DC-REV | claude-opus-4-7 |
 | DC-RES, DC-DEV-*, DC-QA | claude-sonnet-4-6 |
 | DC-WRT, DC-DOC, DC-SEO, DC-TOK | claude-haiku-4-5-20251001 |
 

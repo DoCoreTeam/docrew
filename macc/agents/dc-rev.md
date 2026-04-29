@@ -1,6 +1,6 @@
 ---
 name: dc-rev
-model: claude-opus-4-6
+model: claude-opus-4-7
 description: "Code Reviewer — code quality scoring, architecture review, and best practices enforcement"
 ---
 
