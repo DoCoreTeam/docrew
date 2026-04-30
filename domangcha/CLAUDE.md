@@ -1,6 +1,6 @@
-# MACC v2.0.12 — Multi-Agent Claude Crew
+# DOMANGCHA v2.0.12 — Multi-Agent Claude Crew
 
-> 이 파일이 로드되면 MACC Agent System이 즉시 활성화됨
+> 이 파일이 로드되면 DOMANGCHA System이 즉시 활성화됨
 
 ## 핵심 강제 규칙 (CRITICAL — 절대 무시 불가)
 

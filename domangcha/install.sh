@@ -36,19 +36,19 @@ git_update_or_clone() {
     fi
 }
 
-# ── 1. MACC ──────────────────────────────────
-echo -e "${BLUE}[1/5] Downloading MACC...${NC}"
-git clone --depth 1 "$MACC_REPO" "$TMP_DIR/macc-repo" --quiet
-SRC="${TMP_DIR}/macc-repo/macc"
-MACC_VERSION=$(cat "${SRC}/VERSION" 2>/dev/null || echo "unknown")
+# ── 1. DOMANGCHA ──────────────────────────────────
+echo -e "${BLUE}[1/5] Downloading DOMANGCHA...${NC}"
+git clone --depth 1 "$MACC_REPO" "$TMP_DIR/domangcha-repo" --quiet
+SRC="${TMP_DIR}/domangcha-repo/domangcha"
+DOMANGCHA_VERSION=$(cat "${SRC}/VERSION" 2>/dev/null || echo "unknown")
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${GREEN}  👔 MACC Installer v${MACC_VERSION}${NC}"
+echo -e "${GREEN}  👔 DOMANGCHA Installer v${DOMANGCHA_VERSION}${NC}"
 echo -e "${GREEN}  The AI Chief Executive for Claude Code${NC}"
 echo -e "${GREEN}  16 Agents. 15 Commands. Full Pipeline.${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "${GREEN}  ✅ Downloaded v${MACC_VERSION}${NC}"
+echo -e "${GREEN}  ✅ Downloaded v${DOMANGCHA_VERSION}${NC}"
 
 # ── 2. Agents → ~/.claude/agents/ ───────────────
 echo ""
@@ -82,7 +82,7 @@ echo ""
 echo -e "${BLUE}[5/5] Updating CLAUDE.md...${NC}"
 if [ -f "${CLAUDE_DIR}/CLAUDE.md" ]; then
     if grep -qE "^# (docrew|DOCORE|MACC|CEO) v" "${CLAUDE_DIR}/CLAUDE.md" 2>/dev/null; then
-        echo -e "${YELLOW}  ⟳ CLAUDE.md — updating MACC section${NC}"
+        echo -e "${YELLOW}  ⟳ CLAUDE.md — updating DOMANGCHA section${NC}"
         python3 - "${CLAUDE_DIR}/CLAUDE.md" "${SRC}/CLAUDE.md" <<'PYEOF'
 import sys, re
 existing = open(sys.argv[1]).read()
@@ -194,9 +194,9 @@ if [ "$SUPERPOWERS_INSTALLED" = false ]; then
     exit 1
 fi
 
-# ── 10. MACC Hooks — auto-test + auto-fix + CEO enforcer ────────
+# ── 10. DOMANGCHA Hooks — auto-test + auto-fix + CEO enforcer ────────
 echo ""
-echo -e "${BLUE}[Extra] Installing MACC hooks → ~/.claude/hooks/${NC}"
+echo -e "${BLUE}[Extra] Installing DOMANGCHA hooks → ~/.claude/hooks/${NC}"
 mkdir -p "${CLAUDE_DIR}/hooks"
 cp "${SRC}/hooks/macc-post-edit.sh" "${CLAUDE_DIR}/hooks/macc-post-edit.sh"
 cp "${SRC}/hooks/macc-stop.sh"      "${CLAUDE_DIR}/hooks/macc-stop.sh"
@@ -236,7 +236,7 @@ MACC_STOP_CHECKS_PATH = os.path.join(claude_dir, "scripts", "hooks", "macc-stop-
 MACC_STOP_CHECKS = {
     "matcher": "*",
     "hooks": [{"type": "command", "command": f'node "{MACC_STOP_CHECKS_PATH}"', "timeout": 120}],
-    "description": "MACC Stop Guard: TypeScript BLOCKING check + Playwright smoke test"
+    "description": "DOMANGCHA Stop Guard: TypeScript BLOCKING check + Playwright smoke test"
 } if os.path.exists(MACC_STOP_CHECKS_PATH) else None
 
 settings = {}
@@ -255,13 +255,13 @@ upr = [h for h in upr if not any("macc-ceo-enforcer" in sub.get("command","") fo
 upr.insert(0, MACC_ENFORCER)
 hooks["UserPromptSubmit"] = upr
 
-# PostToolUse — remove old MACC hook, append fresh
+# PostToolUse — remove old DOMANGCHA hook, append fresh
 post = hooks.get("PostToolUse", [])
 post = [h for h in post if not any("macc-post-edit" in sub.get("command","") for sub in h.get("hooks",[]))]
 post.append(MACC_POST)
 hooks["PostToolUse"] = post
 
-# Stop — remove old MACC hooks, re-inject in correct order
+# Stop — remove old DOMANGCHA hooks, re-inject in correct order
 stop = hooks.get("Stop", [])
 stop = [h for h in stop if not any(
     "macc-stop" in sub.get("command","") for sub in h.get("hooks",[])
@@ -294,10 +294,10 @@ if [ -n "$GIT_REPO" ]; then
     # post-merge: fires after `git pull` merges changes
     cat > "${GIT_HOOKS_DIR}/post-merge" << 'HOOK_EOF'
 #!/bin/bash
-# Auto-reinstall MACC when repo is updated via git pull
+# Auto-reinstall DOMANGCHA when repo is updated via git pull
 INSTALL_SH="$(git rev-parse --show-toplevel)/domangcha/install.sh"
 if [ -f "$INSTALL_SH" ]; then
-    echo "[MACC] 업데이트 감지 — 재설치 중..."
+    echo "[DOMANGCHA] 업데이트 감지 — 재설치 중..."
     bash "$INSTALL_SH"
 fi
 HOOK_EOF
@@ -305,7 +305,7 @@ HOOK_EOF
     # post-checkout: fires after `git clone` (initial checkout)
     cat > "${GIT_HOOKS_DIR}/post-checkout" << 'HOOK_EOF'
 #!/bin/bash
-# Auto-install MACC on first checkout (git clone)
+# Auto-install DOMANGCHA on first checkout (git clone)
 PREV_HEAD=$1
 NEW_HEAD=$2
 IS_BRANCH_CHECKOUT=$3
@@ -313,7 +313,7 @@ IS_BRANCH_CHECKOUT=$3
 [ "$IS_BRANCH_CHECKOUT" != "1" ] && exit 0
 INSTALL_SH="$(git rev-parse --show-toplevel)/domangcha/install.sh"
 if [ -f "$INSTALL_SH" ]; then
-    echo "[MACC] 체크아웃 감지 — 설치 중..."
+    echo "[DOMANGCHA] 체크아웃 감지 — 설치 중..."
     bash "$INSTALL_SH"
 fi
 HOOK_EOF
@@ -327,8 +327,8 @@ else
 fi
 
 # ── 14. Mark installed version ────────────────────
-echo "${MACC_VERSION}" > "${CLAUDE_DIR}/macc-installed-version"
-echo -e "${GREEN}  ✅ ~/.claude/macc-installed-version = ${MACC_VERSION}${NC}"
+echo "${DOMANGCHA_VERSION}" > "${CLAUDE_DIR}/macc-installed-version"
+echo -e "${GREEN}  ✅ ~/.claude/domangcha-installed-version = ${DOMANGCHA_VERSION}${NC}"
 
 # ── Done ─────────────────────────────────────────
 echo ""
@@ -336,7 +336,7 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 echo -e "${GREEN}  ✅ CEO installed/updated successfully!${NC}"
 echo ""
 echo -e "  Updated:"
-echo -e "    ${YELLOW}~/.claude/agents/dc-*.md${NC}          ← 16 MACC agents"
+echo -e "    ${YELLOW}~/.claude/agents/dc-*.md${NC}          ← 16 DOMANGCHA agents"
 echo -e "    ${YELLOW}~/.claude/commands/ceo*.md${NC}        ← /ceo /ceo-init /ceo-status"
 echo -e "    ${YELLOW}~/.claude/skills/ceo-system/${NC}      ← CEO orchestration brain"
 echo -e "    ${YELLOW}~/.claude/skills/ecc:*/  ${NC}         ← 183 ECC skills (no commands — use /ceo-*)"
