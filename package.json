@@ -1,0 +1,8 @@
+{
+  "name": "docore",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "bash -n macc/install.sh && echo 'install.sh syntax OK'"
+  }
+}

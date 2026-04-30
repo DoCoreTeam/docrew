@@ -19,7 +19,7 @@ echo "설치된 버전: ${INSTALLED:-알 수 없음}"
 ### STEP 2: GitHub 최신 버전 가져오기
 
 ```bash
-LATEST=$(curl -fsSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/VERSION 2>/dev/null | tr -d '[:space:]')
+LATEST=$(curl -fsSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/VERSION 2>/dev/null | tr -d '[:space:]')
 echo "최신 버전: ${LATEST:-가져오기 실패}"
 ```
 
@@ -54,7 +54,7 @@ echo "최신 버전: ${LATEST:-가져오기 실패}"
 
 - **y / yes / 예 / ㅇ** → 즉시 실행:
   ```bash
-  curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
+  curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
   ```
 
 - **n / no / 아니 / ㄴ** → 종료:

@@ -179,3 +179,35 @@
 | 2026-04-29 | `ceo-ralph.md` | STEP 1.5 weight matrix + STEP 3.5 WEIGHTED DECISION |
 | 2026-04-29 | `macc-stop.sh` | Guards 1-3 + exit 2 completion block |
 | 2026-04-29 | `s-auto-manual.py` | is_task_request() narrowed |
+| 2026-04-29 18:27 | `macc/skills/ceo-core/SKILL.md` | Edit |
+| 2026-04-29 18:27 | `macc/skills/ceo-standards/SKILL.md` | Edit |
+| 2026-04-29 18:27 | `macc/skills/ceo-sprint/SKILL.md` | Edit |
+| 2026-04-29 18:27 | `macc/skills/ceo-sprint/SKILL.md` | Edit |
+| 2026-04-29 18:27 | `macc/skills/ceo-sprint/SKILL.md` | Edit |
+| 2026-04-29 18:27 | `macc/agents/dc-res.md` | Edit |
+| 2026-04-29 18:27 | `macc/agents/dc-qa.md` | Edit |
+| 2026-04-29 18:27 | `macc/agents/dc-wrt.md` | Edit |
+| 2026-04-29 18:28 | `macc/CLAUDE.md` | Edit |
+| 2026-04-29 18:28 | `macc/skills/ceo-sprint/SKILL.md` | Edit |
+| 2026-04-29 18:28 | `macc/VERSION` | Edit |
+| 2026-04-29 18:29 | `CLAUDE.md` | Edit |
+| 2026-04-29 18:29 | `CLAUDE.md` | Edit |
+| 2026-04-29 18:29 | `macc/CLAUDE.md` | Edit |
+| 2026-04-29 18:54 | `macc/CLAUDE.md` | Edit |
+| 2026-04-29 19:07 | `../../.claude/hooks/s-auto-manual.py` | Edit |
+| 2026-04-29 19:08 | `../../.claude/hooks/s-auto-manual.py` | Edit |
+| 2026-04-29 19:09 | `macc/install.sh` | Edit |
+| 2026-04-29 19:09 | `package.json` | Write |
+| 2026-04-29 19:10 | `macc/hooks/macc-ceo-enforcer.py` | Write |
+| 2026-04-29 19:10 | `macc/install.sh` | Edit |
+| 2026-04-29 19:10 | `macc/install.sh` | Edit |
+| 2026-04-29 19:13 | `../../.claude/hooks/s-session-start.py` | Write |
+| 2026-04-29 19:15 | `macc/install.sh` | Edit |
+| 2026-04-29 19:15 | `macc/install.sh` | Edit |
+| 2026-04-30 18:06 | `README.md` | Write |
+| 2026-04-30 18:07 | `README.md` | Edit |
+| 2026-04-30 18:09 | `README.md` | Edit |
+| 2026-04-30 18:11 | `README.md` | Edit |
+| 2026-04-30 18:11 | `README.md` | Edit |
+| 2026-04-30 18:12 | `README.md` | Edit |
+| 2026-04-30 18:18 | `README.md` | Edit |

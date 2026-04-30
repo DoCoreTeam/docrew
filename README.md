@@ -6,12 +6,12 @@
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
 
-[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domacc/blob/main/macc/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/macc/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-DOMANGCHA-blue)](https://claude.ai/code)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
 ```
 
 ```bash
@@ -145,7 +145,7 @@ Non-negotiable. Enforced by Gate 1 on every file.
 
 ```bash
 # First time, or to update
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
 
 # From inside Claude Code
 /ceo-update
@@ -172,12 +172,12 @@ MIT — see [LICENSE](LICENSE).
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
 
-[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domacc/blob/main/macc/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/macc/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-DOMANGCHA-blue)](https://claude.ai/code)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
 ```
 
 ```bash
@@ -311,7 +311,7 @@ CORE 전문가들은 모든 스프린트(Sprint)에서 가동됩니다. EXTENDED
 
 ```bash
 # First time, or to update
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
 
 # From inside Claude Code
 /ceo-update
