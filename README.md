@@ -1,11 +1,11 @@
-# MACC
+# DOMACC
 
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
 
 [![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domacc/blob/main/macc/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-MACC-blue)](https://claude.ai/code)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-DOMACC-blue)](https://claude.ai/code)
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
@@ -19,9 +19,9 @@ That's it. A CEO agent assembles 16 specialists, asks 12 sharp questions, then s
 
 ---
 
-## Why MACC
+## Why DOMACC
 
-**Other AI tools start coding the second you press Enter.** MACC refuses to write a single line until it understands the problem. Then it deploys planners, builders, and evaluators in parallel — and blocks anything that fails review.
+**Other AI tools start coding the second you press Enter.** DOMACC refuses to write a single line until it understands the problem. Then it deploys planners, builders, and evaluators in parallel — and blocks anything that fails review.
 
 - **Up to 12 questions before code.** No guessing. No wasted sprints.
 - **16 specialists. One command.** Business, research, OSS scouting, full-stack, DevOps, mobile, integrations, docs, copy, SEO, QA, security, code review, token budget.
@@ -158,20 +158,20 @@ MIT — see [LICENSE](LICENSE).
 
 ---
 
-*Built with **MACC**.*
+*Built with **DOMACC**.*
 
 ---
 
 # 한국어
 
-# MACC
+# DOMACC
 
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
 
 [![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domacc/blob/main/macc/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-MACC-blue)](https://claude.ai/code)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-DOMACC-blue)](https://claude.ai/code)
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.sh | bash
@@ -185,9 +185,9 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domacc/main/macc/install.
 
 ---
 
-## 왜 MACC인가
+## 왜 DOMACC인가
 
-**다른 AI 도구는 엔터를 누르는 순간 코드부터 쏟아냅니다.** MACC는 문제를 완전히 이해하기 전까지 단 한 줄도 쓰지 않습니다. 그다음 플래너(Planner), 빌더(Builder), 평가자(Evaluator)를 병렬로 투입하고, 검토를 통과하지 못한 결과물은 모조리 막아냅니다.
+**다른 AI 도구는 엔터를 누르는 순간 코드부터 쏟아냅니다.** DOMACC는 문제를 완전히 이해하기 전까지 단 한 줄도 쓰지 않습니다. 그다음 플래너(Planner), 빌더(Builder), 평가자(Evaluator)를 병렬로 투입하고, 검토를 통과하지 못한 결과물은 모조리 막아냅니다.
 
 - **코드 작성 전 최대 12개 질문.** 추측 없음. 헛된 스프린트 없음.
 - **16명의 전문가, 단 하나의 명령.** 비즈니스, 리서치, OSS 스카우팅, 풀스택, DevOps, 모바일, 통합, 문서, 카피, SEO, QA, 보안, 코드 리뷰, 토큰 예산까지.
@@ -324,4 +324,4 @@ MIT — [LICENSE](LICENSE) 참조.
 
 ---
 
-*Built with **MACC**.*
+*Built with **DOMACC**.*
