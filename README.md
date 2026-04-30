@@ -55,6 +55,16 @@ That's it. A CEO agent assembles 16 specialists, asks 12 sharp questions, then s
                 "Deploy target? (Vercel / AWS / Railway)"
         │
         ▼
+  DOCS ── Auto-creates docs/YYYY-MM-DD-vX.X.X/  ← IMMUTABLE, ALL STACKS
+           00-requirements.md      feature + non-functional reqs
+           01-architecture.md      system design, data flow
+           02-task-breakdown.md    tasks, P0/P1/P2 priority
+           03-test-strategy.md     unit/integration/E2E + security criteria
+           04-completion-criteria.md  done condition + exit + rollback
+           ↳ Planner self-checks for gaps → asks user if needed
+           ↳ [DOC COMPLETE] before any code is written
+        │
+        ▼
   PLAN  ── DC-BIZ + DC-RES + DC-OSS  (parallel)
         │
         ▼
@@ -231,6 +241,16 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/insta
                 "외부 연동 있나요? (Stripe, OpenAI…)"
                 "로그인 필요? 권한 구분 있나요?"
                 "배포는 어디에? (Vercel / AWS / Railway)"
+        │
+        ▼
+  문서  ── docs/YYYY-MM-DD-vX.X.X/ 자동 생성  ← 절대 불변, 모든 스택
+           00-requirements.md        기능/비기능 요구사항
+           01-architecture.md        시스템 설계, 데이터 흐름
+           02-task-breakdown.md      태스크 목록 + 우선순위(P0/P1/P2)
+           03-test-strategy.md       테스트 우선순위 · 보안/보완 테스트 기준
+           04-completion-criteria.md 완료 조건 · 종료 기준 · 롤백 기준
+           ↳ 기획자 자가점검 → 갭 발견 시 사용자에게 추가 질문
+           ↳ [문서 완성] 확인 후에만 구현 시작
         │
         ▼
   기획  ── DC-BIZ + DC-RES + DC-OSS  (병렬)
