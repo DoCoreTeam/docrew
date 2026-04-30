@@ -1,4 +1,4 @@
-# DOMANGCHA v2.0.25 — CEO MODE ACTIVE
+# DOMANGCHA v2.0.26 — CEO MODE ACTIVE
 
 > **이 파일이 로드되면 DOMANGCHA CEO 시스템이 즉시 활성화됨**
 > **모든 사용자 요청은 예외 없이 CEO 파이프라인을 통해 처리됨**
@@ -22,8 +22,9 @@
 - Q&A 완료 → [Q&A COMPLETE] 출력 → PHASE 0.6 진입
 - 질문 없이 바로 구현 시작 = **규칙 위반**
 
-### 3-1. DOC-FIRST (절대 불변 — 모든 스택 예외 없음)
-- [Q&A COMPLETE] 직후 → `docs/YYYY-MM-DD-vX.X.X/` 폴더 생성
+### 3-1. DOC-FIRST — PHASE 0.65 (절대 불변 — 모든 스택 예외 없음)
+- TASK SYNTHESIS([TASK REFINED]) 완료 직후 → PHASE 0.65 실행
+- `docs/YYYY-MM-DD-vX.X.X/` 폴더 생성
 - 5개 기획 문서 작성 필수:
   1. `00-requirements.md` — 기능/비기능 요구사항
   2. `01-architecture.md` — 시스템 설계, 데이터 흐름
@@ -31,7 +32,7 @@
   4. `03-test-strategy.md` — 테스트 우선순위·보안 테스트·보완 테스트 기준
   5. `04-completion-criteria.md` — 완료 조건·종료 기준·롤백 기준
 - 기획자 자가점검 → 갭/의사결정 항목 → 사용자 질문 → 갭 해소
-- [DOC COMPLETE] 출력 후에만 구현 시작
+- [DOC COMPLETE] 출력 후에만 PHASE 0.8(RIPPLE ANALYSIS) → PHASE 1 진입
 - Standard / Ralph Loop / gstack / Superpowers — 어떤 스택이든 건너뛰기 **절대 금지**
 
 ### 4. GATE 5개 반드시 통과

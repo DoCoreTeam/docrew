@@ -194,10 +194,33 @@ Q&A 핵심 답변: <스택 / 완료기준 / 제약 / 맥락 요약>
 완료 조건: <"완료"를 판단하는 기준 목록>
 제외 범위: <이번 스프린트에서 하지 않을 것>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-→ PHASE 1 진입
+→ PHASE 0.65 진입
 ```
 
-### PHASE 0.7: RIPPLE ANALYSIS
+### PHASE 0.65: DOC-FIRST (절대 불변 — 생략 불가 — 모든 스택 예외 없음)
+
+**[TASK REFINED] 출력 직후 반드시 실행.** 구현 시작 전 기획 문서 작성 완료.
+
+```bash
+mkdir -p docs/$(date +%Y-%m-%d)-v$(cat domangcha/VERSION)
+```
+
+5개 문서 작성 필수 (순서대로):
+1. `00-requirements.md` — 기능/비기능 요구사항 (Q&A 답변 기반)
+2. `01-architecture.md` — 시스템 설계, 컴포넌트, 데이터 흐름
+3. `02-task-breakdown.md` — 태스크 목록 + 우선순위 P0/P1/P2
+4. `03-test-strategy.md` — 테스트 우선순위, 보안 테스트, 보완 테스트 기준
+5. `04-completion-criteria.md` — 완료 조건, 종료 기준, 롤백 기준
+
+기획자 자가점검 → 갭/의사결정 항목 파악 → 필요 시 사용자에게 질문 → 갭 해소
+
+```
+[DOC COMPLETE] ✅ docs/<날짜>-v<버전>/ 5개 문서 작성 완료 | → PHASE 0.8 진입
+```
+
+**건너뛰기 절대 금지** — Standard / Ralph Loop / gstack / Superpowers 어떤 스택이든 동일
+
+### PHASE 0.8: RIPPLE ANALYSIS
 
 ```
 [RIPPLE ANALYSIS] 🎯 직접 변경 / 🌊 파급 영향 / 🔧 함께 개선 / ⚠️ 사이드이펙트 위험
