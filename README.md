@@ -1,7 +1,7 @@
 # DOMANGCHA
 
 > **DO**core **M**ulti-**A**gent **N**ext-**G**en **C**laude **H**arness **A**utomation  
-> 도망차(逃亡車) — *Your AI getaway car from development hell.*
+> 돔황차 — *Your AI getaway car from development hell.*
 
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
