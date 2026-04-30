@@ -6,7 +6,7 @@
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
 
-[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.12-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-DOMANGCHA-blue)](https://claude.ai/code)
 
@@ -194,7 +194,7 @@ MIT — see [LICENSE](LICENSE).
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
 
-[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.12-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-DOMANGCHA-blue)](https://claude.ai/code)
 
