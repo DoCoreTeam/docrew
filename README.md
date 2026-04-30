@@ -13,7 +13,7 @@
 
 **16 AI specialists. One command. From requirements to shipped code.**
 
-[![Version](https://img.shields.io/badge/version-2.0.18-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.19-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Required-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -33,7 +33,7 @@ npx domangcha
 
 ```bash
 # Then, inside Claude Code:
-/ceo "Build a SaaS with auth, payments, and an admin dashboard"
+/ceo "Build a Stripe invoicing tool for freelancers — invoices, email, paid/overdue dashboard"
 ```
 
 </div>
@@ -85,91 +85,106 @@ You press Enter
 
 ## 🎬 Watch a Real Sprint
 
-> `/ceo "Build a user auth system with Google OAuth, JWT, and a profile page"`
+> `/ceo "Build a Stripe-powered invoicing tool for freelancers — create invoices, send via email, track paid/overdue"`
 
 ```
 [INTENT PARSED]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-원본: Build a user auth system with Google OAuth, JWT, and a profile page
+원본: Build a Stripe-powered invoicing tool for freelancers —
+      create invoices, send via email, track paid/overdue
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-정제: Google OAuth + JWT 기반 인증 시스템 + 사용자 프로필 페이지 구현
-목표: 보안 인증 플로우 완성 및 브라우저에서 동작 확인
-범위: 포함 — OAuth, JWT 미들웨어, 프로필 UI  /  제외 — 기타 소셜 로그인
-전제: 웹앱 구현, 기존 스택 미확인 → Q&A로 확인 필요
+정제: Freelancer creates an invoice for a client, emails it with a
+      Stripe payment link, and tracks real-time payment status
+      (draft → sent → paid/overdue) in a dashboard
+목표: Invoice create → email send → Stripe pay → dashboard auto-update (3 flows)
+범위: IN  — invoice CRUD, Stripe Payment Links, email via Resend, webhook status sync
+      OUT — tax calculation, multi-currency, accounting software sync, PDF export
+전제: Web app / greenfield / Stripe confirmed / stack TBD → Q&A needed
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 [CEO SIZE ASSESSMENT]
-Task: User auth system with Google OAuth + JWT + profile page
+Task: Freelancer invoicing tool (Stripe + email + status dashboard)
 Rating: MEDIUM  →  FULL PIPELINE
 
 [CEO] Q1: What's your stack? (Next.js / Express / other?)
-> Next.js + Supabase
+> Next.js 14 + Supabase
 
-[CEO] Q2: Do you want magic link as a fallback, or Google-only?
-> Google-only for now, but leave room to add more later
+[CEO] Q2: Should freelancers manage multiple clients, each with their own invoice history?
+> Yes — each client has a profile, invoices are linked to a client
 
-[CEO] Q3: What's "done" look like? Unit tests? E2E?
-> Passing unit tests + the login flow works in the browser
+[CEO] Q3: When a client pays via Stripe, should the invoice status update automatically (webhook)?
+> Yes, paid status should flip in real time — no manual refresh
 
-[CEO] Q4: Any existing codebase or greenfield?
-> Greenfield
+[CEO] Q4: What does "done" look like? Which flows need to work end-to-end in the browser?
+> ① Create invoice → send to client email  ② Client clicks link → pays via Stripe
+> ③ Dashboard shows "Paid" automatically. All 3 in Stripe test mode.
 
-[Q&A COMPLETE] ✅  Stack / done criteria / constraints confirmed
+[CEO] Q5: Auth for the freelancer — GitHub OAuth, email/password, or something else?
+> GitHub OAuth — quickest to set up
+
+[Q&A COMPLETE] ✅  Stack / data model / Stripe webhook / done criteria / auth confirmed
 
 [TASK REFINED]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-원본 입력: Build a user auth system with Google OAuth, JWT, and a profile page
-Q&A 핵심 답변: Next.js + Supabase / Google OAuth only / 단위테스트 + 브라우저 플로우 / 그린필드
+원본 입력: Stripe-powered invoicing tool for freelancers
+Q&A 핵심 답변: Next.js 14 + Supabase / clients table per user /
+               Stripe Payment Links + webhook / Resend email / GitHub OAuth /
+               3 E2E flows in Stripe test mode
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-최종 태스크: Next.js + Supabase에서 Google OAuth 인증 구현 (next-auth v5),
-             JWT 미들웨어로 세션 보호, 프로필 페이지 UI 완성
-완료 조건: ① 단위테스트 통과  ② 브라우저에서 로그인 플로우 정상 동작
-제외 범위: 추가 소셜 로그인 (추후 확장 가능하도록 설계)
+최종 태스크: Next.js 14 + Supabase + Stripe + Resend.
+             GitHub OAuth login, RLS on all tables.
+             clients + invoices + stripe_events tables.
+             CRUD invoices → generate Stripe Payment Link →
+             send email via Resend → webhook flips status to "paid".
+완료 조건: ① Freelancer creates invoice → client receives email with pay link
+           ② Client pays via Stripe (test mode) → webhook fires
+           ③ Dashboard shows invoice status "Paid" without page refresh
+제외 범위: Tax calculation, multi-currency, PDF export, accounting integrations
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[DOC-FIRST] Creating docs/2026-04-30-v2.0.14/
-  ✔ 00-requirements.md
-  ✔ 01-architecture.md
-  ✔ 02-task-breakdown.md       P0: OAuth flow  P1: JWT middleware  P2: profile UI
-  ✔ 03-test-strategy.md
-  ✔ 04-completion-criteria.md
+[DOC-FIRST] Creating docs/2026-05-01-v2.0.19/
+  ✔ 00-requirements.md  (invoice lifecycle + Stripe webhook + Resend SLA)
+  ✔ 01-architecture.md  (GitHub OAuth → Supabase RLS + Stripe webhook flow)
+  ✔ 02-task-breakdown.md  P0: Auth+RLS+Stripe  P1: Invoice CRUD+email  P2: Dashboard UI
+  ✔ 03-test-strategy.md  (Stripe test mode E2E + webhook signature security test)
+  ✔ 04-completion-criteria.md  (3-flow checklist + rollback criteria)
 [DOC COMPLETE]
 
 ━━━━━━━━━━━━━ PHASE 1: PLANNER ━━━━━━━━━━━━━
-DC-BIZ  ✔  Auth is table-stakes. Build it right first time. Go.
-DC-RES  ✔  next-auth v5 + Supabase RLS — best fit for this stack.
-DC-OSS  ✔  next-auth (21k★), supabase-js, jose (JWT). All stable.
+DC-BIZ  ✔  Freelancer invoicing is a proven pain point. Stripe + email is the right wedge. Build.
+DC-RES  ✔  Stripe Payment Links beat custom checkout for v1 speed. Resend > SendGrid for DX.
+DC-OSS  ✔  stripe-node (39k★), resend (5k★), @supabase/ssr. All stable, actively maintained.
 
 ━━━━━━━━━━━━━ PHASE 2: BUILDER ━━━━━━━━━━━━━
-DC-DEV-DB   ✔  profiles table + RLS policies — 3 migrations
-DC-DEV-BE   ✔  /api/auth/[...nextauth] + JWT middleware + session handler
-DC-DEV-FE   ✔  LoginButton · ProfilePage · useSession hook — 4 components
-DC-DEV-OPS  ✔  .env.example · Vercel deploy config
+DC-DEV-DB   ✔  users · clients · invoices · stripe_events tables + RLS — 4 migrations
+DC-DEV-BE   ✔  /api/invoices (CRUD) · /api/stripe/webhook · /api/send-invoice (Resend)
+DC-DEV-FE   ✔  InvoiceForm · ClientList · StatusBadge · Dashboard · SendButton — 6 components
+DC-DEV-OPS  ✔  .env.example (STRIPE_SECRET · STRIPE_WEBHOOK_SECRET · RESEND_API_KEY) · Vercel
 
 ━━━━━━━━━━━━━ PHASE 3: EVALUATOR ━━━━━━━━━━━━━
-DC-QA   ✔  18 unit tests · 2 E2E flows · all green
-DC-SEC  ✔  0 vulnerabilities · CSRF protected · tokens short-lived
+DC-QA   ✔  22 unit tests · 3 E2E flows (create→send→paid) · Stripe test mode all green
+DC-SEC  ✔  Stripe webhook signature verified · RLS all tables · 0 vulnerabilities
 DC-REV  ✔  Code approved · no logic duplication · types sound
 
 ━━━━━━━━━━━━━ GATE 1–5 ━━━━━━━━━━━━━
 ① Scan       ✅  0 error-registry hits · all files ≤ 300 lines
-② Criteria   ✅  OAuth flow + JWT + profile — all done
-③ Version    ✅  v2.0.14 consistent
+② Criteria   ✅  3 E2E flows passing in Stripe test mode
+③ Version    ✅  v2.0.19 consistent
 ④ Separation ✅  Builder ≠ Reviewer confirmed
 ⑤ Breaking   ✅  Greenfield — no breaking changes
 
-[CEO REPORT] ✅ Done in 23 minutes.
-  Files: 11 new  ·  Tests: 18 passing  ·  Security: clean  ·  Deploy: ready
+[CEO REPORT] ✅ Done in 31 minutes.
+  Files: 18 new  ·  Tests: 22 passing  ·  Security: Stripe sig + RLS  ·  Deploy: Vercel ready
 ```
 
-**That's a complete, production-ready auth system. You didn't write a line.**
+**A complete invoicing tool with real Stripe payments. You didn't write a line.**
 
 ---
 
 ## 🔄 Pipeline
 
 ```
-/ceo "Build me a SaaS"
+/ceo "Build a Stripe invoicing tool for freelancers"
            │
            ▼
     ┌─────────────────┐
@@ -362,7 +377,7 @@ Re-running always pulls the latest. Your registries (errors, instincts, history)
 
 **16명 AI 전문가. 명령 하나. 요구사항부터 배포까지.**
 
-[![Version](https://img.shields.io/badge/version-2.0.18-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.19-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-필수-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -382,7 +397,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/
 ```
 
 ```bash
-/ceo "인증, 결제, 대시보드가 있는 SaaS 앱 만들어줘"
+/ceo "프리랜서용 Stripe 인보이스 툴 만들어줘 — 인보이스 생성, 이메일 발송, 미납/완납 대시보드"
 ```
 
 ---
@@ -433,7 +448,7 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**으로, work
 ### 🔄 파이프라인
 
 ```
-/ceo "SaaS 만들어줘"
+/ceo "프리랜서용 Stripe 인보이스 툴 만들어줘"
            │
            ▼
     ┌───────────────────┐
