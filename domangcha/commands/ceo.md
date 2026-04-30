@@ -118,9 +118,16 @@ CEO가 업무를 분석하여 각 스택 적합도 계산 후 메뉴 제시.
 3. **DC-REV** 호출 → 코드 리뷰
 4. **GATE 1-5** 통과 확인
 5. **버전 PATCH 업** → domangcha/VERSION +0.0.1
-6. **git commit** + 보고:
+6. **README 업데이트** (필수 — 생략 불가) — 변경 사항을 README에 반영. 새 기능/명령어/동작 변경 모두 포함. 형식적 수정 금지, 실제 내용 반영.
+7. **git commit** + **git push** + **npm publish** (3개 세트 — 생략 불가):
+   ```bash
+   git commit -m "v{VERSION}: $ARGUMENTS"
+   git push origin main
+   npm publish --access public
    ```
-   [CEO FAST REPORT] ⚡ FAST PATH 완료: $ARGUMENTS | v{VERSION} | CEO+DC-REV | GATE 1-5 ✅
+8. 보고:
+   ```
+   [CEO FAST REPORT] ⚡ FAST PATH 완료: $ARGUMENTS | v{VERSION} | CEO+DC-REV | GATE 1-5 ✅ | npm@{VERSION} ✅
    ```
 
 ---
@@ -210,8 +217,14 @@ PASS → PHASE 6 | FAIL → GENERATOR 재작업 (최대 3회)
 29. **GATE 5**: 파괴적 변경 → 사용자 승인
 30. **DC-TOK** → 컨텍스트 사용량 보고
 31. CEO 자가점검 최종
-32. `git commit -m "v$(cat domangcha/VERSION): $ARGUMENTS"`
-33. CEO REPORT:
+32. **README 업데이트** (필수 — 생략 불가) — 새 기능/명령어/동작 변경을 README에 강력 반영. 형식적 수정 금지.
+33. **배포 3-pack** (필수 — 생략 불가):
+    ```bash
+    git commit -m "v$(cat domangcha/VERSION): $ARGUMENTS"
+    git push origin main
+    npm publish --access public
+    ```
+34. CEO REPORT:
 
 ```
 [CEO REPORT]
@@ -221,6 +234,7 @@ PASS → PHASE 6 | FAIL → GENERATOR 재작업 (최대 3회)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 [산출물] <실제 코드/파일/문서>
 [품질 보증] DC-QA ✅ / DC-SEC ✅ / DC-REV ✅ / 버전태그 ✅ / 하네스 ✅
+[배포] git push ✅ / npm@{VERSION} ✅ / README 업데이트 ✅
 [다음 권장 액션] <CEO 권장>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
