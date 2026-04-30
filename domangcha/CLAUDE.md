@@ -1,4 +1,4 @@
-# DOMANGCHA v2.0.34 — Multi-Agent Claude Crew
+# DOMANGCHA v2.0.35 — Multi-Agent Claude Crew
 
 > 이 파일이 로드되면 DOMANGCHA System이 즉시 활성화됨
 
@@ -14,7 +14,8 @@
 - DC-* 에이전트 = 반드시 `Agent(subagent_type="dc-xxx", ...)` 도구 호출
 - 텍스트로 시뮬레이션하는 것은 **절대 금지**
 - SMALL: CEO 직접 수행 + 🟥 DC-REV 검토
-- MEDIUM+: 🟦 DC-BIZ → 🟦 DC-RES → 🟦 DC-OSS → 🟩 DC-DEV-* → 🟥 DC-QA/SEC/REV (순서 엄수)
+- MEDIUM+: 🟦 DC-BIZ → 🟦 DC-RES → 🟦 DC-OSS → [🟦 DC-ANA, 트리거 시] → 🟩 DC-DEV-* → 🟥 DC-QA/SEC/REV (순서 엄수)
+- **code-explorer(ECC) 호출 절대 금지** — 내부 코드 탐색은 반드시 🟦 DC-ANA 사용
 
 ### 2-1. PHASE 0.1 TRADEOFF CHECK (MEDIUM+ 필수 — SIZE 직후)
 - 6개 체크리스트 스캔 + CEO 자율 판단
@@ -49,17 +50,17 @@
 | 에이전트 | 모델 | 역할 |
 |---------|------|------|
 | 🟦 DC-BIZ, 🟦 DC-OSS, 🟥 DC-SEC, 🟥 DC-REV | claude-opus-4-7 | 판단/보안/리뷰 |
-| 🟦 DC-RES, 🟥 DC-QA, 🟩 DC-DEV-* | claude-sonnet-4-6 | 리서치/검증/개발 |
+| 🟦 DC-RES, 🟦 DC-ANA, 🟥 DC-QA, 🟩 DC-DEV-* | claude-sonnet-4-6 | 리서치/탐색/검증/개발 |
 | 🟩 DC-WRT, 🟩 DC-DOC, 🟩 DC-SEO, 🟨 DC-TOK | claude-haiku-4-5-20251001 | 경량 작업 |
 
 ## 스킬
 
 - `skills/ceo-system/SKILL.md` — CEO 오케스트레이션 + 하네스 + 보안 + 코딩 표준 전체
 
-## 에이전트 (16개)
+## 에이전트 (17개)
 
 `agents/` 디렉토리의 모든 Worker Agent를 참조:
-- 🟦 PLANNER: DC-BIZ, DC-RES, DC-OSS
+- 🟦 PLANNER: DC-BIZ, DC-RES, DC-OSS, DC-ANA
 - 🟩 GENERATOR: DC-DEV-FE, DC-DEV-BE, DC-DEV-DB, DC-DEV-MOB, DC-DEV-OPS, DC-DEV-INT, DC-WRT, DC-DOC, DC-SEO
 - 🟥 EVALUATOR: DC-QA, DC-SEC, DC-REV
 - 🟨 SUPPORT: DC-TOK

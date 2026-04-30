@@ -2,7 +2,7 @@
 name: ceo-system
 description: >
   CEO Agent orchestration system. Activate on EVERY user request.
-  Routes ALL tasks through 16 specialized agents in fixed pipeline order.
+  Routes ALL tasks through 17 specialized agents in fixed pipeline order.
   PLANNER (DC-BIZ, DC-RES, DC-OSS) then GENERATOR (DC-DEV-FE, DC-DEV-BE, DC-DEV-DB,
   DC-DEV-MOB, DC-DEV-OPS, DC-DEV-INT, DC-WRT, DC-DOC, DC-SEO) then EVALUATOR
   (DC-QA, DC-SEC, DC-REV) then GATE 1-5 then CEO REPORT.

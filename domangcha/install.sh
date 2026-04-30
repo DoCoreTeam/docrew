@@ -88,8 +88,8 @@ echo -e "${WHITE}${BOLD}  돔황차 — 개발 지옥에서 도망쳐  🚗💨$
 echo -e "${DIM}  Your AI getaway car from development hell.${NC}"
 echo ""
 echo -e "  ${MAGENTA}${BOLD}AI 개발 자동화 도구${NC}  ${DIM}·${NC}  ${MAGENTA}AI Development Automation Tool${NC}"
-echo -e "  ${DIM}손코딩에서 도망쳐 — 16명 AI 크루가 대신 짭니다${NC}"
-echo -e "  ${DIM}Escape hand-coding — a 16-agent AI crew builds for you${NC}"
+echo -e "  ${DIM}손코딩에서 도망쳐 — 17명 AI 크루가 대신 짭니다${NC}"
+echo -e "  ${DIM}Escape hand-coding — a 17-agent AI crew builds for you${NC}"
 echo ""
 echo -e "${DIM}  ──────────────────────────────────────────────────────${NC}"
 echo -e "  ${DIM}재설치 / Reinstall:${NC}  ${CYAN}npx domangcha${NC}"
@@ -102,7 +102,7 @@ SRC="${TMP_DIR}/domangcha-repo/domangcha"
 DOMANGCHA_VERSION=$(cat "${SRC}/VERSION" 2>/dev/null || echo "unknown")
 
 # ── 2. Agents ────────────────────────────────────
-step "에이전트 16명 설치" "Installing 16 agents"
+step "에이전트 17명 설치" "Installing 17 agents"
 mkdir -p "$AGENTS_DIR"
 agent_new=0; agent_up=0
 for f in "${SRC}/agents/"*.md; do
@@ -482,7 +482,7 @@ else:
 
 # ── Info box (width-adaptive) ──
 rows = [
-    (CY, "16 에이전트(Agents)  ·  16 명령어(Commands)  ·  풀 파이프라인(Full Pipeline)"),
+    (CY, "17 에이전트(Agents)  ·  16 명령어(Commands)  ·  풀 파이프라인(Full Pipeline)"),
     (DM, "기획 → 빌드 → 검증 → GATE → 출시  /  Plan → Build → Eval → GATE → Ship"),
     (WH, "by docore  (Michael Dohyeon Kim · KDC CEO)"),
     (DM, "github.com/DoCoreTeam/domangcha"),
@@ -505,7 +505,7 @@ sep = "  " + "─" * min(cols - 6, 56)
 print(f"{WH}{BD}  설치된 항목 / What's installed{NC}")
 print(f"{DM}{sep}{NC}")
 items = [
-    ("~/.claude/agents/dc-*.md",   "16명 DC-* 에이전트 / 16 DC-* Worker Agents"),
+    ("~/.claude/agents/dc-*.md",   "17명 DC-* 에이전트 / 17 DC-* Worker Agents"),
     ("~/.claude/commands/ceo*.md", "/ceo /ceo-init /ceo-ralph /ceo-status ..."),
     ("~/.claude/skills/",          "CEO 스킬 + 183 ECC + gstack + Superpowers"),
     ("~/.claude/hooks/ + settings.json", "자동 테스트·CEO 검토·파이프라인 강제 / enforcer"),
@@ -529,7 +529,7 @@ print(f"  {DM}  curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha
 print()
 print(f"  {WH}{BD}📋 주요 명령어 / Key Commands{NC}")
 cmds = [
-    ("/ceo \"업무\"", "Q&A → 16에이전트 → GATE → 완료"),
+    ("/ceo \"업무\"", "Q&A → 17에이전트 → GATE → 완료"),
     ("/ceo-ralph",    "자율 반복 루프 / autonomous loop"),
     ("/ceo-init",     "프로젝트 하네스 셋업 / harness setup"),
     ("/ceo-status",   "현황 조회 / show status"),

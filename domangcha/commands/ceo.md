@@ -2,7 +2,7 @@
 
 사용자가 입력한 업무를 받아 규모를 판정하고 최적 경로로 실행함
 - **SMALL** (버그픽스/수정): FAST PATH — 질문 없이 즉시 수정 → 🟥 DC-REV → GATE
-- **MEDIUM+** (새 기능/아키텍처): FULL PIPELINE — Q&A → 16 에이전트 → GATE
+- **MEDIUM+** (새 기능/아키텍처): FULL PIPELINE — Q&A → 17 에이전트 → GATE
 
 ## 에이전트 Tier & 인라인 컬러 규칙 (CRITICAL)
 
@@ -10,7 +10,7 @@
 
 | 그룹 | 이모지 | 에이전트 |
 |------|--------|---------|
-| PLANNER | 🟦 | DC-BIZ · DC-RES · DC-OSS |
+| PLANNER | 🟦 | DC-BIZ · DC-RES · DC-OSS · DC-ANA |
 | GENERATOR | 🟩 | DC-DEV-BE · DC-DEV-FE · DC-DEV-DB · DC-DEV-OPS · DC-DEV-MOB · DC-DEV-INT · DC-WRT · DC-DOC · DC-SEO |
 | EVALUATOR | 🟥 | DC-QA · DC-SEC · DC-REV |
 | SUPPORT | 🟨 | DC-TOK |
@@ -21,7 +21,7 @@
 🟦 DC-BIZ, 🟦 DC-RES, 🟦 DC-OSS, 🟩 DC-DEV-DB, 🟩 DC-DEV-BE, 🟩 DC-DEV-FE, 🟩 DC-DEV-OPS, 🟥 DC-QA, 🟥 DC-SEC, 🟥 DC-REV, 🟩 DC-DOC, 🟨 DC-TOK
 
 **EXTENDED (업무 분석 후 CEO가 판단):**
-🟩 DC-DEV-MOB (모바일), 🟩 DC-DEV-INT (외부 API), 🟩 DC-WRT (마케팅), 🟩 DC-SEO (웹 공개)
+🟦 DC-ANA (키워드: "갭분석"·"현황 파악"·"리팩터링"·"아키텍처 분석"·"어떻게 동작"·"코드 구조"·"의존성" / 규모: LARGE·HEAVY 자동), 🟩 DC-DEV-MOB (모바일), 🟩 DC-DEV-INT (외부 API), 🟩 DC-WRT (마케팅), 🟩 DC-SEO (웹 공개)
 
 ---
 
@@ -116,7 +116,7 @@ CEO가 업무 분석 후 적합도 계산:
 ```
 [CEO STACK SELECTION]
 ┌──────────────────────────────────────────────────────────┐
-│ [1] Standard    │ ████████░░  80% │ DC-* 16명, 기능 구현 │
+│ [1] Standard    │ ████████░░  80% │ DC-* 17명, 기능 구현 │
 │ [2] Ralph Loop  │ ██████░░░░  60% │ 자율 반복, 완료 조건 │
 │ [3] gstack 강화 │ ████░░░░░░  45% │ 웹 E2E, 브라우저 QA  │
 │ [4] Superpowers │ ██░░░░░░░░  25% │ 설계 중심, 계획 강화 │
@@ -225,7 +225,7 @@ Q&A 핵심 답변: <스택 / 완료기준 / 제약 / 맥락 요약>
 ### PHASE 3: GENERATOR (병렬)
 
 CORE: **🟩 DC-DEV-DB** / **🟩 DC-DEV-BE** / **🟩 DC-DEV-FE** / **🟩 DC-DEV-OPS** / **🟩 DC-DOC**
-EXTENDED: 🟩 DC-DEV-MOB / 🟩 DC-DEV-INT / 🟩 DC-WRT / 🟩 DC-SEO (Q&A 분석 결과에 따라)
+EXTENDED: 🟦 DC-ANA (내부 탐색) / 🟩 DC-DEV-MOB / 🟩 DC-DEV-INT / 🟩 DC-WRT / 🟩 DC-SEO (Q&A 분석 결과에 따라)
 완료 후 `docs/SPRINT-1-HANDOFF.md` 작성
 
 **에이전트 그룹 출력 형식 (필수 — 매 그룹 실행 결과 보고 시 사용):**

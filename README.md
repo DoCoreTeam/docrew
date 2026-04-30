@@ -11,13 +11,13 @@
 
 ### 🚗💨 DOMANGCHA — *Your AI getaway car from development hell.*
 
-**16 AI specialists. One command. From requirements to shipped code.**
+**17 AI specialists. One command. From requirements to shipped code.**
 
-[![Version](https://img.shields.io/badge/version-2.0.34-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.35-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Required-5865F2?style=for-the-badge)](https://claude.ai/code)
-[![Agents](https://img.shields.io/badge/Agents-16-FF6B6B?style=for-the-badge)](https://github.com/DoCoreTeam/domangcha#the-16-agents)
+[![Agents](https://img.shields.io/badge/Agents-17-FF6B6B?style=for-the-badge)](https://github.com/DoCoreTeam/domangcha#the-16-agents)
 [![Gates](https://img.shields.io/badge/Gates-5-orange?style=for-the-badge)](https://github.com/DoCoreTeam/domangcha#the-5-gates)
 
 <br/>
@@ -42,7 +42,7 @@ npx domangcha
 
 ## ⚡ Why DOMANGCHA?
 
-DOMANGCHA is a **multi-agent system** that brings workflow automation to Claude Code. Unlike traditional developer tools, it orchestrates 16 specialized AI agents in parallel, delivering end-to-end project delivery with zero context-switching.
+DOMANGCHA is a **multi-agent system** that brings workflow automation to Claude Code. Unlike traditional developer tools, it orchestrates 17 specialized AI agents in parallel, delivering end-to-end project delivery with zero context-switching.
 
 <table>
 <tr>
@@ -66,7 +66,7 @@ You press Enter
 You press Enter
 └── "Hold on — I have questions"
     └── 12 sharp questions
-        └── Risk check → 16 specialists
+        └── Risk check → 17 specialists
             → 5 gates → ship
 ```
 
@@ -78,7 +78,7 @@ You press Enter
 |---|:---:|:---:|
 | Requirements before code | ✅ Up to 12 questions | ❌ Codes immediately |
 | Tradeoff check before building | ✅ Catches risks upfront | ❌ None |
-| Role separation by specialist | ✅ 16 agents, parallel | ❌ Single model |
+| Role separation by specialist | ✅ 17 agents, parallel | ❌ Single model |
 | Builder ≠ Reviewer (enforced) | ✅ Always | ❌ None |
 | Breaking-change protection | ✅ Gate 5 blocks | ❌ None |
 | Mistakes → permanent patterns | ✅ error-registry | ❌ None |
@@ -205,7 +205,7 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
     ┌─────────────┐
     │  STACK SEL  │  CEO analyzes your task and recommends the best stack
     └──────┬──────┘
-           │  [1] Standard    ████████ 80%  16 agents, full pipeline
+           │  [1] Standard    ████████ 80%  17 agents, full pipeline
            │  [2] Ralph Loop  ██████   60%  autonomous until done
            │  [3] gstack      ████     40%  web E2E + browser QA
            │  [4] Superpowers ██       25%  design-first, plan-heavy
@@ -253,17 +253,18 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 
 ---
 
-## 👥 The 16 Agents
+## 👥 The 17 Agents
 
 <table>
 <thead>
 <tr><th>Phase</th><th>Agent</th><th>Role</th><th>Model</th></tr>
 </thead>
 <tbody>
-<tr><td rowspan="3"><b>🧠 PLANNER</b></td>
+<tr><td rowspan="4"><b>🧠 PLANNER</b></td>
   <td><code>DC-BIZ</code></td><td>Business Judge</td><td>Opus</td></tr>
 <tr><td><code>DC-RES</code></td><td>Researcher</td><td>Sonnet</td></tr>
 <tr><td><code>DC-OSS</code></td><td>OSS Scout</td><td>Opus</td></tr>
+<tr><td><code>DC-ANA</code></td><td>Codebase Analyst</td><td>Sonnet</td></tr>
 <tr><td rowspan="9"><b>🔨 BUILDER</b></td>
   <td><code>DC-DEV-DB</code></td><td>Database Engineer</td><td>Sonnet</td></tr>
 <tr><td><code>DC-DEV-BE</code></td><td>Backend Developer</td><td>Sonnet</td></tr>
@@ -306,6 +307,7 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 
 | Version | Feature |
 |---|---|
+| **v2.0.35** | **DC-ANA (17th Agent)** — DOMANGCHA's internal codebase analyst. Absorbs all ECC code-explorer capabilities. Auto-triggered for gap analysis, refactoring, and LARGE/HEAVY tasks. `code-explorer` (ECC) calls now banned. |
 | **v2.0.34** | **FAST PATH Lightweight DOC** — Every task, even small fixes, generates a `00-summary.md`. No more undocumented changes. |
 | **v2.0.33** | **Memory Sync** — rule memories auto-refresh on every `npx domangcha` update. User feedback and project context are never overwritten. |
 | **v2.0.31** | **Tradeoff Check** — CEO surfaces architectural risks and side effects before any Q&A or implementation begins. |
@@ -341,7 +343,7 @@ Every command triggers the multi-agent system to orchestrate tasks across planni
 
 | Command | What it does |
 |---|---|
-| `/ceo "[task]"` | 🚀 Full pipeline — version check → Q&A → 16 agents → GATE → ship |
+| `/ceo "[task]"` | 🚀 Full pipeline — version check → Q&A → 17 agents → GATE → ship |
 | `/ceo-ralph "[task]"` | 🔁 Autonomous loop until completion criteria met |
 | `/ceo-init` | 🔧 Project harness setup |
 | `/ceo-debug "[bug]"` | 🐛 Investigate → fix → verify |
@@ -413,13 +415,13 @@ Re-running always pulls the latest. Your registries (errors, instincts, history)
 
 ### 🚗💨 돔황차 — *개발 지옥에서 도망쳐*
 
-**16명 AI 전문가. 명령 하나. 요구사항부터 배포까지.**
+**17명 AI 전문가. 명령 하나. 요구사항부터 배포까지.**
 
-[![Version](https://img.shields.io/badge/version-2.0.34-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.35-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-필수-5865F2?style=for-the-badge)](https://claude.ai/code)
-[![Agents](https://img.shields.io/badge/에이전트-16명-FF6B6B?style=for-the-badge)](https://github.com/DoCoreTeam/domangcha)
+[![Agents](https://img.shields.io/badge/에이전트-17명-FF6B6B?style=for-the-badge)](https://github.com/DoCoreTeam/domangcha)
 [![Gates](https://img.shields.io/badge/게이트-5개-orange?style=for-the-badge)](https://github.com/DoCoreTeam/domangcha)
 
 > **명령 하나 쳤더니 인증, 결제, 대시보드가 돌아왔다. 테스트 통과, 보안 감사 완료, 코드 리뷰까지.**
@@ -442,7 +444,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/
 
 ### ⚡ 왜 DOMANGCHA인가?
 
-DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 16명의 전문화된 AI 에이전트를 병렬로 조율하여 문맥 전환 없이 엔드-투-엔드 프로젝트를 완성합니다.
+DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 17명의 전문화된 AI 에이전트를 병렬로 조율하여 문맥 전환 없이 엔드-투-엔드 프로젝트를 완성합니다.
 
 <table>
 <tr>
@@ -466,7 +468,7 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 1
 엔터를 치는 순간
 └── "잠깐, 질문이 있어요"
     └── 12개 핵심 질문
-        └── 리스크 체크 → 16명 전문가
+        └── 리스크 체크 → 17명 전문가
             → 5 게이트 → 출시
 ```
 
@@ -478,7 +480,7 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 1
 |---|:---:|:---:|
 | 코드 전 요구사항 분석 | ✅ 최대 12개 질문 | ❌ 바로 코딩 |
 | 구현 전 트레이드오프 체크 | ✅ 리스크 사전 발굴 | ❌ 없음 |
-| 전문가 역할 분리 | ✅ 16명 병렬 운영 | ❌ 단일 모델 |
+| 전문가 역할 분리 | ✅ 17명 병렬 운영 | ❌ 단일 모델 |
 | 빌더 ≠ 리뷰어 강제 | ✅ 항상 분리 | ❌ 없음 |
 | 파괴적 변경 보호 | ✅ Gate 5 차단 | ❌ 없음 |
 | 실수 → 영구 패턴 등록 | ✅ error-registry | ❌ 없음 |
@@ -490,6 +492,7 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 1
 
 | 버전 | 기능 |
 |---|---|
+| **v2.0.35** | **DC-ANA (17번째 에이전트)** — DOMANGCHA 전용 내부 코드베이스 분석가. ECC code-explorer 기능 완전 흡수. 갭분석·리팩터링·LARGE/HEAVY 업무 시 자동 소환. `code-explorer`(ECC) 직접 호출 금지. |
 | **v2.0.34** | **FAST PATH 경량 DOC** — 소규모 수정도 `00-summary.md` 자동 생성. 문서 없는 변경 원천 차단. |
 | **v2.0.33** | **메모리 자동 동기화** — `npx domangcha` 업데이트 시 규칙 메모리 자동 갱신. 사용자 피드백/프로젝트 컨텍스트는 절대 덮어쓰지 않음. |
 | **v2.0.31** | **트레이드오프 체크** — Q&A 및 구현 시작 전 CEO가 아키텍처 리스크와 부작용을 사전에 표면화. |
@@ -516,7 +519,7 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 1
     ┌─────────────┐
     │  스택 선택  │  CEO가 업무 분석 후 최적 스택 추천
     └──────┬──────┘
-           │  [1] 스탠다드    ████████ 80%  16명 풀 파이프라인 (기본)
+           │  [1] 스탠다드    ████████ 80%  17명 풀 파이프라인 (기본)
            │  [2] 랄프루프    ██████   60%  완료 기준 정의 후 자율 반복
            │  [3] gstack     ████     40%  웹 E2E + 브라우저 QA 강화
            │  [4] 슈퍼파워   ██       25%  설계 중심, 계획 먼저
@@ -564,17 +567,18 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 1
 
 ---
 
-### 👥 16명의 에이전트
+### 👥 17명의 에이전트
 
 <table>
 <thead>
 <tr><th>단계</th><th>에이전트</th><th>역할</th><th>모델</th></tr>
 </thead>
 <tbody>
-<tr><td rowspan="3"><b>🧠 기획자</b></td>
+<tr><td rowspan="4"><b>🧠 기획자</b></td>
   <td><code>DC-BIZ</code></td><td>사업 타당성 판단</td><td>Opus</td></tr>
 <tr><td><code>DC-RES</code></td><td>기술 리서치</td><td>Sonnet</td></tr>
 <tr><td><code>DC-OSS</code></td><td>오픈소스 도구 탐색</td><td>Opus</td></tr>
+<tr><td><code>DC-ANA</code></td><td>코드베이스 분석가</td><td>Sonnet</td></tr>
 <tr><td rowspan="9"><b>🔨 빌더</b></td>
   <td><code>DC-DEV-DB</code></td><td>데이터베이스 엔지니어</td><td>Sonnet</td></tr>
 <tr><td><code>DC-DEV-BE</code></td><td>백엔드 개발자</td><td>Sonnet</td></tr>
@@ -617,7 +621,7 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 1
 
 | 명령어 | 동작 |
 |---|---|
-| `/ceo "[업무]"` | 🚀 전체 파이프라인 — Q&A → 16명 → GATE → 출시 |
+| `/ceo "[업무]"` | 🚀 전체 파이프라인 — Q&A → 17명 → GATE → 출시 |
 | `/ceo-ralph "[업무]"` | 🔁 완료 기준 충족까지 자율 반복 루프 |
 | `/ceo-init` | 🔧 프로젝트 하네스 초기화 |
 | `/ceo-debug "[버그]"` | 🐛 조사 → 수정 → 검증 |
