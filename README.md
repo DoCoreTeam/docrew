@@ -6,12 +6,12 @@
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
 
-[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/macc/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-DOMANGCHA-blue)](https://claude.ai/code)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/install.sh | bash
 ```
 
 ```bash
@@ -134,7 +134,7 @@ Every output must pass all five. No exceptions.
 |------|-------|
 | **1** | Error-registry scan + 300-line file limit (auto-blocked) |
 | **2** | All completion criteria verified |
-| **3** | Version tag matches `macc/VERSION` |
+| **3** | Version tag matches `domangcha/VERSION` |
 | **4** | Builder ≠ Reviewer (enforced) |
 | **5** | Breaking changes blocked without explicit approval |
 
@@ -167,7 +167,7 @@ Non-negotiable. Enforced by Gate 1 on every file.
 
 ```bash
 # First time, or to update
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/install.sh | bash
 
 # From inside Claude Code
 /ceo-update
@@ -194,12 +194,12 @@ MIT — see [LICENSE](LICENSE).
 ### You just hired a 16-person engineering team.
 ### 16명의 엔지니어링 팀을 단 한 줄로 채용하세요.
 
-[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/macc/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.11-brightgreen.svg)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-DOMANGCHA-blue)](https://claude.ai/code)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/install.sh | bash
 ```
 
 ```bash
@@ -322,7 +322,7 @@ CORE 전문가들은 모든 스프린트(Sprint)에서 가동됩니다. EXTENDED
 |------|-------|
 | **1** | 에러 레지스트리(error-registry) 스캔 + 300줄 파일 제한 (자동 차단) |
 | **2** | 모든 완료 기준 충족 검증 |
-| **3** | 버전 태그가 `macc/VERSION`과 일치 |
+| **3** | 버전 태그가 `domangcha/VERSION`과 일치 |
 | **4** | 빌더(Builder) ≠ 리뷰어(Reviewer) 강제 |
 | **5** | 명시적 승인 없는 파괴적 변경 차단 |
 
@@ -355,7 +355,7 @@ CORE 전문가들은 모든 스프린트(Sprint)에서 가동됩니다. EXTENDED
 
 ```bash
 # First time, or to update
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/install.sh | bash
 
 # From inside Claude Code
 /ceo-update

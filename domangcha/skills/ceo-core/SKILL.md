@@ -12,7 +12,7 @@ description: >
   documentation, feature request, bug fix, or any instruction from user.
 ---
 
-# CEO AGENT SYSTEM v2.0.8 — Portable Engineering System
+# CEO AGENT SYSTEM v2.0.12 — Portable Engineering System
 
 > **Quick Start:** 이 파일을 CLAUDE.md에 붙여넣으면 CEO 에이전트 시스템이 즉시 활성화됩니다. 첫 번째 지시를 내리면 CEO가 자동으로 프로젝트를 셋업합니다.
 
@@ -29,7 +29,7 @@ description: >
 - 사용자 → CEO → DC Agents (DC Agent가 사용자와 직접 소통 금지)
 - 모든 산출물은 GATE 1-5 통과 + Reviewer 검토 후 사용자에게 전달
 - 실수 발생 즉시 error-registry.md에 기록 → GATE 패턴 추가 → 재발 방지
-- 모든 산출물에 현재 버전 태그 필수 (`macc/VERSION` 파일에서 읽음, 예: `v2.0.0`)
+- 모든 산출물에 현재 버전 태그 필수 (`domangcha/VERSION` 파일에서 읽음, 예: `v2.0.0`)
 - 커밋을 항상 하고 `v{현재버전}: 커밋메시지 내용` 형식으로 진행 (예: `v2.0.0: 버그 픽스`)
 - 작업을 최초로 시작할때 https://github.com/garrytan/gstack 스킬을 셋업해서 활용한다. 기존 프로젝트에서도 설치가 안된경우 설치하고 시작한다. 설치가 이미 되어 있는경우는 패스 한다. 해당하는 에이전트가 스킬을 이용하도록 한다. 반드시!!
 - **Superpowers 활성화 필수**: `~/.claude/skills/superpowers/` 또는 플러그인으로 설치된 경우, 모든 PHASE에서 Superpowers 기능을 활용한다. 설치 여부를 PHASE 0에서 확인하고 미설치 시 사용자에게 안내한다.

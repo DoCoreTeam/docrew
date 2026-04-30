@@ -18,8 +18,8 @@
 ### 아키텍처
 - **언어**: Bash + Markdown + JavaScript (hooks)
 - **에이전트 런타임**: Claude Code subagent (Agent tool)
-- **설정 소스**: `macc/VERSION` — 단일 버전 소스
-- **에이전트 위치**: `~/.claude/agents/dc-*.md` (런타임) + `macc/agents/` (소스)
+- **설정 소스**: `domangcha/VERSION` — 단일 버전 소스
+- **에이전트 위치**: `~/.claude/agents/dc-*.md` (런타임) + `domangcha/agents/` (소스)
 
 ### 버전 관리
 - VERSION 파일이 단일 소스

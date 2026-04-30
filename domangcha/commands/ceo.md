@@ -91,7 +91,7 @@ CEO가 업무를 분석하여 각 스택 적합도 계산 후 메뉴 제시.
 2. **직접 수정** — CEO가 직접 코드 수정
 3. **DC-REV** 호출 → 코드 리뷰
 4. **GATE 1-5** 통과 확인
-5. **버전 PATCH 업** → macc/VERSION +0.0.1
+5. **버전 PATCH 업** → domangcha/VERSION +0.0.1
 6. **git commit** + 보고:
    ```
    [CEO FAST REPORT] ⚡ FAST PATH 완료: $ARGUMENTS | v{VERSION} | CEO+DC-REV | GATE 1-5 ✅
@@ -162,12 +162,12 @@ PASS → PHASE 6 | FAIL → GENERATOR 재작업 (최대 3회)
 
 25. **GATE 1**: error-registry 스캔 + **300줄 초과 → 즉시 차단**
 26. **GATE 2**: 완료 조건 충족 검증
-27. **GATE 3**: 버전 태그 = `macc/VERSION` 일치
+27. **GATE 3**: 버전 태그 = `domangcha/VERSION` 일치
 28. **GATE 4**: Builder ≠ Reviewer 역할 분리
 29. **GATE 5**: 파괴적 변경 → 사용자 승인
 30. **DC-TOK** → 컨텍스트 사용량 보고
 31. CEO 자가점검 최종
-32. `git commit -m "v$(cat macc/VERSION): $ARGUMENTS"`
+32. `git commit -m "v$(cat domangcha/VERSION): $ARGUMENTS"`
 33. CEO REPORT:
 
 ```

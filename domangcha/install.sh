@@ -285,7 +285,7 @@ bash "${SRC}/hooks/macc-playwright-setup.sh"
 # ── 13. Git hooks — auto-reinstall on pull/clone ──
 echo ""
 echo -e "${BLUE}[Extra] Installing git hooks (auto-reinstall on update)...${NC}"
-# Find the git repo root that contains macc/ (works from any working dir)
+# Find the git repo root that contains domangcha/ (works from any working dir)
 GIT_REPO=$(git -C "$(dirname "${SRC}")" rev-parse --show-toplevel 2>/dev/null || true)
 if [ -n "$GIT_REPO" ]; then
     GIT_HOOKS_DIR="${GIT_REPO}/.git/hooks"
@@ -295,7 +295,7 @@ if [ -n "$GIT_REPO" ]; then
     cat > "${GIT_HOOKS_DIR}/post-merge" << 'HOOK_EOF'
 #!/bin/bash
 # Auto-reinstall MACC when repo is updated via git pull
-INSTALL_SH="$(git rev-parse --show-toplevel)/macc/install.sh"
+INSTALL_SH="$(git rev-parse --show-toplevel)/domangcha/install.sh"
 if [ -f "$INSTALL_SH" ]; then
     echo "[MACC] 업데이트 감지 — 재설치 중..."
     bash "$INSTALL_SH"
@@ -311,7 +311,7 @@ NEW_HEAD=$2
 IS_BRANCH_CHECKOUT=$3
 # Only fire on branch checkout (IS_BRANCH_CHECKOUT=1), not file checkout
 [ "$IS_BRANCH_CHECKOUT" != "1" ] && exit 0
-INSTALL_SH="$(git rev-parse --show-toplevel)/macc/install.sh"
+INSTALL_SH="$(git rev-parse --show-toplevel)/domangcha/install.sh"
 if [ -f "$INSTALL_SH" ]; then
     echo "[MACC] 체크아웃 감지 — 설치 중..."
     bash "$INSTALL_SH"

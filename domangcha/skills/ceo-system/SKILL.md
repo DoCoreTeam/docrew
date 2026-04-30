@@ -8,7 +8,7 @@ description: >
   SMALL tasks use FAST PATH (CEO direct + DC-REV + GATE).
 ---
 
-# CEO AGENT SYSTEM v2.0.11 — Router
+# CEO AGENT SYSTEM v2.0.12 — Router
 
 > 이 파일은 라우터입니다. 세부 지침은 아래 서브스킬을 참조합니다.
 
@@ -18,7 +18,7 @@ description: >
 2. **DC-* 에이전트** = 반드시 `Agent(subagent_type="dc-xxx")` 도구로 실행 (텍스트 시뮬레이션 절대 금지)
 3. **MEDIUM+** = Q&A 7-12개 먼저, 그 다음 구현
 4. **GATE 1-5** = 모든 산출물에 필수 (생략 불가)
-5. **버전** = `macc/VERSION` 파일이 단일 소스
+5. **버전** = `domangcha/VERSION` 파일이 단일 소스
 
 ## 파이프라인 순서
 
@@ -31,7 +31,7 @@ MEDIUM+: Q&A(7-12) → DC-BIZ+DC-RES+DC-OSS → DC-DEV-*(병렬) → DC-QA+DC-SE
 
 - GATE 1: error-registry 금지 패턴 + 파일 300줄 초과
 - GATE 2: 완료 조건 충족
-- GATE 3: 버전 태그 일치 (macc/VERSION 기준)
+- GATE 3: 버전 태그 일치 (domangcha/VERSION 기준)
 - GATE 4: Builder ≠ Reviewer 역할 분리
 - GATE 5: 파괴적 변경 → 사용자 승인
 
@@ -55,9 +55,9 @@ MEDIUM+: Q&A(7-12) → DC-BIZ+DC-RES+DC-OSS → DC-DEV-*(병렬) → DC-QA+DC-SE
 
 ## 버전 업데이트 절차 (커밋 전 필수)
 
-1. `macc/VERSION` 업데이트
-2. `macc/CLAUDE.md` 헤더 업데이트
-3. `macc/skills/ceo-system/SKILL.md` 헤더 업데이트
+1. `domangcha/VERSION` 업데이트
+2. `domangcha/CLAUDE.md` 헤더 업데이트
+3. `domangcha/skills/ceo-system/SKILL.md` 헤더 업데이트
 4. `~/.claude/CLAUDE.md` 헤더 업데이트
 5. `README.md` 버전 배지 업데이트
 6. `git commit: v{VERSION}: 변경 내용`

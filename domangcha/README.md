@@ -5,7 +5,7 @@
 
 ```bash
 # Install / 설치
-curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/install.sh | bash
 
 # Give orders. CEO handles the rest. / 지시만 내려주세요.
 /ceo "Build a SaaS app with auth, payments, and a dashboard"
@@ -125,7 +125,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/insta
 |------|------------|---------------|
 | GATE 1 | Error patterns + **300-line limit** (auto-blocked) | 오류 패턴 + **300줄 초과 자동 차단** |
 | GATE 2 | All completion criteria met | 완료 조건 충족 |
-| GATE 3 | Version tag matches `macc/VERSION` | 버전 태그 존재 |
+| GATE 3 | Version tag matches `domangcha/VERSION` | 버전 태그 존재 |
 | GATE 4 | Builder ≠ Reviewer (enforced) | 빌더 ≠ 리뷰어 강제 |
 | GATE 5 | No breaking changes without approval | 승인 없는 브레이킹 체인지 차단 |
 

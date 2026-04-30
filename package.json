@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "bash -n macc/install.sh && echo 'install.sh syntax OK'"
+    "test": "bash -n domangcha/install.sh && echo 'install.sh syntax OK'"
   }
 }

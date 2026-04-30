@@ -26,7 +26,7 @@
 - **GATE**: GATE 1 + DC-SEC에서 차단
 
 ### [ERR-003] 버전 불일치
-- **패턴**: macc/VERSION과 CLAUDE.md/SKILL.md/README.md의 버전 번호가 다름
+- **패턴**: domangcha/VERSION과 CLAUDE.md/SKILL.md/README.md의 버전 번호가 다름
 - **원인**: 일부 파일만 업데이트하고 커밋
 - **처방**: 버전 업데이트 시 5개 파일 전부 동시 수정
 - **GATE**: GATE 3에서 자동 차단

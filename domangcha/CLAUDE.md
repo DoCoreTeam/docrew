@@ -1,4 +1,4 @@
-# MACC v2.0.11 — Multi-Agent Claude Crew
+# MACC v2.0.12 — Multi-Agent Claude Crew
 
 > 이 파일이 로드되면 MACC Agent System이 즉시 활성화됨
 
@@ -23,7 +23,7 @@
 ### 4. GATE 5개 반드시 통과
 1. error-registry 패턴 스캔 + 파일 300줄 초과 차단
 2. 완료 조건 충족 검증
-3. 버전 태그 일치 확인 (macc/VERSION 기준)
+3. 버전 태그 일치 확인 (domangcha/VERSION 기준)
 4. Builder ≠ Reviewer 역할 분리
 5. 파괴적 변경 → 사용자 승인
 
@@ -59,14 +59,14 @@
 - 사용자 → CEO → Worker Agents (Worker가 사용자와 직접 소통 금지)
 - 모든 산출물은 GATE 1-5 통과 + Reviewer 검토 후 사용자에게 전달
 - 실수 발생 즉시 error-registry.md에 기록 → GATE 패턴 추가 → 재발 방지
-- 모든 산출물에 현재 버전 태그 필수 (예: `v2.0.0`) — `macc/VERSION` 파일에서 읽음
+- 모든 산출물에 현재 버전 태그 필수 (예: `v2.0.0`) — `domangcha/VERSION` 파일에서 읽음
 - 커밋: `v{현재버전}: 커밋메시지 내용` 형식 (예: `v2.0.0: 버그 픽스`)
 - 테스트 코드 작성 필수
 - RLS 필수 구현
 
 ## 버전 관리 정책
 
-**단일 버전 소스**: `macc/VERSION` 파일 — 이 파일이 프로젝트의 공식 버전
+**단일 버전 소스**: `domangcha/VERSION` 파일 — 이 파일이 프로젝트의 공식 버전
 
 - PATCH (3rd): CEO 자동 — 버그 픽스, Phase 진행, 설정 수정
 - MINOR (2nd): 사용자 명시 — 릴리즈 가능한 새 기능
@@ -74,12 +74,12 @@
 - CEO는 PATCH만 자동 변경, MINOR/MAJOR는 사용자 명시 없이 절대 변경 금지
 
 **버전 업데이트 필수 절차 (커밋 전 반드시 전부 완료):**
-1. `macc/VERSION` 파일 업데이트 ← **이것이 단일 소스**
-2. `macc/CLAUDE.md` 헤더 (`# MACC vX.X.X`) 업데이트
-3. `macc/skills/ceo-system/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
-4. `macc/skills/ceo-core/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
-5. `macc/skills/ceo-sprint/SKILL.md` 헤더 버전 마커 업데이트
-6. `macc/skills/ceo-standards/SKILL.md` 초기화 메시지 (`[CEO SYSTEM INITIALIZED] vX.X.X`) 업데이트
+1. `domangcha/VERSION` 파일 업데이트 ← **이것이 단일 소스**
+2. `domangcha/CLAUDE.md` 헤더 (`# MACC vX.X.X`) 업데이트
+3. `domangcha/skills/ceo-system/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
+4. `domangcha/skills/ceo-core/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
+5. `domangcha/skills/ceo-sprint/SKILL.md` 헤더 버전 마커 업데이트
+6. `domangcha/skills/ceo-standards/SKILL.md` 초기화 메시지 (`[CEO SYSTEM INITIALIZED] vX.X.X`) 업데이트
 7. `README.md` 버전 배지 (`version-X.X.X`) 업데이트
 8. git commit: `v{VERSION}: 변경 내용`
 

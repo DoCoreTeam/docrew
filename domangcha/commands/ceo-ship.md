@@ -49,7 +49,7 @@
 🚀 배포 (Deploy):             SUCCESS — <환경>
 🖥️  배포 후 QA (Post-Deploy): PASS / FAIL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🏷️  버전 (Version): v{VERSION} (macc/VERSION 파일 기준)
+🏷️  버전 (Version): v{VERSION} (domangcha/VERSION 파일 기준)
 🔗 배포 URL: <url>
 📋 커밋: <commit hash>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

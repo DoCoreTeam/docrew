@@ -59,7 +59,7 @@ Check recently modified files for:
 1. SECURITY: Hardcoded secrets, SQL injection, XSS, unvalidated inputs (OWASP Top 10)
 2. CODE QUALITY: Files >300 lines, functions >50 lines, missing error handling
 3. TESTS: Test coverage exists for changed functionality
-4. VERSION: macc/VERSION or VERSION file consistent with git log
+4. VERSION: domangcha/VERSION or VERSION file consistent with git log
 
 Output format:
 [MACC STOP REVIEW]

@@ -235,7 +235,7 @@ RECOMMENDATION: <다음 루프에서 할 일 한 줄>
 
 EXIT_SIGNAL: true 설정 후:
 1. GATE 1-5 최종 확인
-2. 버전 PATCH 업 (`macc/VERSION`)
+2. 버전 PATCH 업 (`domangcha/VERSION`)
 3. git commit
 4. 최종 보고:
 
