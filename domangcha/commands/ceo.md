@@ -91,45 +91,46 @@ Agent(subagent_type="dc-biz", description="DC-BIZ: Business Judge", prompt="..."
 
 ---
 
+## PHASE 0.1: TRADEOFF CHECK (MEDIUM+ 전용 — SIZE 직후)
+
+체크리스트 스캔 (1차) → CEO 자율 판단 (2차):
+- □ 기존 코드 500줄+ 영향 (회귀 리스크)  □ 단기 해결책↔장기 아키텍처 충돌
+- □ 새 의존성 → 보안/유지보수 비용 증가  □ 요청 방식이 더 많은 버그/복잡도 생성
+- □ 브레이킹 체인지 내포  □ 환경 제약으로 실제 작동 불가
+
+```
+[TRADEOFF CLEAR] ✅ → Q&A 자동 진행
+
+[TRADEOFF DETECTED]
+⚠️  구현 가능하나 이런 문제가 더 생길 수 있습니다: <리스크>
+선택지: [1] 그대로 진행  [2] 대안: <방식>  [3] 범위 축소  [4] 보류
+CEO 추천: [N] — <이유>  → 사용자 선택 대기
+[4] 보류 선택 시: "[CEO HOLD] 보류 처리. 재요청 시 재시작." 출력 후 종료
+```
+
+---
+
 ## PHASE 0.3: STACK SELECTION (MEDIUM+ 전용)
 
-CEO가 업무를 분석하여 각 스택 적합도 계산 후 메뉴 제시.
-
-**적합도 가산 기준:**
-- Standard: 기본 50% + 새 기능/명확한 구현범위 +20% + 반복 아님 +15%
-- Ralph Loop: 기본 20% + 반복 검증 필요 +25% + "자동화/완료까지" 언급 +25%
-- gstack 강화: 기본 15% + 웹앱 포함 +30% + UI/UX 중심 +20%
-- Superpowers: 기본 15% + 아키텍처 변경 +30% + 설계/계획 중심 +25%
-
+CEO가 업무 분석 후 적합도 계산:
 ```
 [CEO STACK SELECTION]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-업무 분석: <CEO 한 줄 분석>
-
 ┌──────────────────────────────────────────────────────────┐
-│ 스택              │ 적합도          │ 특징                 │
-├──────────────────────────────────────────────────────────┤
-│ [1] Standard      │ ████████░░  80% │ DC-* 16명, 기능 구현 │
-│ [2] Ralph Loop    │ ██████░░░░  60% │ 자율 반복, 완료 조건 │
-│ [3] gstack 강화   │ ████░░░░░░  45% │ 웹 E2E, 브라우저 QA  │
-│ [4] Superpowers   │ ██░░░░░░░░  25% │ 설계 중심, 계획 강화 │
+│ [1] Standard    │ ████████░░  80% │ DC-* 16명, 기능 구현 │
+│ [2] Ralph Loop  │ ██████░░░░  60% │ 자율 반복, 완료 조건 │
+│ [3] gstack 강화 │ ████░░░░░░  45% │ 웹 E2E, 브라우저 QA  │
+│ [4] Superpowers │ ██░░░░░░░░  25% │ 설계 중심, 계획 강화 │
 └──────────────────────────────────────────────────────────┘
-
-💡 CEO 추천: [N] <스택명> — <한 줄 이유>
-선택 (1-4, Enter = 추천):
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💡 CEO 추천: [N] <스택명> — <이유> | 선택 (1-4, Enter = 추천):
 ```
 
-**스택별 실행 경로:**
-- **[1] Standard**: FULL PIPELINE (PHASE 0.5 → 🟦 DC-BIZ/RES/OSS → 🟩 DC-DEV-* → 🟥 EVALUATOR → GATE)
-- **[2] Ralph Loop**: `ceo-ralph.md` 지침 그대로 실행 — `.ralph/` 초기화 → PROMPT.md + fix_plan.md 작성 → 사용자 승인 대기 → 승인 시 자율 루프 시작 → 가중치 결정 + RALPH_STATUS 출력
-- **[3] gstack 강화**: FULL PIPELINE + PHASE 4에서 `Skill("gstack")` E2E 브라우저 테스트 추가
-- **[4] Superpowers**: `Skill("superpowers:brainstorming")` → `Skill("superpowers:writing-plans")` → 사용자 승인 → `Skill("superpowers:executing-plans")` → `Skill("superpowers:verification-before-completion")`
+**스택별 실행:**
+- [1] Standard: FULL PIPELINE (🟦 DC-BIZ/RES/OSS → 🟩 DC-DEV-* → 🟥 EVALUATOR → GATE)
+- [2] Ralph Loop: `ceo-ralph.md` — `.ralph/` 초기화 → PROMPT.md → 자율 루프
+- [3] gstack: FULL PIPELINE + `Skill("gstack")` E2E 추가
+- [4] Superpowers: brainstorming → writing-plans → 승인 → executing-plans
 
-**실패 처리 (전 스택 공통):**
-- 에러 시: "🔧 수정 중..." 한 줄만 출력, 조용히 수정
-- 3회 재시도 후 실패 시에만: "[에스컬레이션] <항목> 해결 필요"
-- "뭐가 안됩니다" 식 보고만 하고 멈추는 것 **절대 금지**
+**실패 처리:** 에러 시 "🔧 수정 중..." 조용히 수정. 3회 후만 "[에스컬레이션]". 보고만 하고 멈추기 **절대 금지**.
 
 ---
 

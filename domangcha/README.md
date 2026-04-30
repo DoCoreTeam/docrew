@@ -129,6 +129,21 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/
 | GATE 4 | Builder ≠ Reviewer (enforced) | 빌더 ≠ 리뷰어 강제 |
 | GATE 5 | No breaking changes without approval | 승인 없는 브레이킹 체인지 차단 |
 
+## Tradeoff Check / 트레이드오프 체크 (v2.0.31)
+
+Before every MEDIUM+ task, CEO runs an automatic tradeoff assessment. When implementation would cause more problems than it solves, CEO surfaces the risks and offers 4 choices instead of blindly proceeding.
+
+MEDIUM+ 업무 진입 전 CEO가 자동으로 트레이드오프를 평가합니다. 구현이 오히려 더 많은 문제를 만들 때 무조건 진행하는 대신 리스크를 제시하고 4가지 선택지를 제공합니다.
+
+```
+[TRADEOFF DETECTED]
+⚠️  구현 가능하나 이런 문제가 더 생길 수 있습니다: <리스크>
+선택지: [1] 그대로 진행  [2] 대안  [3] 범위 축소  [4] 보류
+CEO 추천: [N] — <이유>
+
+[TRADEOFF CLEAR] ✅ → Q&A 자동 진행
+```
+
 ## Agent Color Coding / 에이전트 컬러 코딩
 
 Every agent name in CEO output is prefixed with its group emoji — renders natively in all terminals and markdown viewers.

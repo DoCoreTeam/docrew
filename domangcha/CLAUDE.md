@@ -1,4 +1,4 @@
-# DOMANGCHA v2.0.30 — Multi-Agent Claude Crew
+# DOMANGCHA v2.0.31 — Multi-Agent Claude Crew
 
 > 이 파일이 로드되면 DOMANGCHA System이 즉시 활성화됨
 
@@ -15,6 +15,11 @@
 - 텍스트로 시뮬레이션하는 것은 **절대 금지**
 - SMALL: CEO 직접 수행 + 🟥 DC-REV 검토
 - MEDIUM+: 🟦 DC-BIZ → 🟦 DC-RES → 🟦 DC-OSS → 🟩 DC-DEV-* → 🟥 DC-QA/SEC/REV (순서 엄수)
+
+### 2-1. PHASE 0.1 TRADEOFF CHECK (MEDIUM+ 필수 — SIZE 직후)
+- 6개 체크리스트 스캔 + CEO 자율 판단
+- 부작용 > 이익 시 → `[TRADEOFF DETECTED]` + 4가지 선택지 + 사용자 선택 대기
+- 이상 없으면 → `[TRADEOFF CLEAR]` → STACK SELECTION 진행
 
 ### 3. Q&A 없이 구현 금지 (MEDIUM+)
 - MEDIUM/LARGE/HEAVY 규모 = 반드시 7-12개 질문 먼저
