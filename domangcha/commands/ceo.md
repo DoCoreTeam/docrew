@@ -246,6 +246,24 @@ CORE: **DC-DEV-DB** / **DC-DEV-BE** / **DC-DEV-FE** / **DC-DEV-OPS** / **DC-DOC*
 EXTENDED: DC-DEV-MOB / DC-DEV-INT / DC-WRT / DC-SEO (Q&A 분석 결과에 따라)
 완료 후 `docs/SPRINT-1-HANDOFF.md` 작성
 
+**에이전트 그룹 출력 형식 (필수 — 매 그룹 실행 결과 보고 시 사용):**
+```
+┌─────────────────────────────────────────────────────┐
+│ 🟦 PLANNER                                          │
+│  └ DC-BIZ ✅ 사업타당성  DC-RES ✅ 리서치  DC-OSS ✅ OSS Top3 │
+├─────────────────────────────────────────────────────┤
+│ 🟩 GENERATOR                                        │
+│  └ DC-DEV-BE ✅  DC-DEV-FE ✅  DC-DEV-DB ✅  DC-DEV-OPS ✅  DC-DOC ✅ │
+│    [EXTENDED] DC-DEV-MOB ✅  DC-DEV-INT ✅  DC-WRT ✅  DC-SEO ✅ │
+├─────────────────────────────────────────────────────┤
+│ 🟥 EVALUATOR                                        │
+│  └ DC-QA ✅ PASS  DC-SEC ✅ PASS  DC-REV ✅ 88/100  │
+├─────────────────────────────────────────────────────┤
+│ 🟨 SUPPORT                                          │
+│  └ DC-TOK ✅ 컨텍스트 45% 사용                       │
+└─────────────────────────────────────────────────────┘
+```
+
 ### PHASE 4: EVALUATOR (3-way 동시)
 
 **DC-QA** → QA-SPRINT-1.md | **DC-SEC** → SEC-SPRINT-1.md | **DC-REV** → REV-SPRINT-1.md
@@ -277,11 +295,24 @@ PASS → PHASE 6 | FAIL → GENERATOR 재작업 (최대 3회)
 [CEO REPORT]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ 업무 완료: $ARGUMENTS
-🏷️ 버전: v{VERSION} | 👥 CORE 12명 + EXTENDED <n>명 | GATE 1-5 ✅
+🏷️ 버전: v{VERSION} | GATE 1-5 ✅
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+┌─────────────────────────────────────────────────────┐
+│ 🟦 PLANNER                                          │
+│  └ DC-BIZ ✅  DC-RES ✅  DC-OSS ✅                  │
+├─────────────────────────────────────────────────────┤
+│ 🟩 GENERATOR                                        │
+│  └ DC-DEV-BE ✅  DC-DEV-FE ✅  DC-DEV-DB ✅  ...   │
+├─────────────────────────────────────────────────────┤
+│ 🟥 EVALUATOR                                        │
+│  └ DC-QA ✅  DC-SEC ✅  DC-REV ✅ (<점수>/100)      │
+├─────────────────────────────────────────────────────┤
+│ 🟨 SUPPORT                                          │
+│  └ DC-TOK ✅ 컨텍스트 <n>% 사용                     │
+└─────────────────────────────────────────────────────┘
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 [산출물] <실제 코드/파일/문서>
-[품질 보증] DC-QA ✅ / DC-SEC ✅ / DC-REV ✅ / 버전태그 ✅ / 하네스 ✅
-[배포] git push ✅ / npm@{VERSION} ✅ / README 업데이트 ✅
+[배포] git push ✅ / npm@{VERSION} ✅ / README ✅
 [다음 권장 액션] <CEO 권장>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```

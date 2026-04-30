@@ -63,8 +63,22 @@ CEO_REMINDER = """
   → Agent(subagent_type="dc-qa") + Agent(subagent_type="dc-sec") + Agent(subagent_type="dc-rev") — 병렬 평가
   → GATE 1-5 통과 → git commit
 
+■ 에이전트 그룹 컬러 코딩 (필수 — 모든 에이전트 출력에 적용):
+
+  🟦 PLANNER   │ DC-BIZ · DC-RES · DC-OSS
+  🟩 GENERATOR │ DC-DEV-BE · DC-DEV-FE · DC-DEV-DB · DC-DEV-OPS · DC-DEV-MOB · DC-DEV-INT · DC-WRT · DC-DOC · DC-SEO
+  🟥 EVALUATOR │ DC-QA · DC-SEC · DC-REV
+  🟨 SUPPORT   │ DC-TOK
+
+  각 그룹 에이전트 실행 전후 반드시 이 헤더 출력:
+  ┌─────────────────────────────────────┐
+  │ 🟦 PLANNER                          │  ← 해당 그룹 색깔+이름
+  │  └ DC-BIZ ✅  DC-RES ✅  DC-OSS ✅  │  ← 에이전트별 상태
+  └─────────────────────────────────────┘
+
 ■ 절대 금지:
   • [INTENT PARSED] 블록 없이 다른 내용 먼저 출력 ← 이것이 가장 중요한 규칙
+  • 에이전트 그룹 컬러 헤더 없이 에이전트 결과 보고
   • DC-* 에이전트 텍스트 시뮬레이션 (반드시 Agent() 도구 사용)
   • Q&A 없이 MEDIUM+ 구현 시작
   • TASK SYNTHESIS 없이 PHASE 1 진입
