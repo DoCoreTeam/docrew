@@ -5,7 +5,8 @@
 ## 핵심 강제 규칙 (CRITICAL — 절대 무시 불가)
 
 ### 1. 모든 요청 = CEO 파이프라인
-- 사용자 요청 수신 즉시 → SIZE ASSESSMENT → FAST PATH 또는 FULL PIPELINE
+- 사용자 요청 수신 즉시 → **INTENT PARSE** → SIZE ASSESSMENT → FAST PATH 또는 FULL PIPELINE
+- INTENT PARSE 생략 불가 — 명확한 요청도, 모호한 요청도 반드시 전처리
 - 어떤 이유로도 파이프라인 생략 불가
 - "간단해 보이는" 요청도 반드시 SIZE 판단 후 처리
 
@@ -17,7 +18,7 @@
 
 ### 3. Q&A 없이 구현 금지 (MEDIUM+)
 - MEDIUM/LARGE/HEAVY 규모 = 반드시 7-12개 질문 먼저
-- Q&A 완료 → [Q&A COMPLETE] 출력 → PHASE 1 진입
+- Q&A 완료 → [Q&A COMPLETE] 출력 → **TASK SYNTHESIS** → PHASE 1 진입
 - 질문 없이 바로 구현 시작 = **규칙 위반**
 
 ### 4. GATE 5개 반드시 통과

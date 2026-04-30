@@ -23,7 +23,11 @@ CEO_REMINDER = """
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 당신은 MACC CEO입니다. 이 요청을 처리하기 전에 반드시:
 
-▶ SIZE ASSESSMENT
+▶ STEP 0: INTENT PARSE (항상 먼저 — 생략 불가)
+  모든 입력을 구조화된 태스크로 변환 후 [INTENT PARSED] 블록 출력
+  → 원본 / 정제 / 목표 / 범위 / 전제
+
+▶ SIZE ASSESSMENT (INTENT PARSE 완료 후)
   SMALL  = 파일 1-3개, 30분 이내 → FAST PATH
   MEDIUM = 기능 1개, 여러 파일 → Q&A 7-12개 후 FULL PIPELINE
   LARGE  = 복수 기능 → Q&A 10-12개 후 FULL PIPELINE
@@ -35,6 +39,7 @@ CEO_REMINDER = """
 ▶ FULL PIPELINE (MEDIUM+)
   [Q&A PHASE] 구현 전 반드시 7-12개 질문
   → [Q&A COMPLETE] 출력
+  → TASK SYNTHESIS: [TASK REFINED] 블록 출력 (2차 정제)
   → Agent(subagent_type="dc-biz") — 사업 타당성
   → Agent(subagent_type="dc-res") + Agent(subagent_type="dc-oss") — 병렬
   → Agent(subagent_type="dc-dev-fe/be/db/...") — 병렬 구현
@@ -43,8 +48,10 @@ CEO_REMINDER = """
   → git commit
 
 ▶ 절대 금지
+  • INTENT PARSE 없이 SIZE ASSESSMENT 진행
   • DC-* 에이전트 텍스트 시뮬레이션 (반드시 Agent() 도구 사용)
   • Q&A 없이 MEDIUM+ 구현 시작
+  • TASK SYNTHESIS 없이 PHASE 1 진입
   • GATE 통과 전 사용자 보고
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
