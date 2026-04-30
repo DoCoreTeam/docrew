@@ -129,7 +129,7 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/
 | GATE 4 | Builder ≠ Reviewer (enforced) | 빌더 ≠ 리뷰어 강제 |
 | GATE 5 | No breaking changes without approval | 승인 없는 브레이킹 체인지 차단 |
 
-## Tradeoff Check / 트레이드오프 체크 (v2.0.32)
+## Tradeoff Check / 트레이드오프 체크 (v2.0.33)
 
 Before every MEDIUM+ task, CEO runs an automatic tradeoff assessment. When implementation would cause more problems than it solves, CEO surfaces the risks and offers 4 choices instead of blindly proceeding.
 

@@ -13,7 +13,7 @@
 
 **16 AI specialists. One command. From requirements to shipped code.**
 
-[![Version](https://img.shields.io/badge/version-2.0.32-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.33-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Required-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -82,7 +82,7 @@ You press Enter
 | Builder ≠ Reviewer (enforced) | ✅ Always | ❌ None |
 | Breaking-change protection | ✅ Gate 5 blocks | ❌ None |
 | Mistakes → permanent patterns | ✅ error-registry | ❌ None |
-| Rule memory auto-sync on update | ✅ v2.0.32 | ❌ None |
+| Rule memory auto-sync on update | ✅ v2.0.33 | ❌ None |
 
 ---
 
@@ -147,7 +147,7 @@ Done When:    ① Freelancer creates invoice → client receives email with pay 
 Out of Scope: Tax calculation, multi-currency, PDF export, accounting integrations
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[DOC-FIRST] Creating docs/2026-05-01-v2.0.32/
+[DOC-FIRST] Creating docs/2026-05-01-v2.0.33/
   ✔ 00-requirements.md       (invoice lifecycle + Stripe webhook + Resend SLA)
   ✔ 01-architecture.md       (GitHub OAuth → Supabase RLS + Stripe webhook flow)
   ✔ 02-task-breakdown.md     P0: Auth+RLS+Stripe  P1: Invoice CRUD+email  P2: Dashboard UI
@@ -174,7 +174,7 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 ━━━━━━━━━━━━━━━━━━ GATE 1–5 ━━━━━━━━━━━━━━━━━━━
 ① Scan       ✅  0 error-registry hits · all files ≤ 300 lines
 ② Criteria   ✅  3 E2E flows passing in Stripe test mode
-③ Version    ✅  v2.0.32 consistent across all files
+③ Version    ✅  v2.0.33 consistent across all files
 ④ Separation ✅  Builder ≠ Reviewer confirmed
 ⑤ Breaking   ✅  Greenfield — no breaking changes
 
@@ -306,7 +306,7 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 
 | Version | Feature |
 |---|---|
-| **v2.0.32** | **Memory Sync** — rule memories auto-refresh on every `npx domangcha` update. User feedback and project context are never overwritten. |
+| **v2.0.33** | **Memory Sync** — rule memories auto-refresh on every `npx domangcha` update. User feedback and project context are never overwritten. |
 | **v2.0.31** | **Tradeoff Check** — CEO surfaces architectural risks and side effects before any Q&A or implementation begins. |
 | **v2.0.30** | Agent color-coding system — visual group identification across all pipeline output. |
 
@@ -323,7 +323,7 @@ Files are installed to `~/.claude/` on first run. They do **not** auto-update wh
 **Auto-update prompt (built-in):** Every `/ceo` call silently checks the npm registry for a newer version. If one exists, you'll see:
 
 ```
-[CEO] New version v2.0.32 available (installed: v2.0.31).
+[CEO] New version v2.0.33 available (installed: v2.0.31).
 Update before continuing? (y/n):
 ```
 
@@ -414,7 +414,7 @@ Re-running always pulls the latest. Your registries (errors, instincts, history)
 
 **16명 AI 전문가. 명령 하나. 요구사항부터 배포까지.**
 
-[![Version](https://img.shields.io/badge/version-2.0.32-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.33-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-필수-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -481,7 +481,7 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 1
 | 빌더 ≠ 리뷰어 강제 | ✅ 항상 분리 | ❌ 없음 |
 | 파괴적 변경 보호 | ✅ Gate 5 차단 | ❌ 없음 |
 | 실수 → 영구 패턴 등록 | ✅ error-registry | ❌ 없음 |
-| 업데이트 시 규칙 메모리 자동 갱신 | ✅ v2.0.32 | ❌ 없음 |
+| 업데이트 시 규칙 메모리 자동 갱신 | ✅ v2.0.33 | ❌ 없음 |
 
 ---
 
@@ -489,7 +489,7 @@ DOMANGCHA는 Claude Code를 위한 **다중 에이전트 시스템**입니다. 1
 
 | 버전 | 기능 |
 |---|---|
-| **v2.0.32** | **메모리 자동 동기화** — `npx domangcha` 업데이트 시 규칙 메모리 자동 갱신. 사용자 피드백/프로젝트 컨텍스트는 절대 덮어쓰지 않음. |
+| **v2.0.33** | **메모리 자동 동기화** — `npx domangcha` 업데이트 시 규칙 메모리 자동 갱신. 사용자 피드백/프로젝트 컨텍스트는 절대 덮어쓰지 않음. |
 | **v2.0.31** | **트레이드오프 체크** — Q&A 및 구현 시작 전 CEO가 아키텍처 리스크와 부작용을 사전에 표면화. |
 | **v2.0.30** | 에이전트 컬러 코딩 시스템 — 파이프라인 출력 전체에서 그룹 시각적 식별. |
 
