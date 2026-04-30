@@ -117,11 +117,18 @@ def _latest_version() -> str:
         pass
     return ''
 
+def _semver_gt(a: str, b: str) -> bool:
+    """Return True if version string a > version string b."""
+    try:
+        return tuple(int(x) for x in a.split('.')) > tuple(int(x) for x in b.split('.'))
+    except Exception:
+        return False
+
 def update_notice() -> str:
     try:
         installed = _INSTALLED.read_text().strip() if _INSTALLED.exists() else ''
         latest = _latest_version()
-        if latest and installed and latest != installed:
+        if latest and installed and _semver_gt(latest, installed):
             return (f'\n[⚠️ UPDATE] DOMANGCHA v{latest} available '
                     f'(installed: v{installed}). '
                     f'CEO: ask user "Update before continuing? (y/n)" — '

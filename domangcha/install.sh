@@ -378,6 +378,7 @@ fi
 
 # ── 14. Mark installed version ────────────────────
 echo "${DOMANGCHA_VERSION}" > "${CLAUDE_DIR}/domangcha-installed-version"
+rm -f "${CLAUDE_DIR}/.domangcha-version-cache"
 
 # ── Done — clear + full screen ───────────────────
 clear
