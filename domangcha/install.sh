@@ -61,8 +61,33 @@ echo -e "${NC}"
 echo -e "${WHITE}${BOLD}  돔황차 — 개발 지옥에서 도망쳐  🚗💨${NC}"
 echo -e "${DIM}  Your AI getaway car from development hell.${NC}"
 echo ""
+# Version — large block display (auto-read from domangcha/VERSION)
+echo -e "${GREEN}${BOLD}$(printf '  %-54s' "  v${DOMANGCHA_VERSION}")${NC}"
+if command -v figlet &>/dev/null; then
+  figlet -f banner "  v${DOMANGCHA_VERSION}" 2>/dev/null | sed "s/^/${BOLD}${GREEN}/" | sed "s/$/${NC}/" || true
+else
+  echo -e "${GREEN}${BOLD}"
+  python3 - "${DOMANGCHA_VERSION}" <<'PYEOF'
+import sys
+V = sys.argv[1]
+digits = {
+  '0':["┌─┐","│ │","└─┘"], '1':[" ┐ "," │ "," ┴ "],
+  '2':["┌─┐","┌─┘","└─┘"], '3':["┌─┐"," ─┤","└─┘"],
+  '4':["┬ ┬","└─┤","  ┴"], '5':["┌─ ","└─┐","└─┘"],
+  '6':["┌─ ","├─┐","└─┘"], '7':["┌─┐","  │","  ╵"],
+  '8':["┌─┐","├─┤","└─┘"], '9':["┌─┐","└─┤","  ┘"],
+  '.':["   ","   "," · "], '-':["   ","───","   "], 'v':["   ","\\/ ","   "],
+}
+lines = ["  ", "  ", "  "]
+for c in "v" + V:
+  d = digits.get(c, ["   ","   ","   "])
+  for i in range(3): lines[i] += d[i] + " "
+for l in lines: print(l)
+PYEOF
+  echo -e "${NC}"
+fi
 echo -e "${MAGENTA}  ┌──────────────────────────────────────────────────────┐${NC}"
-echo -e "${MAGENTA}  │${NC}  ${GREEN}${BOLD}v${DOMANGCHA_VERSION}${NC}   ${CYAN}16 Agents${NC}  ·  ${CYAN}15 Commands${NC}  ·  ${CYAN}Full Pipeline${NC}  ${MAGENTA}│${NC}"
+echo -e "${MAGENTA}  │${NC}  ${CYAN}16 Agents${NC}  ·  ${CYAN}15 Commands${NC}  ·  ${CYAN}Full Pipeline${NC}             ${MAGENTA}│${NC}"
 echo -e "${MAGENTA}  │${NC}  ${DIM}Planner → Builder → Evaluator → GATE → Ship${NC}          ${MAGENTA}│${NC}"
 echo -e "${MAGENTA}  │${NC}  ${DIM}by ${NC}${WHITE}docore${DIM} (Michael Dohyeon Kim · KDC CEO)${NC}           ${MAGENTA}│${NC}"
 echo -e "${MAGENTA}  │${NC}  ${DIM}github.com/DoCoreTeam${NC}                                ${MAGENTA}│${NC}"
