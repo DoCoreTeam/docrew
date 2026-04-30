@@ -40,7 +40,19 @@ That's it. A CEO agent assembles 16 specialists, asks 12 sharp questions, then s
 /ceo "Build me a SaaS"
         │
         ▼
-  Q&A  ── up to 12 questions, one at a time, adaptive
+  STACK ── Which mode? CEO recommends based on your task:
+           [1] Standard    ████████  16 agents, full pipeline
+           [2] Ralph Loop  ██████    autonomous loop until done
+           [3] gstack      ████      web E2E + browser QA
+           [4] Superpowers ██        design-first, plan-heavy
+        │
+        ▼
+  Q&A  ── up to 12 questions, one at a time (adaptive)
+           e.g. "What's your tech stack?"
+                "What does 'done' look like?"
+                "Any external APIs? (Stripe, OpenAI…)"
+                "Auth required? Roles?"
+                "Deploy target? (Vercel / AWS / Railway)"
         │
         ▼
   PLAN  ── DC-BIZ + DC-RES + DC-OSS  (parallel)
@@ -203,29 +215,41 @@ curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/macc/insta
 ## 작동 방식
 
 ```
-/ceo "Build me a SaaS"
+/ceo "SaaS 만들어줘"
         │
         ▼
-  Q&A  ── up to 12 questions, one at a time, adaptive
+  스택  ── 어떤 방식으로 할까요? CEO가 업무에 맞게 추천합니다:
+           [1] 스탠다드    ████████  16명 풀 파이프라인 (기본)
+           [2] 랄프루프    ██████    완료 기준 정의 후 자율 반복
+           [3] gstack     ████      웹 E2E + 브라우저 QA 강화
+           [4] 슈퍼파워   ██        설계 중심, 계획 먼저
         │
         ▼
-  PLAN  ── DC-BIZ + DC-RES + DC-OSS  (parallel)
+  Q&A  ── 최대 12개 질문, 한 번에 하나씩 (이전 답변 반영)
+           예시: "기술 스택이 뭔가요? (Next.js, Supabase…)"
+                "언제 '완료'라고 볼 수 있나요?"
+                "외부 연동 있나요? (Stripe, OpenAI…)"
+                "로그인 필요? 권한 구분 있나요?"
+                "배포는 어디에? (Vercel / AWS / Railway)"
         │
         ▼
-  BUILD ── DB · BE · FE · OPS · DOC  (parallel CORE)
-           +MOB · INT · WRT · SEO    (added when needed)
+  기획  ── DC-BIZ + DC-RES + DC-OSS  (병렬)
         │
         ▼
-  LOOP  ── implement → review+ripple → test  (max 3x)
+  빌드  ── DB · BE · FE · OPS · DOC  (병렬 CORE)
+           +모바일 · 연동 · 카피 · SEO  (필요 시 추가)
         │
         ▼
-  AUDIT ── DC-QA + DC-SEC + DC-REV   (simultaneous)
+  루프  ── 구현 → 리뷰+파급분석 → 테스트  (최대 3회)
         │
         ▼
-  GATES ── 1·2·3·4·5  ── all must pass
+  감사  ── DC-QA + DC-SEC + DC-REV   (동시)
         │
         ▼
-  SHIP  ── code + tests + docs + commit
+  게이트 ── 1·2·3·4·5  ── 전부 통과해야 함
+        │
+        ▼
+  출시  ── 코드 + 테스트 + 문서 + 커밋
 ```
 
 ---
