@@ -17,7 +17,7 @@ AGENTS_DIR="${CLAUDE_DIR}/agents"
 COMMANDS_DIR="${CLAUDE_DIR}/commands"
 SKILLS_DIR="${CLAUDE_DIR}/skills"
 
-MACC_REPO="https://github.com/DoCoreTeam/domangcha.git"
+DOMANGCHA_REPO="https://github.com/DoCoreTeam/domangcha.git"
 GSTACK_REPO="https://github.com/garrytan/gstack.git"
 ECC_REPO="https://github.com/affaan-m/everything-claude-code.git"
 
@@ -97,7 +97,7 @@ echo -e "  ${DIM}또는 / or:${NC}  ${DIM}curl -sSL https://raw.githubuserconten
 echo -e "${DIM}  ──────────────────────────────────────────────────────${NC}"
 echo -e "  ${DIM}설치를 시작합니다 / Starting installation...${NC}"
 echo ""
-( git clone --depth 1 "$MACC_REPO" "$TMP_DIR/domangcha-repo" --quiet ) & spin "DOMANGCHA 다운로드 중 / Downloading..."
+( git clone --depth 1 "$DOMANGCHA_REPO" "$TMP_DIR/domangcha-repo" --quiet ) & spin "DOMANGCHA 다운로드 중 / Downloading..."
 SRC="${TMP_DIR}/domangcha-repo/domangcha"
 DOMANGCHA_VERSION=$(cat "${SRC}/VERSION" 2>/dev/null || echo "unknown")
 
