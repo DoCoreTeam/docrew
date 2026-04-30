@@ -4,63 +4,79 @@ Copy-paste ready posting templates for 5 platforms. Adjust links and usernames a
 
 ---
 
-## 1. X (Twitter) — Launching Thread (5 tweets)
+## 1. X (Twitter) — Launch Thread (5 tweets, each under 280 chars)
+> ⚠️ Post each tweet SEPARATELY. Reply to the previous one to create a thread.
 
-### Tweet 1 (Hook)
-🚗💨 Introducing DOMANGCHA — your AI getaway car from development hell.
+---
 
-Tired of context switching between Claude and your terminal? Just watched 3 hours of my life vanish in a single code review loop?
+**Tweet 1 — Hook** (paste this first)
+```
+🚗💨 Just shipped DOMANGCHA — open-source 16-agent AI crew for Claude Code.
 
-We built something for you. 16 AI agents. One command. Parallel execution.
+One `/ceo "Build me a SaaS"` → 16 AI specialists run in parallel → code ships.
 
-#ClaudeCode #AIAgents #DevTools
+github.com/DoCoreTeam/domangcha
 
-### Tweet 2 (Problem)
-The problem:
-• You copy-paste code from Claude into your editor
-• Formatting, linting, type-checking manually
-• One agent writes, another reviews, you coordinate
-• Context thrashing = productivity hell
-• Build breaks mid-pipeline because nobody's watching
+#ClaudeCode #AIAgents #DevTools #OpenSource
+```
 
-Sound familiar?
+---
+
+**Tweet 2 — Problem** (reply to Tweet 1)
+```
+The old way:
+• Copy-paste from Claude → editor
+• Manually lint, test, review
+• You coordinate everything
+• One context switch = lost hour
+
+Sound familiar? 😅
 
 #DeveloperTools #CodeGeneration
+```
 
-### Tweet 3 (Solution)
-Enter DOMANGCHA: 16 specialized AI agents working in parallel.
+---
 
-DC-BIZ analyzes requirements.
-DC-RES researches dependencies.
-DC-DEV-BE/FE/DB writes code.
-DC-QA tests.
-DC-REV reviews.
-DC-SEC audits for security.
+**Tweet 3 — Solution** (reply to Tweet 2)
+```
+DOMANGCHA runs 16 agents in parallel:
 
-One `/ceo` command. Everything runs together.
+DC-BIZ → requirements
+DC-DEV-BE/FE/DB → writes code
+DC-QA → tests
+DC-SEC → security audit
+DC-REV → code review
+
+All from one command. You just watch. 👀
 
 #OpenSource #AIAutomation
-
-### Tweet 4 (Install CTA)
-Ready to escape?
-
-```
-curl -fsSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/install.sh | bash
 ```
 
-Works with Claude Code. Free and open-source.
+---
 
-GitHub: https://github.com/DoCoreTeam/domangcha
+**Tweet 4 — Install** (reply to Tweet 3)
+```
+Install in 10 seconds:
 
-### Tweet 5 (Engagement CTA)
-⭐ Star the repo if you love speeding up your dev workflow.
-💬 Tell us: what's the worst part of your code-to-production pipeline?
+curl -sSL https://raw.githubusercontent.com/DoCoreTeam/domangcha/main/domangcha/install.sh | bash
 
-Let's build together.
+or: npx domangcha
+
+Then: /ceo "your task" ✨
+```
+
+---
+
+**Tweet 5 — CTA** (reply to Tweet 4)
+```
+⭐ Star it if this looks useful:
+github.com/DoCoreTeam/domangcha
+
+💬 What's the worst part of your dev pipeline?
 
 Made with ❤️ by @docore
-
-#BuildInPublic #ClaudeAPI #DevCommunity
+#BuildInPublic #ClaudeCode
+```
 
 ---
 
