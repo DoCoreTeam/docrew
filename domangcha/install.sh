@@ -24,7 +24,7 @@ ECC_REPO="https://github.com/affaan-m/everything-claude-code.git"
 TMP_DIR=$(mktemp -d)
 trap "rm -rf $TMP_DIR" EXIT
 
-TOTAL_STEPS=12
+TOTAL_STEPS=13
 CURRENT_STEP=0
 
 # ── progress bar ─────────────────────────────────
@@ -376,7 +376,53 @@ else
     echo -e "  ${YELLOW}⚠${NC}  git 레포 루트 없음 — git 훅 건너뜀 / git repo root not found — skipping git hooks"
 fi
 
-# ── 14. Mark installed version ────────────────────
+# ── 14. Memory sync ──────────────────────────────
+step "메모리 동기화 (규칙 최신화)" "Memory sync (rule refresh)"
+if [ -d "${SRC}/memory-templates" ]; then
+    MEMORY_SYNCED=0
+    for memory_dir in "${CLAUDE_DIR}/projects"/*/memory/; do
+        [ -d "$memory_dir" ] || continue
+        for template in "${SRC}/memory-templates/rule_"*.md; do
+            [ -f "$template" ] || continue
+            fname=$(basename "$template")
+            cp "$template" "${memory_dir}/${fname}"
+            MEMORY_SYNCED=$((MEMORY_SYNCED + 1))
+        done
+        # Update MEMORY.md index entries for overwritten rule files
+        if [ -f "${memory_dir}/MEMORY.md" ]; then
+            python3 - "${memory_dir}" "${SRC}/memory-templates/" <<'PYEOF'
+import sys, os, re
+memory_dir, templates_dir = sys.argv[1], sys.argv[2]
+memory_md = os.path.join(memory_dir, "MEMORY.md")
+content = open(memory_md).read()
+for fname in sorted(os.listdir(templates_dir)):
+    if not fname.startswith("rule_") or not fname.endswith(".md"):
+        continue
+    tmpl = open(os.path.join(templates_dir, fname)).read()
+    name_m = re.search(r'^name:\s*(.+)$', tmpl, re.MULTILINE)
+    desc_m = re.search(r'^description:\s*(.+)$', tmpl, re.MULTILINE)
+    if not name_m or not desc_m:
+        continue
+    new_name = name_m.group(1).strip()
+    new_desc = desc_m.group(1).strip()
+    replacement = f'- [{new_name}]({fname}) — {new_desc}'
+    pattern = r'- \[[^\]]+\]\(' + re.escape(fname) + r'\) — .+'
+    if re.search(pattern, content):
+        content = re.sub(pattern, lambda m: replacement, content)
+    else:
+        if not content.endswith('\n'):
+            content += '\n'
+        content += replacement + '\n'
+open(memory_md, 'w').write(content)
+PYEOF
+        fi
+    done
+    echo -e "  ${GREEN}✔${NC}  ${MEMORY_SYNCED}개 규칙 메모리 최신화 / ${MEMORY_SYNCED} rule memories refreshed"
+else
+    echo -e "  ${YELLOW}⚠${NC}  memory-templates 없음 / skipping"
+fi
+
+# ── 15. Mark installed version ────────────────────
 echo "${DOMANGCHA_VERSION}" > "${CLAUDE_DIR}/domangcha-installed-version"
 rm -f "${CLAUDE_DIR}/.domangcha-version-cache"
 
