@@ -258,7 +258,7 @@ PASS → PHASE 6 | FAIL → GENERATOR 재작업 (최대 3회)
 ### PHASE 6: GATE + 보고
 
 25. **GATE 1**: error-registry 스캔 + **300줄 초과 → 즉시 차단**
-26. **GATE 2**: 완료 조건 충족 검증
+26. **GATE 2**: `04-completion-criteria.md` 전 항목 라인별 ✅/❌ 출력 — ❌ 또는 파일 없음 → FAIL + 재작업. [CEO REPORT] 미출력 → FAIL [EXEC-004]
 27. **GATE 3**: 버전 태그 = `domangcha/VERSION` 일치
 28. **GATE 4**: Builder ≠ Reviewer 역할 분리
 29. **GATE 5**: 파괴적 변경 → 사용자 승인

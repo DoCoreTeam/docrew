@@ -562,6 +562,10 @@ Step 7: 초기화 보고
 ❌ 임시 파일 미정리 — docs/ 누적 방지
 ❌ Opus를 단순 작업에 투입 — 비용 낭비
 ❌ Haiku를 아키텍처/보안 판단에 투입 — 품질 위험
+❌ 04-completion-criteria.md 미확인 완료 선언 [EXEC-001] — GATE 2 FAIL
+❌ 구현 중 "여기까지만" / "다음 스프린트에서" 출력 [EXEC-002] — 즉시 중단 재작업
+❌ CLI 가능 작업을 사용자에게 위임 [EXEC-003] — 직접 Bash 실행 원칙 위반
+❌ [CEO REPORT] / [CEO FAST REPORT] 블록 미출력 [EXEC-004] — GATE 2 FAIL
 ❌ DC-OSS 없이 외부 라이브러리/모델 임의 선택 — 보안/라이선스 미검증
 ❌ SMALL 업무에 PLANNER Phase(DC-BIZ/PLAN.md/CONTRACT) 강제 — 규모별 축약 경로(9-8) 적용 필수
 ❌ Worker 배정 시 스킬 명시 지시 없이 "알아서 써라" 묵시적 위임 — PRIMARY 스킬 명시 지시 필수(9-9)
@@ -589,7 +593,7 @@ Step 7: 초기화 보고
 mkdir -p ~/.claude/reports
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "[CEO SYSTEM INITIALIZED] v2.0.40"
+echo "[CEO SYSTEM INITIALIZED] v2.0.41"
 echo "ERROR-REGISTRY : $(grep -c 'ERROR-ID' ~/.claude/error-registry.md 2>/dev/null || echo 0)건"
 echo "SKILL-REGISTRY : $(grep -c 'SKILL-ID' ~/.claude/skill-registry.md 2>/dev/null || echo 0)건"
 echo "DECISION-LOG   : $(grep -c 'DEC-' ~/.claude/decision-log.md 2>/dev/null || echo 0)건"

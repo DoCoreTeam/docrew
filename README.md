@@ -16,7 +16,7 @@ One command orchestrates 17 AI specialists: spec → code → tests → security
 
 *Your AI getaway car from development hell.*
 
-[![Version](https://img.shields.io/badge/version-2.0.40-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.41-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Required-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -310,6 +310,7 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 
 | Version | Feature |
 |---|---|
+| **v2.0.41** | **Execution Integrity Rules (§6)** — 4 hard rules added to all CLAUDE.md files: no unverified completion, no mid-implementation stops, CLI direct execution, session report mandatory. EXEC-001~004 added to error-registry. GATE 2 now outputs a line-by-line checklist from `04-completion-criteria.md`. |
 | **v2.0.40** | **Docs path slug sync** — README pipeline diagrams and `rule_doc_first.md` memory template updated to `YYYY-MM-DD-vX.X.X-<slug>/` convention. package.json description trimmed for npm search. |
 | **v2.0.39** | **README + GitHub branding overhaul** — new hero "Claude Code without DOMANGCHA is half the toolkit", functional-first positioning, docs folder naming convention `YYYY-MM-DD-vX.X.X-<slug>`, npm keywords +4 (harness/agent-orchestration/vibe-coding/subagents). |
 | **v2.0.38** | **Memory sync moved to Step 5** — memory templates now refresh before Playwright/git-hooks, so `set -e` failures can never skip the sync. Adds `rule_grand_principles.md` template + memory row in `/ceo-update` table. |
@@ -428,7 +429,7 @@ Re-running always pulls the latest. Your registries (errors, instincts, history)
 
 *개발 지옥에서 도망쳐 — 돔황차🚗💨*
 
-[![Version](https://img.shields.io/badge/version-2.0.40-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.41-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-필수-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -503,6 +504,7 @@ Claude Code는 강력하지만 — 작업 배분, 품질 게이트 강제, 17개
 
 | 버전 | 기능 |
 |---|---|
+| **v2.0.41** | **실행 신뢰성 원칙 §6** — 모든 CLAUDE.md에 4개 강제 규칙 추가: 완료 미검증 금지, 중간 멈춤 금지, CLI 직접 실행, 세션 리포트 필수. EXEC-001~004 error-registry 등록. GATE 2에 `04-completion-criteria.md` 라인별 체크리스트 강화. |
 | **v2.0.40** | **Docs 경로 slug 동기화** — README 파이프라인 다이어그램 및 `rule_doc_first.md` 메모리 템플릿을 `YYYY-MM-DD-vX.X.X-<slug>/` 컨벤션으로 업데이트. package.json description 트림. |
 | **v2.0.39** | **README + GitHub 브랜딩 개편** — 새 히어로 "DOMANGCHA 없는 Claude Code는 반쪽짜리", 기능 중심 포지셔닝, docs 폴더명 컨벤션 `YYYY-MM-DD-vX.X.X-<slug>`, npm keywords +4 추가. |
 | **v2.0.38** | **메모리 동기화 Step 5로 이동** — Playwright/git-hooks 실패 전에 메모리 템플릿이 갱신됨. `set -e`로 인한 스킵 완전 차단. `rule_grand_principles.md` 템플릿 + `/ceo-update` 테이블 memory 항목 추가. |
