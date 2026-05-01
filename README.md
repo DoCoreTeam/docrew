@@ -16,7 +16,7 @@ One command orchestrates 18 AI specialists: spec → code → tests → security
 
 *Your AI getaway car from development hell.*
 
-[![Version](https://img.shields.io/badge/version-2.0.48-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.49-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Required-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -311,6 +311,8 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 
 | Version | Feature |
 |---|---|
+| **v2.0.48** | **Auto-untrack existing `docs/` subdirs on update** — `install.sh` now runs `git rm -r --cached` on already-tracked `docs/` subdirectories when you `npx domangcha` on an existing project. Supports Korean/Unicode folder names via `core.quotepath=false`. Works on both fresh installs and updates. |
+| **v2.0.47** | **Auto-inject `docs/*/` into user project `.gitignore`** — `npx domangcha` now automatically appends `docs/*/` to your project's `.gitignore` so local planning docs are never accidentally committed. 3-guard protection: skips `$HOME`, the DOMANGCHA repo itself, and non-git directories. Opt-out via `DOMANGCHA_SKIP_GITIGNORE=1`. |
 | **v2.0.46** | **DC-KNW Security Hardening** — `dc-knw.md` adds 7 security rules: path traversal guard (reject `..`/absolute paths), frontmatter injection defense (escape `---` delimiters, fixed schema only), GUARD output quoted as data blocks, `.knw-queue/` size cap (100 files / 8KB per entry). |
 | **v2.0.45** | **Knowledge Registry (DC-KNW — 18th Agent)** — `domangcha/knowledge-registry/` with 5 type folders (error/pattern/decision/workflow/skill), `.knw-queue/` approval pipeline, 3 seed entries from error-registry, and `/ceo-knowledge /ceo-learn /ceo-promote /ceo-forget` command suite. DC-KNW added to CORE (runs GUARD mode at every PHASE 1 as advisory). |
 | **v2.0.44** | **DOC-FIRST enforced on all 4 stacks** — Ralph Loop now creates `docs/` before the autonomous loop starts (Phase 0 in `fix_plan.md`). Superpowers routes `writing-plans → approval → DOC-FIRST → executing-plans → GATE → deploy`. gstack DOC-FIRST via FULL PIPELINE made explicit. Standard also marked. Knowledge Registry system designed (DC-KNW, 18th agent) — implementation sprint in v2.0.45+. |
@@ -439,7 +441,7 @@ Re-running always pulls the latest. Your registries (errors, instincts, history)
 
 *개발 지옥에서 도망쳐 — 돔황차🚗💨*
 
-[![Version](https://img.shields.io/badge/version-2.0.48-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.49-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-필수-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -514,6 +516,8 @@ Claude Code는 강력하지만 — 작업 배분, 품질 게이트 강제, 18개
 
 | 버전 | 기능 |
 |---|---|
+| **v2.0.48** | **기존 `docs/` 하위 폴더 언트래킹 자동화** — `npx domangcha` 실행 시 이미 git 추적 중인 `docs/` 하위 폴더를 `git rm -r --cached`로 자동 언트래킹. 한글/유니코드 폴더명 지원 (`core.quotepath=false`). 신규 설치·업데이트 모두 적용. |
+| **v2.0.47** | **사용자 프로젝트 `.gitignore` 자동 처리** — `npx domangcha` 실행 시 사용자 프로젝트의 `.gitignore`에 `docs/*/` 자동 주입. 기획 문서가 실수로 커밋되지 않도록 방지. 3중 가드: `$HOME` 스킵, DOMANGCHA 레포 자체 스킵, git 레포 없음 스킵. 비활성화: `DOMANGCHA_SKIP_GITIGNORE=1`. |
 | **v2.0.46** | **DC-KNW 보안 강화** — `dc-knw.md`에 7개 보안 규칙 추가: path traversal 방어(../ 거부), frontmatter injection 방어(--- 이스케이프, 고정 스키마), GUARD 출력 인용 블록 처리, .knw-queue/ 크기 제한(100파일/8KB). |
 | **v2.0.45** | **Knowledge Registry (DC-KNW — 18번째 직원)** — `domangcha/knowledge-registry/` 5개 타입 폴더(error/pattern/decision/workflow/skill), `.knw-queue/` 승인 파이프라인, error-registry 시드 3개 엔트리, `/ceo-knowledge /ceo-learn /ceo-promote /ceo-forget` 명령어. DC-KNW가 CORE 에이전트로 매 PHASE 1마다 GUARD 모드 자동 실행 (advisory only). |
 | **v2.0.44** | **전체 4개 스택 DOC-FIRST 강제화** — Ralph Loop: fix_plan.md Phase 0에 docs/ 생성 단계 추가, Superpowers: writing-plans → 승인 → DOC-FIRST → executing-plans → GATE → deploy 흐름 명시, gstack/Standard도 DOC-FIRST 표기 일관화. Knowledge Registry(DC-KNW 18번째 직원) 설계 완료 → v2.0.45에서 구현. |
