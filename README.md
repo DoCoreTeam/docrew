@@ -16,7 +16,7 @@ One command orchestrates 18 AI specialists: spec → code → tests → security
 
 *Your AI getaway car from development hell.*
 
-[![Version](https://img.shields.io/badge/version-2.0.49-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.50-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Required-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -159,30 +159,50 @@ Out of Scope: Tax calculation, multi-currency, PDF export, accounting integratio
 [DOC COMPLETE]
 
 ━━━━━━━━━━━━━━━ PHASE 1: PLANNER ━━━━━━━━━━━━━━━
-DC-BIZ  ✔  Freelancer invoicing is a proven pain point. Stripe + email is the right wedge. Build.
-DC-RES  ✔  Stripe Payment Links beat custom checkout for v1 speed. Resend > SendGrid for DX.
-DC-OSS  ✔  stripe-node (39k★), resend (5k★), @supabase/ssr. All stable, actively maintained.
+[DC-KNW GUARD] Scanning knowledge registry for relevant patterns...
+  └── KNW-001 [HIGH]     File 300-line limit — keep webhook handler in its own file
+  └── KNW-002 [CRITICAL] No hardcoded secrets — Stripe keys via env only, never source
+  → advisory only, proceeding
+
+DC-BIZ  ✔  Freelancer invoicing is a proven pain point. Stripe + Resend is the right v1 wedge.
+            Revenue model is clear (usage-based SaaS potential). Build.
+DC-RES  ✔  Stripe Payment Links (no custom checkout) cuts implementation by ~60%.
+            Resend DX > SendGrid for developer onboarding. Supabase Realtime handles live status.
+DC-OSS  ✔  stripe-node (39k★, official) · resend (5k★, clean API) · @supabase/ssr (SSR-safe auth).
+            All actively maintained, MIT-compatible.
+DC-KNW  ✔  GUARD scan complete. 2 relevant advisories surfaced. Registry up to date.
 
 ━━━━━━━━━━━━━━━ PHASE 2: BUILDER ━━━━━━━━━━━━━━━
-DC-DEV-DB   ✔  users · clients · invoices · stripe_events tables + RLS — 4 migrations
-DC-DEV-BE   ✔  /api/invoices (CRUD) · /api/stripe/webhook · /api/send-invoice (Resend)
-DC-DEV-FE   ✔  InvoiceForm · ClientList · StatusBadge · Dashboard · SendButton — 6 components
-DC-DEV-OPS  ✔  .env.example (STRIPE_SECRET · STRIPE_WEBHOOK_SECRET · RESEND_API_KEY) · Vercel
+DC-DEV-DB   ✔  4 migrations: users (OAuth, UUID PK) · clients (per-user, RLS policy) ·
+                invoices (status: draft/sent/paid/overdue, FK → clients) ·
+                stripe_events (webhook log, idempotency key)
+DC-DEV-BE   ✔  /api/invoices (GET/POST/PATCH/DELETE) · /api/invoices/[id]/send (Resend trigger)
+                /api/stripe/webhook (sig verify → status flip) — 3 routes, 0 N+1 queries
+DC-DEV-FE   ✔  ClientList · InvoiceForm · InvoiceTable · StatusBadge · SendButton · Dashboard
+                6 components · Supabase Realtime subscription on invoice status
+DC-DEV-OPS  ✔  .env.example (STRIPE_SECRET · STRIPE_WEBHOOK_SECRET · RESEND_API_KEY ·
+                NEXT_PUBLIC_SUPABASE_URL) · Vercel config · webhook endpoint registered
+DC-DOC      ✔  API reference (3 endpoints) · Setup guide: Stripe webhook + Resend onboarding ·
+                .env.example field annotations · architecture diagram
 
 ━━━━━━━━━━━━━━━ PHASE 3: EVALUATOR ━━━━━━━━━━━━━
-DC-QA   ✔  22 unit tests · 3 E2E flows (create→send→paid) · Stripe test mode all green
-DC-SEC  ✔  Stripe webhook signature verified · RLS all tables · 0 vulnerabilities
-DC-REV  ✔  Code approved · no logic duplication · types sound
+DC-QA   ✔  22 unit tests (invoice CRUD + webhook handler) · 3 E2E flows in Stripe test mode ·
+            edge cases: duplicate webhook event, expired payment link
+DC-SEC  ✔  Stripe webhook sig verified (stripe.webhooks.constructEvent) · RLS on all 4 tables ·
+            0 hardcoded secrets · NEXT_PUBLIC prefix audit passed · 0 vulnerabilities
+DC-REV  ✔  93/100 · no logic duplication · types sound · webhook idempotency confirmed
 
 ━━━━━━━━━━━━━━━━━━ GATE 1–5 ━━━━━━━━━━━━━━━━━━━
 ① Scan       ✅  0 error-registry hits · all files ≤ 300 lines
 ② Criteria   ✅  3 E2E flows passing in Stripe test mode
-③ Version    ✅  v2.0.33 consistent across all files
+③ Version    ✅  v2.0.49 consistent across all files
 ④ Separation ✅  Builder ≠ Reviewer confirmed
 ⑤ Breaking   ✅  Greenfield — no breaking changes
 
+DC-TOK  ✔  Context: 34% used (44k / 128k tokens)
+
 [CEO REPORT] ✅ Done in 31 minutes.
-  Files: 18 new  ·  Tests: 22 passing  ·  Security: Stripe sig + RLS  ·  Deploy: Vercel ready
+  Files: 19 new  ·  Tests: 22 passing  ·  Security: Stripe sig + RLS  ·  Deploy: Vercel ready
 ```
 
 **A complete invoicing tool with real Stripe payments. You didn't write a line.**
@@ -311,6 +331,7 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 
 | Version | Feature |
 |---|---|
+| **v2.0.50** | **README Sprint Demo — full agent detail + Korean scenario** — EN "Watch a Real Sprint" now shows DC-KNW GUARD advisory output, DC-DOC, and DC-TOK for every sprint. All agents have concrete, role-specific output (not just ✔). Korean "실제 스프린트 보기" section added with a KakaoPay-powered running crew app scenario. `error-registry` ERR-007 added: mandatory 7-point README section checklist on every update. |
 | **v2.0.48** | **Auto-untrack existing `docs/` subdirs on update** — `install.sh` now runs `git rm -r --cached` on already-tracked `docs/` subdirectories when you `npx domangcha` on an existing project. Supports Korean/Unicode folder names via `core.quotepath=false`. Works on both fresh installs and updates. |
 | **v2.0.47** | **Auto-inject `docs/*/` into user project `.gitignore`** — `npx domangcha` now automatically appends `docs/*/` to your project's `.gitignore` so local planning docs are never accidentally committed. 3-guard protection: skips `$HOME`, the DOMANGCHA repo itself, and non-git directories. Opt-out via `DOMANGCHA_SKIP_GITIGNORE=1`. |
 | **v2.0.46** | **DC-KNW Security Hardening** — `dc-knw.md` adds 7 security rules: path traversal guard (reject `..`/absolute paths), frontmatter injection defense (escape `---` delimiters, fixed schema only), GUARD output quoted as data blocks, `.knw-queue/` size cap (100 files / 8KB per entry). |
@@ -441,7 +462,7 @@ Re-running always pulls the latest. Your registries (errors, instincts, history)
 
 *개발 지옥에서 도망쳐 — 돔황차🚗💨*
 
-[![Version](https://img.shields.io/badge/version-2.0.49-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.50-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-필수-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -512,10 +533,129 @@ Claude Code는 강력하지만 — 작업 배분, 품질 게이트 강제, 18개
 
 ---
 
+### 🎬 실제 스프린트 보기
+
+> `/ceo "동네 러닝 크루 관리 앱 만들어줘 — 모임 생성, 카카오페이 회비 정산, 출석 체크"`
+
+```
+[INTENT PARSED]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+입력:   동네 러닝 크루 — 모임 생성, 카카오페이 회비 정산, 출석 체크
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+정제:   크루 멤버가 모임을 생성하고, 카카오페이로 회비를 요청·정산하며,
+        출석을 기록해 개인 참여 통계를 확인하는 서비스
+목표:   모임 생성 → 회비 요청(카카오페이) → 출석 체크 → 대시보드 (3개 플로)
+범위:   포함 — 모임 CRUD, 카카오페이 결제 요청, 출석·통계
+        제외 — 실시간 채팅, GPS 경로, 이미지 업로드, Apple Watch 연동
+맥락:   웹앱 / 그린필드 / 카카오 API 확정 / 스택 미정 → Q&A 필요
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[CEO 규모 판정]
+업무:   러닝 크루 관리 (카카오페이 + 출석 + 대시보드)
+판정:   MEDIUM  →  FULL PIPELINE
+
+[TRADEOFF CHECK] ✅ 이상 없음. Q&A 진행.
+
+[CEO] Q1: 스택은 어떻게 할까요?
+> Next.js 14 + Supabase
+
+[CEO] Q2: 카카오 로그인도 쓸까요?
+> 네 — 회비도 카카오페이라 자연스러움
+
+[CEO] Q3: 회비 정산 방식은?
+> 크루장이 금액 설정 후 요청 → 멤버가 카카오페이로 개별 납부
+
+[CEO] Q4: "완료" 기준이 뭔가요?
+> ① 모임 생성 → 멤버 초대  ② 회비 요청 → 카카오페이 납부 → 상태 자동 업데이트
+> ③ 출석 체크 → 대시보드 참여율 표시 (카카오페이 테스트 모드)
+
+[CEO] Q5: 모임 최대 규모는?
+> 30명 이하 소모임
+
+[Q&A COMPLETE] ✅  스택 / 카카오 로그인·페이 / 완료 기준 / 규모 확인
+
+[TASK REFINED]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+원본 입력:  동네 러닝 크루 관리 앱
+Q&A 핵심:  Next.js 14 + Supabase / 카카오 로그인 + 카카오페이 /
+            모임·멤버·회비·출석 테이블 / 최대 30인 / 3 E2E 플로
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+최종 태스크: Next.js 14 + Supabase + 카카오 로그인 + 카카오페이 결제 요청.
+             RLS 전체 테이블 적용.
+             crews · members · dues · attendance 테이블.
+             모임 CRUD → 카카오페이 회비 요청 → webhook 납부 확인 → 출석 기록.
+완료 조건:  ① 크루장 모임 생성 → 멤버 초대 이메일 발송
+            ② 회비 요청 → 카카오페이 결제 → webhook → 납부 상태 자동 업데이트
+            ③ 출석 체크 → 대시보드에 멤버별 참여율 표시
+제외 범위:  실시간 채팅, GPS 경로, 이미지 업로드, Apple Watch 연동
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[DOC COMPLETE] docs/2026-05-02-v2.0.49-running-crew-app/ 생성 완료
+  ✔ 00-requirements.md       (모임 라이프사이클 + 카카오페이 webhook + 출석 집계)
+  ✔ 01-architecture.md       (카카오 OAuth → Supabase RLS + 카카오페이 webhook 플로)
+  ✔ 02-task-breakdown.md     P0: 인증+RLS+카카오페이  P1: 모임·회비 CRUD  P2: 출석+대시보드
+  ✔ 03-test-strategy.md      (카카오페이 테스트 모드 E2E + webhook 서명 검증)
+  ✔ 04-completion-criteria.md  (3-플로 체크리스트 + 롤백 기준)
+
+━━━━━━━━━━━━━━━ PHASE 1: 기획 ━━━━━━━━━━━━━━━
+[DC-KNW GUARD] 지식 레지스트리 스캔 중...
+  └── KNW-002 [CRITICAL] 소스코드 시크릿 하드코딩 금지 — 카카오 API 키 env 처리 필수
+  └── KNW-001 [HIGH]     파일 300줄 초과 주의 — 카카오페이 핸들러 파일 분리 권고
+  → advisory only, 계속 진행
+
+DC-BIZ  ✔  동네 소모임 회비 정산 Pain Point 명확. 카카오페이 국내 결제 1위 — 사용자 마찰 최소화.
+            크루장 확보 시 바이럴 가능성 있음. 빌드.
+DC-RES  ✔  카카오페이 단건 결제 API v1 — Ready Payment → Approve 2단계 플로.
+            카카오 REST API 직접 호출이 공식 SDK 대비 안정적.
+            Supabase Realtime으로 납부 상태 즉시 반영 가능.
+DC-OSS  ✔  axios (105k★, REST 호출) · @supabase/ssr (SSR 안전 auth) · date-fns (날짜 처리).
+            모두 활성 유지보수, MIT 라이선스.
+DC-KNW  ✔  GUARD 스캔 완료. 2개 advisory 전달. 레지스트리 최신 상태.
+
+━━━━━━━━━━━━━━━ PHASE 2: 빌드 ━━━━━━━━━━━━━━━
+DC-DEV-DB   ✔  5개 마이그레이션: users (카카오 OAuth, UUID PK) · crews (크루 정보, 크루장 FK) ·
+                members (crew_id × user_id, 역할: leader/member, RLS) ·
+                dues (금액·상태: pending/paid, 카카오 tid) · attendance (crew_id × user_id × 날짜)
+DC-DEV-BE   ✔  /api/crews (CRUD) · /api/dues/[id]/request (카카오페이 Ready 호출)
+                /api/kakao/webhook (Approve 확인 → 상태 flip) · /api/attendance (출석 토글)
+                — 4개 라우트, 카카오페이 서명 검증 포함, webhook 멱등성 처리
+DC-DEV-FE   ✔  CrewDashboard · MemberList · DuesCard · AttendanceToggle · PaymentBadge
+                5개 컴포넌트 · Supabase Realtime 구독으로 납부 상태 즉시 반영
+DC-DEV-OPS  ✔  .env.example (KAKAO_CLIENT_ID · KAKAO_PAY_CID · KAKAO_SECRET ·
+                NEXT_PUBLIC_SUPABASE_URL) · Vercel 환경 변수 · 카카오 redirect URI 등록 가이드
+DC-DOC      ✔  카카오페이 API 연동 가이드 (Ready→Approve 플로 다이어그램) ·
+                env 설명 주석 · 카카오 개발자 콘솔 설정 3단계 가이드
+
+━━━━━━━━━━━━━━━ PHASE 3: 평가 ━━━━━━━━━━━━━━━
+DC-QA   ✔  19개 단위 테스트 (CRUD + webhook 핸들러) · 3 E2E 플로 카카오페이 테스트 모드 통과
+            엣지 케이스: 중복 webhook 이벤트, 결제 취소 처리
+DC-SEC  ✔  카카오페이 webhook 서명 검증 · RLS 5개 테이블 전체 · 카카오 키 env 격리 ·
+            NEXT_PUBLIC 접두사 감사 통과 · 0 취약점
+DC-REV  ✔  91/100 · 카카오페이 Approve 멱등성 확인 · 타입 안전 · 중복 로직 없음
+
+━━━━━━━━━━━━━━━━━━ 게이트 1–5 ━━━━━━━━━━━━━━━━━━
+① 스캔       ✅  error-registry 0 히트 · 전체 파일 ≤ 300줄
+② 기준       ✅  3개 E2E 플로 카카오페이 테스트 모드 통과
+③ 버전       ✅  v2.0.49 전체 파일 일치
+④ 분리       ✅  빌더 ≠ 리뷰어 확인
+⑤ 파괴적    ✅  그린필드 — 파괴적 변경 없음
+
+DC-TOK  ✔  컨텍스트 31% 사용 (40k / 128k 토큰)
+
+[CEO 리포트] ✅ 28분 완료.
+  파일: 17개 신규  ·  테스트: 19개 통과  ·  보안: 카카오 서명 + RLS  ·  배포: Vercel 준비 완료
+```
+
+**카카오페이로 회비 정산하는 앱. 코드 한 줄 안 썼다.**
+
+---
+
 ### 🆕 최신 업데이트
 
 | 버전 | 기능 |
 |---|---|
+| **v2.0.50** | **README 스프린트 데모 전면 강화 + 한국 시나리오** — EN "Watch a Real Sprint"에 DC-KNW GUARD 어드바이저리 블록, DC-DOC, DC-TOK 출력 추가. 전 에이전트 출력이 역할별 구체적 내용으로 확장. 한국 시나리오 "실제 스프린트 보기" 신규 작성(동네 러닝 크루 앱, 카카오페이 회비 정산). `error-registry` ERR-007 추가: 업데이트마다 7개 README 섹션 전수 점검 필수. |
+| **v2.0.49** | **docs/ 자동 언트래킹 개선** — `install.sh` 캐시 무효화 + `update_notice` semver 방향 비교 수정. 버전 배지 자동 갱신 보강. |
 | **v2.0.48** | **기존 `docs/` 하위 폴더 언트래킹 자동화** — `npx domangcha` 실행 시 이미 git 추적 중인 `docs/` 하위 폴더를 `git rm -r --cached`로 자동 언트래킹. 한글/유니코드 폴더명 지원 (`core.quotepath=false`). 신규 설치·업데이트 모두 적용. |
 | **v2.0.47** | **사용자 프로젝트 `.gitignore` 자동 처리** — `npx domangcha` 실행 시 사용자 프로젝트의 `.gitignore`에 `docs/*/` 자동 주입. 기획 문서가 실수로 커밋되지 않도록 방지. 3중 가드: `$HOME` 스킵, DOMANGCHA 레포 자체 스킵, git 레포 없음 스킵. 비활성화: `DOMANGCHA_SKIP_GITIGNORE=1`. |
 | **v2.0.46** | **DC-KNW 보안 강화** — `dc-knw.md`에 7개 보안 규칙 추가: path traversal 방어(../ 거부), frontmatter injection 방어(--- 이스케이프, 고정 스키마), GUARD 출력 인용 블록 처리, .knw-queue/ 크기 제한(100파일/8KB). |
