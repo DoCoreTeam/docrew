@@ -29,4 +29,5 @@ npx domangcha
 | ECC (183 skills + 79 commands) | ✅ 전체 교체 |
 | gstack | ✅ git pull (또는 재클론) |
 | Superpowers | ✅ plugin update (또는 재클론) |
+| Memory templates (rule_*.md) | ✅ 규칙 메모리 최신화 |
 | Registries (error-registry 등) | ⏭️ 보존 (사용자 데이터) |

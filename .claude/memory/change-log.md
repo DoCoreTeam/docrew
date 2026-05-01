@@ -494,3 +494,21 @@
 | 2026-05-01 | `~/.claude/rules/common/coding-style.md` | Karpathy 4원칙 구조로 재작성, 기존 내용 통합 |
 | 2026-05-01 | `~/.claude/rules/zh/coding-style.md` | 동일 구조 중국어 재작성 |
 | 2026-05-01 | `domangcha/VERSION` | 2.0.36 → 2.0.37 |
+| 2026-05-01 13:16 | `docs/2026-05-01-v2.0.38/00-summary.md` | Write |
+| 2026-05-01 13:17 | `domangcha/memory-templates/rule_grand_principles.md` | Write |
+| 2026-05-01 13:17 | `domangcha/install.sh` | Edit |
+| 2026-05-01 13:17 | `domangcha/install.sh` | Edit |
+| 2026-05-01 13:20 | `domangcha/commands/ceo-update.md` | Edit |
+| 2026-05-01 13:20 | `domangcha/VERSION` | Edit |
+| 2026-05-01 13:20 | `package.json` | Edit |
+| 2026-05-01 13:20 | `domangcha/CLAUDE.md` | Edit |
+| 2026-05-01 13:20 | `domangcha/skills/ceo-system/SKILL.md` | Edit |
+| 2026-05-01 13:20 | `domangcha/skills/ceo-core/SKILL.md` | Edit |
+| 2026-05-01 13:20 | `domangcha/skills/ceo-sprint/SKILL.md` | Edit |
+| 2026-05-01 13:20 | `domangcha/skills/ceo-standards/SKILL.md` | Edit |
+| 2026-05-01 13:20 | `CLAUDE.md` | Edit |
+| 2026-05-01 13:21 | `CLAUDE.md` | Edit |
+| 2026-05-01 13:21 | `README.md` | Edit |
+| 2026-05-01 13:21 | `README.md` | Edit |
+| 2026-05-01 13:21 | `README.md` | Edit |
+| 2026-05-01 13:21 | `../../.claude/CLAUDE.md` | Edit |
