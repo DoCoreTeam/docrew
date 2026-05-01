@@ -1,4 +1,4 @@
-# DOMANGCHA v2.0.41 — Multi-Agent Claude Crew
+# DOMANGCHA v2.0.42 — Multi-Agent Claude Crew
 
 > 이 파일이 로드되면 DOMANGCHA System이 즉시 활성화됨
 
@@ -149,12 +149,13 @@ Applies to all code writing. Bias toward caution over speed; use judgment for tr
 2. `package.json` `"version"` 필드 업데이트 ← **npm publish 게이트 (누락 시 배포 실패)**
 3. `domangcha/CLAUDE.md` 헤더 (`# DOMANGCHA vX.X.X`) 업데이트
 4. `CLAUDE.md` (프로젝트 루트) 헤더 + 버전 라인 업데이트
-5. `domangcha/skills/ceo-system/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
-6. `domangcha/skills/ceo-core/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
-7. `domangcha/skills/ceo-sprint/SKILL.md` 헤더 버전 마커 업데이트
-8. `domangcha/skills/ceo-standards/SKILL.md` 초기화 메시지 (`[CEO SYSTEM INITIALIZED] vX.X.X`) 업데이트
-9. `README.md` 버전 배지 (`version-X.X.X`) 업데이트
-10. git commit: `v{VERSION}: 변경 내용`
+5. `~/.claude/CLAUDE.md` 헤더 업데이트 ← **글로벌 컨텍스트 즉시 적용**
+6. `domangcha/skills/ceo-system/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
+7. `domangcha/skills/ceo-core/SKILL.md` 헤더 (`# CEO AGENT SYSTEM vX.X.X`) 업데이트
+8. `domangcha/skills/ceo-sprint/SKILL.md` 헤더 버전 마커 업데이트
+9. `domangcha/skills/ceo-standards/SKILL.md` 초기화 메시지 (`[CEO SYSTEM INITIALIZED] vX.X.X`) 업데이트
+10. `README.md` 버전 배지 (`version-X.X.X`) 업데이트
+11. git commit: `v{VERSION}: 변경 내용`
 
 **절대 금지 (위반 시 버전 혼란 발생):**
 - VERSION 파일 수정 없이 커밋 메시지에만 버전 번호 사용 금지

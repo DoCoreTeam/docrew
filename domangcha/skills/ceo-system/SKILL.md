@@ -9,7 +9,7 @@ description: >
   DC-ANA is EXTENDED PLANNER — auto-triggered by keywords or LARGE/HEAVY scope.
 ---
 
-# CEO AGENT SYSTEM v2.0.41 — Router
+# CEO AGENT SYSTEM v2.0.42 — Router
 
 > 이 파일은 라우터입니다. 세부 지침은 아래 서브스킬을 참조합니다.
 
@@ -57,11 +57,16 @@ MEDIUM+: Q&A(7-12) → DC-BIZ+DC-RES+DC-OSS → DC-DEV-*(병렬) → DC-QA+DC-SE
 ## 버전 업데이트 절차 (커밋 전 필수)
 
 1. `domangcha/VERSION` 업데이트
-2. `domangcha/CLAUDE.md` 헤더 업데이트
-3. `domangcha/skills/ceo-system/SKILL.md` 헤더 업데이트
-4. `~/.claude/CLAUDE.md` 헤더 업데이트
-5. `README.md` 버전 배지 업데이트
-6. `git commit: v{VERSION}: 변경 내용`
+2. `package.json` version 필드 업데이트 ← npm publish 게이트
+3. `domangcha/CLAUDE.md` 헤더 업데이트
+4. `CLAUDE.md` (프로젝트 루트) 업데이트
+5. `~/.claude/CLAUDE.md` 헤더 업데이트
+6. `domangcha/skills/ceo-system/SKILL.md` 헤더 업데이트
+7. `domangcha/skills/ceo-core/SKILL.md` 헤더 업데이트
+8. `domangcha/skills/ceo-sprint/SKILL.md` 버전 마커 업데이트
+9. `domangcha/skills/ceo-standards/SKILL.md` 초기화 메시지 업데이트
+10. `README.md` 버전 배지 업데이트
+11. `git commit: v{VERSION}: 변경 내용`
 
 ## CEO REPORT 형식
 

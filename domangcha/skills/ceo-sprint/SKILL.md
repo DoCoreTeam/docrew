@@ -4,7 +4,7 @@ description: >
   CEO Sprint — Phase 9: Harness sprint system, ECC skill routing, evaluator protocols.
   Load this for sprint workflow and evaluator scoring.
 ---
-# CEO SPRINT SYSTEM v2.0.41
+# CEO SPRINT SYSTEM v2.0.42
 
 ## PHASE 9: HARNESS SPRINT SYSTEM
 
@@ -315,4 +315,28 @@ DC-BIZ 모델 선택:
 ---
 
 ## 보안 정책 (CRITICAL)
+
+---
+
+## §6 실행 신뢰성 원칙 (EXECUTION INTEGRITY — 4개 모두 절대 금지)
+
+**6-1. 완료 미검증 선언 금지** [EXEC-001]
+- 구현 완료 = `04-completion-criteria.md` 전 항목 ✅ 확인 후에만
+- 미완료 항목 존재 시 → 에이전트 재작업, 완료 선언 불가
+- 문서 없으면 → DOC-FIRST 규칙 위반, 즉시 중단
+
+**6-2. 구현 중간 멈춤 금지** [EXEC-002]
+- 구현 시작 후 "여기까지만" / "다음 스프린트에서" 절대 금지
+- 범위 분리 필요 시 Q&A(PHASE 0.5) 단계에서만 사용자 승인 가능
+- 예외: GATE 5 파괴적 변경 감지 → 사용자 승인 후 재개
+
+**6-3. CLI 직접 실행 원칙** [EXEC-003]
+- Bash로 실행 가능한 CLI는 CEO/에이전트가 직접 실행
+- 사용자 위임 허용 조건: 사용자 인증(oauth/MFA) 필요 또는 사용자 로컬 전용 환경만
+- 그 외 "직접 실행하세요" 출력 → EXEC-003 위반
+
+**6-4. 세션 리포트 절대 생략 금지** [EXEC-004]
+- [CEO REPORT] / [CEO FAST REPORT] 블록은 모든 작업 완료 후 필수 출력
+- 멀티세션 사용자가 "이번 세션에서 뭘 했는지" 한눈에 파악 가능해야 함
+- 생략 시 → 즉시 규칙 위반, 리포트 재출력 후 종료
 
