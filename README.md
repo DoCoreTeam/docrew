@@ -16,7 +16,7 @@ One command orchestrates 18 AI specialists: spec → code → tests → security
 
 *Your AI getaway car from development hell.*
 
-[![Version](https://img.shields.io/badge/version-2.0.50-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.51-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Required-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -209,6 +209,74 @@ DC-TOK  ✔  Context: 34% used (44k / 128k tokens)
 
 ---
 
+## 🐛 Watch a Bug Fix
+
+> `/ceo "Freelancers say invoices stay 'Pending' forever after the client pays — Stripe dashboard shows the payment went through"`
+
+```
+[INTENT PARSED]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Input:   Invoices stuck on "Pending" after Stripe payment — confirmed paid in Stripe dashboard
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Parsed:  Stripe webhook fires successfully (Stripe logs show 200 expected) but the invoice
+         status in Supabase never flips from "sent" → "paid"
+Goal:    Identify root cause, fix webhook handler, confirm status auto-updates end-to-end
+Scope:   IN  — webhook handler bug only
+         OUT — UI changes, new features, unrelated refactors
+Context: Next.js 14 + Supabase · existing codebase · Stripe test mode · 1-2 files affected
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[CEO SIZE ASSESSMENT]
+Task:   Fix webhook signature verification / status update bug
+Rating: SMALL  →  FAST PATH  (1-2 files, no schema change, confirmed reproduction path)
+
+[FAST PATH]
+🔧 Fix target:  app/api/stripe/webhook/route.ts  (signature verify + status flip)
+🌊 Ripple:      app/api/invoices/[id]/route.ts   (PATCH endpoint called by webhook)
+                components/StatusBadge.tsx        (reads invoice.status — no change needed)
+⚡ Root cause hunt: webhook handler uses req.json() instead of raw body buffer
+                    → stripe.webhooks.constructEvent() always throws SignatureVerificationError
+                    → catch block silently returns 200 → Stripe stops retrying → status never flips
+
+[DOC] docs/2026-05-02-v2.0.51-webhook-sig-fix/00-summary.md  ✔ created
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// BEFORE — req.json() destroys the raw body Stripe needs to verify the signature
+export async function POST(req: Request) {
+  const body = await req.json()              // ❌ parsed JSON, sig check fails
+  const sig  = req.headers.get('stripe-signature')!
+  const event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!)
+
+// AFTER — read raw Buffer so Stripe's HMAC check passes
+export async function POST(req: Request) {
+  const rawBody = Buffer.from(await req.arrayBuffer())  // ✅ raw bytes preserved
+  const sig     = req.headers.get('stripe-signature')!
+  const event   = stripe.webhooks.constructEvent(rawBody, sig, process.env.STRIPE_WEBHOOK_SECRET!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DC-REV  ✔  Fix is surgical and correct. Raw buffer pattern is the documented Stripe approach.
+            No other callers affected. Idempotency key logic untouched. APPROVED.
+            Suggestion (non-blocking): add an integration test that sends a real Stripe test event
+            to cover this path in CI — logged as improvement ticket.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━ GATE 1–5 ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+① Scan       ✅  0 error-registry hits · webhook/route.ts 38 lines (≤ 300)
+② Criteria   ✅  Stripe test webhook fired → invoice status flips to "paid" in < 1 s
+③ Version    ✅  v2.0.51 consistent across all files
+④ Separation ✅  CEO fixed · DC-REV reviewed — roles separated
+⑤ Breaking   ✅  Internal handler only — no API contract change
+
+[CEO FAST REPORT] ⚡ Done in 4 minutes.
+  1 file changed (2-line fix) · Stripe webhook now verifies correctly · Status flips live
+```
+
+**One bug, one function, four minutes. The rest of the codebase didn't move.**
+
+---
+
 ## 🔄 Pipeline
 
 ```
@@ -331,6 +399,7 @@ DC-TOK  ✔  Context: 34% used (44k / 128k tokens)
 
 | Version | Feature |
 |---|---|
+| **v2.0.51** | **FAST PATH Bug-Fix Demo (EN + KO)** — "Watch a Bug Fix" and "버그 수정 현장" sections added. Shows the full FAST PATH flow: RIPPLE CHECK → 00-summary.md → surgical fix → DC-REV → GATE 1-5 → deploy. EN scenario: Stripe webhook raw-body bug. KO scenario: 카카오페이 `tid` undefined guard. |
 | **v2.0.50** | **README Sprint Demo — full agent detail + Korean scenario** — EN "Watch a Real Sprint" now shows DC-KNW GUARD advisory output, DC-DOC, and DC-TOK for every sprint. All agents have concrete, role-specific output (not just ✔). Korean "실제 스프린트 보기" section added with a KakaoPay-powered running crew app scenario. `error-registry` ERR-007 added: mandatory 7-point README section checklist on every update. |
 | **v2.0.48** | **Auto-untrack existing `docs/` subdirs on update** — `install.sh` now runs `git rm -r --cached` on already-tracked `docs/` subdirectories when you `npx domangcha` on an existing project. Supports Korean/Unicode folder names via `core.quotepath=false`. Works on both fresh installs and updates. |
 | **v2.0.47** | **Auto-inject `docs/*/` into user project `.gitignore`** — `npx domangcha` now automatically appends `docs/*/` to your project's `.gitignore` so local planning docs are never accidentally committed. 3-guard protection: skips `$HOME`, the DOMANGCHA repo itself, and non-git directories. Opt-out via `DOMANGCHA_SKIP_GITIGNORE=1`. |
@@ -462,7 +531,7 @@ Re-running always pulls the latest. Your registries (errors, instincts, history)
 
 *개발 지옥에서 도망쳐 — 돔황차🚗💨*
 
-[![Version](https://img.shields.io/badge/version-2.0.50-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
+[![Version](https://img.shields.io/badge/version-2.0.51-brightgreen?style=for-the-badge&logo=github)](https://github.com/DoCoreTeam/domangcha/blob/main/domangcha/VERSION)
 [![npm](https://img.shields.io/npm/v/domangcha?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/domangcha)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-필수-5865F2?style=for-the-badge)](https://claude.ai/code)
@@ -650,10 +719,83 @@ DC-TOK  ✔  컨텍스트 31% 사용 (40k / 128k 토큰)
 
 ---
 
+### 🐛 버그 수정 현장
+
+> `/ceo "크루장이 회비 납부 확인했다는데 앱에서는 계속 미납으로 뜬다고 제보가 왔어"`
+
+```
+[INTENT PARSED]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+입력:   카카오페이 결제 완료인데 앱에서 미납으로 표시됨 — 카카오 콘솔에서는 결제 성공 확인
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+정제:   카카오페이 webhook은 정상 수신되지만 dues 테이블 status가
+        "pending" → "paid"로 flip되지 않는 버그
+목표:   webhook 핸들러 결함 파악 → 수정 → 납부 상태 실시간 반영 확인
+범위:   포함 — webhook 핸들러 단일 수정
+        제외 — UI 변경, 신규 기능, 무관 리팩터링
+맥락:   Next.js 14 + Supabase · 기존 코드 · 카카오페이 테스트 모드 · 1-2 파일 예상
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[CEO 규모 판정]
+업무:   카카오페이 webhook 상태 업데이트 버그 수정
+판정:   SMALL  →  FAST PATH  (1-2 파일, 스키마 변경 없음, 재현 경로 확인됨)
+
+[FAST PATH]
+🔧 수정 대상:  app/api/kakao/webhook/route.ts  (tid 매칭 + 상태 업데이트 로직)
+🌊 파급 범위:  app/api/dues/[id]/route.ts      (PATCH 호출부 — 수정 불필요 확인)
+               components/DuesCard.tsx          (status 읽기 전용 — 수정 불필요)
+⚡ 근본 원인:  webhook payload의 tid(결제 고유번호) 비교 시 undefined 가드가 없음
+               → 첫 번째 webhook은 tid 매칭 성공 후 DB 업데이트
+               → 카카오페이 재시도 webhook은 tid가 undefined → 조건문 skip →
+                  status 업데이트 없이 200 반환 → 결제 확인이 간헐적으로 누락됨
+
+[DOC] docs/2026-05-02-v2.0.51-kakao-tid-fix/00-summary.md  ✔ 생성 완료
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// BEFORE — tid undefined 체크 없음 → 재시도 webhook 때 update 통째로 skip
+const { tid, pg_token } = payload.payment_action_response
+if (tid === existingDue.kakao_tid) {            // ❌ tid가 undefined면 false → skip
+  await supabase.from('dues').update({ status: 'paid' }).eq('id', dueId)
+}
+
+// AFTER — undefined 먼저 잡고 비교
+const { tid, pg_token } = payload.payment_action_response
+if (!tid) {                                     // ✅ 방어: undefined/null 즉시 거부
+  return NextResponse.json({ error: 'tid missing' }, { status: 400 })
+}
+if (tid === existingDue.kakao_tid) {
+  await supabase.from('dues').update({ status: 'paid' }).eq('id', dueId)
+}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DC-REV  ✔  수정 정확. undefined 방어 패턴은 카카오페이 공식 문서 권장 방식.
+            다른 호출부 영향 없음. 멱등성 키 로직 보존됨. APPROVED.
+            개선 제안(논블로킹): 카카오 webhook 재시도 케이스를 단위 테스트로 추가 —
+            개선 티켓으로 등록됨.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 게이트 1–5 ━━━━━━━━━━━━━━━━━━━━━━━━
+
+① 스캔       ✅  error-registry 0 히트 · webhook/route.ts 42줄 (≤ 300줄)
+② 기준       ✅  카카오페이 재시도 webhook 발화 → dues.status "paid" 자동 전환 확인
+③ 버전       ✅  v2.0.51 전체 파일 일치
+④ 분리       ✅  CEO 수정 · DC-REV 리뷰 — 역할 분리 확인
+⑤ 파괴적    ✅  내부 핸들러만 수정 — API 계약 변경 없음
+
+[CEO FAST 리포트] ⚡ 5분 완료.
+  수정 1개 파일 (3줄) · 카카오 재시도 webhook 정상 처리 · 납부 상태 즉시 반영
+```
+
+**버그 하나, 파일 하나, 5분. 나머지 코드는 손대지 않았다.**
+
+---
+
 ### 🆕 최신 업데이트
 
 | 버전 | 기능 |
 |---|---|
+| **v2.0.51** | **FAST PATH 버그 수정 데모 (EN + KO)** — "Watch a Bug Fix"와 "버그 수정 현장" 신규 추가. RIPPLE CHECK → 00-summary.md → 외과적 수정 → 🟥 DC-REV → GATE 1-5 → 배포 전체 흐름 시각화. EN: Stripe webhook raw-body 버그. KO: 카카오페이 `tid` undefined 가드 누락. |
 | **v2.0.50** | **README 스프린트 데모 전면 강화 + 한국 시나리오** — EN "Watch a Real Sprint"에 DC-KNW GUARD 어드바이저리 블록, DC-DOC, DC-TOK 출력 추가. 전 에이전트 출력이 역할별 구체적 내용으로 확장. 한국 시나리오 "실제 스프린트 보기" 신규 작성(동네 러닝 크루 앱, 카카오페이 회비 정산). `error-registry` ERR-007 추가: 업데이트마다 7개 README 섹션 전수 점검 필수. |
 | **v2.0.49** | **docs/ 자동 언트래킹 개선** — `install.sh` 캐시 무효화 + `update_notice` semver 방향 비교 수정. 버전 배지 자동 갱신 보강. |
 | **v2.0.48** | **기존 `docs/` 하위 폴더 언트래킹 자동화** — `npx domangcha` 실행 시 이미 git 추적 중인 `docs/` 하위 폴더를 `git rm -r --cached`로 자동 언트래킹. 한글/유니코드 폴더명 지원 (`core.quotepath=false`). 신규 설치·업데이트 모두 적용. |
