@@ -235,7 +235,7 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
            │  ↳ Planner self-checks for gaps → asks user if needed → [DOC COMPLETE]
            ▼
     ┌─────────────┐
-    │   PLANNER   │  DC-BIZ · DC-RES · DC-OSS  (parallel)
+    │   PLANNER   │  DC-BIZ · DC-RES · DC-OSS · DC-KNW  (parallel)
     └──────┬──────┘
            ▼
     ┌─────────────┐
@@ -263,11 +263,12 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 <tr><th>Phase</th><th>Agent</th><th>Role</th><th>Model</th></tr>
 </thead>
 <tbody>
-<tr><td rowspan="4"><b>🧠 PLANNER</b></td>
+<tr><td rowspan="5"><b>🧠 PLANNER</b></td>
   <td><code>DC-BIZ</code></td><td>Business Judge</td><td>Opus</td></tr>
 <tr><td><code>DC-RES</code></td><td>Researcher</td><td>Sonnet</td></tr>
 <tr><td><code>DC-OSS</code></td><td>OSS Scout</td><td>Opus</td></tr>
 <tr><td><code>DC-ANA</code></td><td>Codebase Analyst</td><td>Sonnet</td></tr>
+<tr><td><code>DC-KNW</code></td><td>Knowledge Curator</td><td>Sonnet</td></tr>
 <tr><td rowspan="9"><b>🔨 BUILDER</b></td>
   <td><code>DC-DEV-DB</code></td><td>Database Engineer</td><td>Sonnet</td></tr>
 <tr><td><code>DC-DEV-BE</code></td><td>Backend Developer</td><td>Sonnet</td></tr>
@@ -287,8 +288,8 @@ DC-REV  ✔  Code approved · no logic duplication · types sound
 </tbody>
 </table>
 
-> **CORE** (runs every sprint) — BIZ, RES, OSS, DB, BE, FE, OPS, QA, SEC, REV, DOC, TOK  
-> **EXTENDED** (added on demand) — MOB, INT, WRT, SEO
+> **CORE** (runs every sprint) — BIZ, RES, OSS, KNW, DB, BE, FE, OPS, QA, SEC, REV, DOC, TOK  
+> **EXTENDED** (added on demand) — ANA, MOB, INT, WRT, SEO
 
 ---
 
@@ -365,6 +366,10 @@ Every command triggers the multi-agent system to orchestrate tasks across planni
 | `/ceo-test` | ✅ TDD + unit + E2E + browser QA |
 | `/ceo-ship` | 📦 Gate → review → build → deploy |
 | `/ceo-status` | 📊 Show current status |
+| `/ceo-knowledge "[query]"` | 🧠 Search knowledge registry by ID or keyword |
+| `/ceo-learn "[pattern]"` | 📝 Stage new knowledge entry to review queue |
+| `/ceo-promote` | ✅ Promote queued entries to registry after review |
+| `/ceo-forget KNW-ID` | 🗑️ Remove a knowledge entry from the registry |
 
 ---
 
@@ -574,7 +579,7 @@ Claude Code는 강력하지만 — 작업 배분, 품질 게이트 강제, 18개
            │  ↳ 기획자 자가점검 → 갭 발견 시 추가 질문 → [DOC COMPLETE]
            ▼
     ┌─────────────┐
-    │    기  획   │  DC-BIZ · DC-RES · DC-OSS  (병렬)
+    │    기  획   │  DC-BIZ · DC-RES · DC-OSS · DC-KNW  (병렬)
     └──────┬──────┘
            ▼
     ┌─────────────┐
@@ -602,11 +607,12 @@ Claude Code는 강력하지만 — 작업 배분, 품질 게이트 강제, 18개
 <tr><th>단계</th><th>에이전트</th><th>역할</th><th>모델</th></tr>
 </thead>
 <tbody>
-<tr><td rowspan="4"><b>🧠 기획자</b></td>
+<tr><td rowspan="5"><b>🧠 기획자</b></td>
   <td><code>DC-BIZ</code></td><td>사업 타당성 판단</td><td>Opus</td></tr>
 <tr><td><code>DC-RES</code></td><td>기술 리서치</td><td>Sonnet</td></tr>
 <tr><td><code>DC-OSS</code></td><td>오픈소스 도구 탐색</td><td>Opus</td></tr>
 <tr><td><code>DC-ANA</code></td><td>코드베이스 분석가</td><td>Sonnet</td></tr>
+<tr><td><code>DC-KNW</code></td><td>지식 레지스트리 큐레이터</td><td>Sonnet</td></tr>
 <tr><td rowspan="9"><b>🔨 빌더</b></td>
   <td><code>DC-DEV-DB</code></td><td>데이터베이스 엔지니어</td><td>Sonnet</td></tr>
 <tr><td><code>DC-DEV-BE</code></td><td>백엔드 개발자</td><td>Sonnet</td></tr>
@@ -626,8 +632,8 @@ Claude Code는 강력하지만 — 작업 배분, 품질 게이트 강제, 18개
 </tbody>
 </table>
 
-> **CORE** (매 스프린트 가동) — BIZ, RES, OSS, DB, BE, FE, OPS, QA, SEC, REV, DOC, TOK  
-> **EXTENDED** (필요 시 추가) — MOB, INT, WRT, SEO
+> **CORE** (매 스프린트 가동) — BIZ, RES, OSS, KNW, DB, BE, FE, OPS, QA, SEC, REV, DOC, TOK  
+> **EXTENDED** (필요 시 추가) — ANA, MOB, INT, WRT, SEO
 
 ---
 
@@ -657,6 +663,10 @@ Claude Code는 강력하지만 — 작업 배분, 품질 게이트 강제, 18개
 | `/ceo-test` | ✅ TDD + 단위 + E2E + 브라우저 QA |
 | `/ceo-ship` | 📦 게이트 → 리뷰 → 빌드 → 배포 |
 | `/ceo-status` | 📊 현황 조회 |
+| `/ceo-knowledge "[검색어]"` | 🧠 ID 또는 키워드로 지식 레지스트리 검색 |
+| `/ceo-learn "[패턴]"` | 📝 새 지식 항목을 검토 큐에 등록 |
+| `/ceo-promote` | ✅ 검토 완료된 항목을 레지스트리로 승격 |
+| `/ceo-forget KNW-ID` | 🗑️ 지식 레지스트리 항목 삭제 |
 
 ---
 
