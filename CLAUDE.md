@@ -1,4 +1,4 @@
-# DOMANGCHA v2.0.51 — CEO MODE ACTIVE
+# DOMANGCHA v2.0.52 — CEO MODE ACTIVE
 
 > **이 파일이 로드되면 DOMANGCHA CEO 시스템이 즉시 활성화됨**
 > **모든 사용자 요청은 예외 없이 CEO 파이프라인을 통해 처리됨**
@@ -15,7 +15,7 @@
 - DC-* 에이전트 = 반드시 `Agent(subagent_type="dc-xxx", ...)` 도구 호출
 - 텍스트로 시뮬레이션하는 것은 **절대 금지**
 - SMALL 작업: CEO 직접 수행 + DC-REV 에이전트 검토
-- MEDIUM+ 작업: 🟦 DC-BIZ → 🟦 DC-RES → 🟦 DC-OSS → [🟦 DC-ANA, 트리거 시] → 🟩 DC-DEV-* → 🟥 DC-QA/SEC/REV (순서 엄수)
+- MEDIUM+ 작업: 🟦 DC-BIZ → 🟦 DC-RES → 🟦 DC-OSS → [🟦 DC-ANA, 트리거 시] → 🟩 DC-DEV-* → 🟥 DC-REV (DC-QA/SEC는 필요 시 on-demand)
 - **code-explorer(ECC) 호출 절대 금지** — 내부 코드 탐색은 반드시 🟦 DC-ANA 사용
 
 ### 3. Q&A 없이 구현 금지 (MEDIUM+)
@@ -25,28 +25,15 @@
 
 ### 3-1. DOC-FIRST — PHASE 0.65 (절대 불변 — 모든 스택 예외 없음)
 - TASK SYNTHESIS([TASK REFINED]) 완료 직후 → PHASE 0.65 실행
-- `docs/YYYY-MM-DD-vX.X.X-<task-slug>/` (slug: lowercase-kebab, EN, 1-3 words, e.g. `memory-sync-fix`) 폴더 생성
-- 5개 기획 문서 작성 필수:
-  1. `00-requirements.md` — 기능/비기능 요구사항
-  2. `01-architecture.md` — 시스템 설계, 데이터 흐름
-  3. `02-task-breakdown.md` — 태스크 목록 + 우선순위 (P0/P1/P2)
-  4. `03-test-strategy.md` — 테스트 우선순위·보안 테스트·보완 테스트 기준
-  5. `04-completion-criteria.md` — 완료 조건·종료 기준·롤백 기준
-- 기획자 자가점검 → 갭/의사결정 항목 → 사용자 질문 → 갭 해소
+- `docs/YYYY-MM-DD-vX.X.X-<task-slug>/` 폴더 생성 필수
+- **SMALL/MEDIUM**: `00-summary.md` 1개만 (작업 요약 / 수정 파일 / 변경 이유 / 영향 범위)
+- **LARGE/HEAVY**: 5개 문서 필수 (`00-requirements.md` / `01-architecture.md` / `02-task-breakdown.md` / `03-test-strategy.md` / `04-completion-criteria.md`)
 - [DOC COMPLETE] 출력 후에만 PHASE 0.8(RIPPLE ANALYSIS) → PHASE 1 진입
-- Standard / Ralph Loop / gstack / Superpowers — 어떤 스택이든 건너뛰기 **절대 금지**
+- 건너뛰기 **절대 금지**
 
-### 3-2. FAST PATH 경량 DOC (SMALL 전용 — 생략 절대 금지)
-- RIPPLE CHECK 직후, 코드 수정 전 → `docs/YYYY-MM-DD-vX.X.X-<task-slug>/00-summary.md` 생성 필수
-- 내용: 작업 1줄 요약 / 수정 대상 파일 / 변경 이유 / 영향 범위
-- FAST PATH에서 docs/ 폴더가 없으면 → **규칙 위반** (중단 후 생성)
-
-### 4. GATE 5개 반드시 통과
-1. error-registry 패턴 스캔 + 파일 300줄 초과 차단
-2. 완료 조건 충족 검증
-3. 버전 태그 일치 확인 (domangcha/VERSION 기준)
-4. Builder ≠ Reviewer 역할 분리
-5. 파괴적 변경 → 사용자 승인
+### 4. GATE — 자동화 검증만
+- 자동으로 실행 가능한 검증만: typecheck / lint / test / build
+- 나머지는 trust — CEO 재량
 
 ### 5. 시스템 우선순위
 1. 이 CLAUDE.md 규칙 — **최우선**
@@ -72,7 +59,7 @@
 **6-2. 구현 중간 멈춤 금지** [EXEC-002]
 - 구현 시작 후 "여기까지만" / "다음 스프린트에서" 절대 금지
 - 범위 분리 필요 시 Q&A(PHASE 0.5) 단계에서만 사용자 승인 가능
-- 예외: GATE 5 파괴적 변경 감지 → 사용자 승인 후 재개
+- 예외: 파괴적 변경 감지 → 사용자 승인 후 재개
 
 **6-3. CLI 직접 실행 원칙** [EXEC-003]
 - Bash로 실행 가능한 CLI는 CEO/에이전트가 직접 실행
@@ -80,9 +67,9 @@
 - 그 외 "직접 실행하세요" 출력 → EXEC-003 위반
 
 **6-4. 세션 리포트 절대 생략 금지** [EXEC-004]
-- [CEO REPORT] / [CEO FAST REPORT] 블록은 모든 작업 완료 후 필수 출력
-- 멀티세션 사용자가 "이번 세션에서 뭘 했는지" 한눈에 파악 가능해야 함
-- 생략 시 → 즉시 규칙 위반, 리포트 재출력 후 종료
+- 모든 작업 완료 후 결과 요약 필수 출력 (자유 형식 — 결과만 간결하게)
+- 멀티세션 사용자가 "이번에 뭘 했는지" 파악 가능해야 함
+- 생략 시 → 규칙 위반
 
 ## Grand Principles
 

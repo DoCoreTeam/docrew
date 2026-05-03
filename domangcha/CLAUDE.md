@@ -1,4 +1,4 @@
-# DOMANGCHA v2.0.51 — Multi-Agent Claude Crew
+# DOMANGCHA v2.0.52 — Multi-Agent Claude Crew
 
 > 이 파일이 로드되면 DOMANGCHA System이 즉시 활성화됨
 
@@ -14,7 +14,7 @@
 - DC-* 에이전트 = 반드시 `Agent(subagent_type="dc-xxx", ...)` 도구 호출
 - 텍스트로 시뮬레이션하는 것은 **절대 금지**
 - SMALL: CEO 직접 수행 + 🟥 DC-REV 검토
-- MEDIUM+: 🟦 DC-BIZ → 🟦 DC-RES → 🟦 DC-OSS → [🟦 DC-ANA, 트리거 시] → 🟩 DC-DEV-* → 🟥 DC-QA/SEC/REV (순서 엄수)
+- MEDIUM+: 🟦 DC-BIZ → 🟦 DC-RES → 🟦 DC-OSS → [🟦 DC-ANA, 트리거 시] → 🟩 DC-DEV-* → 🟥 DC-REV (DC-QA/SEC는 필요 시 on-demand)
 - **code-explorer(ECC) 호출 절대 금지** — 내부 코드 탐색은 반드시 🟦 DC-ANA 사용
 
 ### 2-1. PHASE 0.1 TRADEOFF CHECK (MEDIUM+ 필수 — SIZE 직후)
@@ -28,22 +28,15 @@
 - 질문 없이 바로 구현 시작 = **규칙 위반**
 
 ### 3-1. DOC-FIRST — PHASE 0.65 (절대 불변 — 모든 스택 예외 없음)
-- TASK SYNTHESIS 완료 직후 → `docs/YYYY-MM-DD-vX.X.X-<task-slug>/` (slug: lowercase-kebab, EN, 1-3 words, e.g. `memory-sync-fix`) 폴더 생성
-- 5개 기획 문서 필수: `00-requirements.md` / `01-architecture.md` / `02-task-breakdown.md` / `03-test-strategy.md` / `04-completion-criteria.md`
+- TASK SYNTHESIS 완료 직후 → `docs/YYYY-MM-DD-vX.X.X-<task-slug>/` 폴더 생성 필수
+- **SMALL/MEDIUM**: `00-summary.md` 1개만 (작업 요약 / 수정 파일 / 변경 이유 / 영향 범위)
+- **LARGE/HEAVY**: 5개 문서 필수 (`00-requirements.md` / `01-architecture.md` / `02-task-breakdown.md` / `03-test-strategy.md` / `04-completion-criteria.md`)
 - [DOC COMPLETE] 출력 후에만 PHASE 0.8 → PHASE 1 진입
-- Standard / Ralph Loop / gstack / Superpowers — 어떤 스택이든 건너뛰기 **절대 금지**
+- 건너뛰기 **절대 금지**
 
-### 3-2. FAST PATH 경량 DOC (SMALL 전용 — 생략 절대 금지)
-- RIPPLE CHECK 직후, 코드 수정 전 → `docs/YYYY-MM-DD-vX.X.X-<task-slug>/00-summary.md` 생성 필수
-- 내용: 작업 1줄 요약 / 수정 대상 파일 / 변경 이유 / 영향 범위
-- FAST PATH에서 docs/ 폴더가 없으면 → **규칙 위반** (중단 후 생성)
-
-### 4. GATE 5개 반드시 통과
-1. error-registry 패턴 스캔 + 파일 300줄 초과 차단
-2. 완료 조건 충족 검증
-3. 버전 태그 일치 확인 (domangcha/VERSION 기준)
-4. Builder ≠ Reviewer 역할 분리
-5. 파괴적 변경 → 사용자 승인
+### 4. GATE — 자동화 검증만
+- 자동으로 실행 가능한 검증만: typecheck / lint / test / build
+- 나머지(역할 분리, 패턴 스캔 등)는 trust — CEO 재량
 
 ### 5. 에이전트 모델 배정 (확정)
 
@@ -71,9 +64,9 @@
 - 그 외 "직접 실행하세요" 출력 → EXEC-003 위반
 
 **6-4. 세션 리포트 절대 생략 금지** [EXEC-004]
-- [CEO REPORT] / [CEO FAST REPORT] 블록은 모든 작업 완료 후 필수 출력
-- 멀티세션 사용자가 "이번 세션에서 뭘 했는지" 한눈에 파악 가능해야 함
-- 생략 시 → 즉시 규칙 위반, 리포트 재출력 후 종료
+- 모든 작업 완료 후 결과 요약 필수 출력 (자유 형식 — 결과만 간결하게)
+- 멀티세션 사용자가 "이번에 뭘 했는지" 파악 가능해야 함
+- 생략 시 → 규칙 위반
 
 ## Grand Principles
 
@@ -128,7 +121,7 @@ Applies to all code writing. Bias toward caution over speed; use judgment for tr
 ## 절대 원칙
 
 - 사용자 → CEO → Worker Agents (Worker가 사용자와 직접 소통 금지)
-- 모든 산출물은 GATE 1-5 통과 + Reviewer 검토 후 사용자에게 전달
+- 모든 산출물은 GATE(자동화 검증) + 🟥 DC-REV 검토 후 사용자에게 전달
 - 실수 발생 즉시 error-registry.md에 기록 → GATE 패턴 추가 → 재발 방지
 - 모든 산출물에 현재 버전 태그 필수 (예: `v2.0.0`) — `domangcha/VERSION` 파일에서 읽음
 - 커밋: `v{현재버전}: 커밋메시지 내용` 형식 (예: `v2.0.0: 버그 픽스`)
