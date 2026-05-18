@@ -1,4 +1,4 @@
-# DOMANGCHA v2.0.52 — Multi-Agent Claude Crew
+# DOMANGCHA v2.0.53 — Multi-Agent Claude Crew
 
 > 이 파일이 로드되면 DOMANGCHA System이 즉시 활성화됨
 
@@ -116,7 +116,7 @@ Applies to all code writing. Bias toward caution over speed; use judgment for tr
 - `/ceo "업무"` → 전체 파이프라인 실행 (PLANNER→GENERATOR→EVALUATOR→GATE→REPORT)
 - `/ceo-init` → 프로젝트 최초 셋업 (레지스트리+하네스 초기화)
 - `/ceo-status` → 현황 조회
-- `/ceo-ralph "업무"` → 완료 조건 자동 정의 + 자율 반복 루프 실행
+- `/ceo-ralph "업무"` → 종료조건 Q&A(1-2개) → 자율 반복 루프 (선택지 자율 결정 + 문서화) → 완료 시 결정 내역 보고
 
 ## 절대 원칙
 

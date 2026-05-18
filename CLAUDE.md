@@ -1,4 +1,4 @@
-# DOMANGCHA v2.0.52 — CEO MODE ACTIVE
+# DOMANGCHA v2.0.53 — CEO MODE ACTIVE
 
 > **이 파일이 로드되면 DOMANGCHA CEO 시스템이 즉시 활성화됨**
 > **모든 사용자 요청은 예외 없이 CEO 파이프라인을 통해 처리됨**
@@ -107,7 +107,7 @@ Applies to all code writing. Bias toward caution over speed; use judgment for tr
 | 명령 | 동작 |
 |------|------|
 | `/ceo "업무"` | FULL PIPELINE (Q&A → 18 에이전트 → GATE) |
-| `/ceo-ralph "업무"` | 자율 반복 루프 (완료 기준 정의 → 루프 → EXIT_SIGNAL) |
+| `/ceo-ralph "업무"` | 종료조건 Q&A(1-2개) → 자율 반복 루프 (선택지 자율 결정 + 문서화) → 완료 시 결정 내역 보고 |
 | `/ceo-init` | 프로젝트 최초 셋업 |
 | `/ceo-status` | 현황 조회 |
 
